@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>The Coolest Website On The Internet</title>
+    <title>Karnana.Daroach.Net</title>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta
@@ -20,13 +20,10 @@
       integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX"
       crossorigin="anonymous"
     />
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="static/styles.css" />
   </head>
   <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-      <a class="navbar-brand" href="index.html">daroach.net</a>
+      <a class="navbar-brand" href="#">daroach.net</a>
       <button
         class="navbar-toggler d-lg-none"
         type="button"
@@ -40,45 +37,57 @@
       </button>
       <div class="collapse navbar-collapse" id="collapsibleNavId">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-          <li class="nav-item active">
+          <li class="nav-item">
             <a class="nav-link" href="https://www.daroach.net/"
               >Home <span class="sr-only">(current)</span></a
             >
           </li>
-          <li class="nav-item">
-                <a class="nav-link" href="blogmain.html">Blog</a>
-              </li>
-          <li class="nav-item">
-            <a class="nav-link" href="karnana.html">Karnana</a>
+          <li class="nav-item active">
+            <a class="nav-link" href="https://karnana.daroach.net/">Karnana</a>
           </li>
-          
           <li class="nav-item">
             <a class="nav-link" href="https://cloud.daroach.net/">Cloud</a>
-          </li>
-          
-          <li class="nav-item right-align">
-            <a class="nav-link" href="aboutme.html">About Me</a>
           </li>
         </ul>
       </div>
     </nav>
-    <div class="container-fluid">
-      <div class="jumbotron text-center" style="">
-        <div class="container">
-          <h1 class="display-3">www.daroach.net</h1>
-          <p class="lead">
-            The realization of a childhood dream to self host a website on the
-            internet.
-          </p>
-          <hr class="my-2" />
-          <img src="static/images/baby_pic.JPG" class="img-thumbnail" alt="" />
-          <p class="">
-            Hello Visitor 👋 Welcome to the coolest website on the internet! My
-            name is Gagan, and this is the first landing page for my website.
-          </p>
-        </div>
-      </div>
-    </div>
+
+    <!--Google map-->
+    <div id="map"></div>
+    <style>
+      /* Set the size of the div element that contains the map */
+      #map {
+        height: 400px; /* The height is 400 pixels */
+        width: 100%; /* The width is the width of the web page */
+      }
+    </style>
+    <script>
+      // Initialize and add the map
+      function initMap() {
+        // The location of Uluru
+        var uluru = { lat: 31.13704, lng: 76.008 };
+        //   var uluru = {lat: -25.344, lng: 131.036};
+        // The map, centered at Uluru
+        var map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 4,
+          center: uluru
+        });
+        // The marker, positioned at Uluru
+        var marker = new google.maps.Marker({ position: uluru, map: map });
+      }
+    </script>
+    <!--Load the API from the specified URL
+    * The async attribute allows the browser to render the page while the API loads
+    * The key parameter will contain your own API key (which is not needed for this tutorial)
+    * The callback parameter executes the initMap() function
+    -->
+    <script
+      async
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7SQGredDR9NcRMBCfsDlH5LDHD_KG7E0&callback=initMap"
+    ></script>
+    <!--Google Maps-->
+
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <!-- Material Design Bootstrap Plugins -->
     <script
