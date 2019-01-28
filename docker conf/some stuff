@@ -1,0 +1,22 @@
+docker create \
+  --cap-add=NET_ADMIN \
+  --name=letsencrypt \
+  --net daroachnet \
+  --ip 172.69.0.100 \
+  -v letsencrypt:/config \
+  -e PGID=1000 -e PUID=1000  \
+  -e EMAIL=gagandaroach@gmail.com \
+  -e URL=daroach.net \
+  -e SUBDOMAINS=minecraft,cloud,ftp,www,karnana \
+  -e VALIDATION=http \
+  -p 80:80 -p 443:443 \
+  -e TZ=America/Chicago \
+  linuxserver/letsencrypt
+
+
+docker network create --subnet=172.18.0.0/16 mynet123
+docker run --net mynet123 --ip 172.18.0.22 -it ubuntu bash
+
+docker run -d -p 9000:9000 --name portainer --restart always --net daroachnet --ip 172.69.0.101 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer 
+docker network create --subnet=172.69.0.0/16 daroachnet 
+
