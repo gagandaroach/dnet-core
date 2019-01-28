@@ -20,3 +20,4 @@ docker run --net mynet123 --ip 172.18.0.22 -it ubuntu bash
 docker run -d -p 9000:9000 --name portainer --restart always --net daroachnet --ip 172.69.0.101 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer 
 docker network create --subnet=172.69.0.0/16 daroachnet 
 
+docker run --name dnet_nginx -v /home/gagan/Repos/daroachnet/webroot:/usr/share/nginx/html:ro -d -p 5001:80 nginx
