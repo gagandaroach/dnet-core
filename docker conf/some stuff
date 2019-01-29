@@ -21,3 +21,5 @@ docker run -d -p 9000:9000 --name portainer --restart always --net daroachnet --
 docker network create --subnet=172.69.0.0/16 daroachnet 
 
 docker run --name dnet_nginx -v /home/gagan/Repos/daroachnet/webroot:/usr/share/nginx/html:ro -d -p 5001:80 nginx
+
+docker create --name dnet_nginx -p 5001:80 -v /Users/gagan/Repos/daroachnet/webroot:/usr/share/nginx/html:ro nginx
