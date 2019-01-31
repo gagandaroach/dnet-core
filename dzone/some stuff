@@ -3,7 +3,7 @@ docker create \
   --name=letsencrypt \
   --net daroachnet \
   --ip 172.69.0.100 \
-  -v letsencrypt:/config \
+  -v /tank/letsencrypt:/config \
   -e PGID=1000 -e PUID=1000  \
   -e EMAIL=gagandaroach@gmail.com \
   -e URL=daroach.net \
@@ -14,12 +14,17 @@ docker create \
   linuxserver/letsencrypt
 
 
-docker network create --subnet=172.18.0.0/16 mynet123
-docker run --net mynet123 --ip 172.18.0.22 -it ubuntu bash
+docker run --name=googleDNS -d -v /etc/localtime:/etc/localtime -v googleDNS:/config --net daroachnet -e PGID=1000 -e PUID=1000 dragoncube/google-domains-ddns 
 
+#create network
+docker network create --subnet=172.18.0.0/16 mynet123
+##template for attaching container to shell
+docker run --net mynet123 --ip 172.18.0.22 -it ubuntu bash
+#run portainer
 docker run -d -p 9000:9000 --name portainer --restart always --net daroachnet --ip 172.69.0.101 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer 
 docker network create --subnet=172.69.0.0/16 daroachnet 
 
 docker run --name dnet_nginx -v /home/gagan/Repos/daroachnet/webroot:/usr/share/nginx/html:ro -d -p 5001:80 nginx
 
 docker create --name dnet_nginx -p 5001:80 -v /Users/gagan/Repos/daroachnet/webroot:/usr/share/nginx/html:ro nginx
+
