@@ -4,10 +4,10 @@ services:
     image: nginx:latest
     container_name: dnet_nginx
     volumes:
-      - .nginx/nginx.conf:/etc/nginx/nginx.conf
-      - /home/gagan/Repos/daroachnet/webroot:/usr/share/nginx/html
+      - ./nginx/:/etc/nginx/
+      - ./webroot:/usr/share/nginx/html
 
     ports:
       - 80:80
 
-#sudo docker run --name=dnet_nginx -d -p 80:80 -v /home/gagan/Repos/daroachnet/webroot:/usr/share/nginx/html nginx
+# docker-compose up (if need sudo just add $USER to docker group)
