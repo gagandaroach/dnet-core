@@ -2,38 +2,46 @@
 <html lang="en">
 
 <head>
-  <title>Karnana Punjab India <3</title> <!-- Required meta tags -->
+  <title>Karnana Punjab India <3</title> <!--# include virtual="/static/templates/google_analytics.html" -->
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
       <!--# include virtual="/static/templates/css.html" -->
+      <script>
+        window.onload = function () {
+          $("#navkarnana").addClass("active")
+          $("#daroachnet_navbar").addClass("fixed-top")
+        }
+      </script>
 </head>
 
 <body>
   <!--# include virtual="/static/templates/navbar.html" -->
 
+  <div class="jumbotron jumbotron-fluid karnana-banner text-center">
+    <div class="container-fluid">
+      <h1 class="display-1 bottom_it_up">Karnana</h1>
+      <h1>Punjab, India</h1>
+    </div>
+  </div>
+
+
   <!--Google map start-->
-  <div class="embed-responsive embed-responsive-21by9" id="map"></div>
-  <script>
-    // Initialize and add the map
-    function initMap() {
-      // The location of Uluru
-      var uluru = { lat: 31.13704, lng: 76.008 };
-      //   var uluru = {lat: -25.344, lng: 131.036};
-      // The map, centered at Uluru
-      var map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 4,
-        center: uluru
-      });
-      // The marker, positioned at Uluru
-      var marker = new google.maps.Marker({ position: uluru, map: map });
-    }
-  </script>
-  <!--Load the API from the specified URL
-  * The async attribute allows the browser to render the page while the API loads
-  * The key parameter will contain your own API key (which is not needed for this tutorial)
-  * The callback parameter executes the initMap() function
-  -->
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7SQGredDR9NcRMBCfsDlH5LDHD_KG7E0&callback=initMap"></script>
+  <div>
+    <div class="embed-responsive embed-responsive-21by9" id="map"></div>
+    <script>
+      // Initialize and add the map
+      function initMap() {
+        var karnana = { lat: 31.140646, lng: 76.016521 };
+        var map = new google.maps.Map(document.getElementById("map"), { zoom: 15, center: karnana, mapTypeId: 'satellite' });
+        var marker = new google.maps.Marker({ position: karnana, map: map });
+      }
+    </script>
+    <!--Load the API from the specified URL
+    * The async attribute allows the browser to render the page while the API loads
+    * The key parameter will contain your own API key (which is not needed for this tutorial)
+    * The callback parameter executes the initMap() function -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7SQGredDR9NcRMBCfsDlH5LDHD_KG7E0&callback=initMap"></script>
+  </div>
   <!--Google Maps end-->
 
   <!--# include virtual="/static/templates/scripts.html" -->

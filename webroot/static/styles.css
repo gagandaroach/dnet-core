@@ -1,4 +1,17 @@
-.img-thumbnail {
+.img-thumbnail-legacy {
     max-height: 300px;
     width: auto;
+}
+
+.karnana-banner {
+    margin-bottom: 0px;
+    background-image: url(../karnana/images/wall_with_poop.jpg);
+    background-position: 0% 25%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+        }
+
+.bottom_it_up {
+    margin-top:50%;
 }
