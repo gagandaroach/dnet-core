@@ -14,6 +14,15 @@
         $("#navabout").addClass("active");
       };
     </script>
+    <style>
+      .jumbo-tree-cover {
+        margin-bottom: 0px;
+        background-image: url("../static/images/outside_home_tree.jpeg");
+        background-position: 0% 50%;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+    </style>
   </head>
 
   <body>
@@ -22,32 +31,31 @@
     <!-- Tabs  -->
     <div class="container">
       <br />
-      <ul class="nav nav-tabs mb-3" id="pills-tab" role="tablist">
-          <li class="nav-item">
-              <a
-                class="nav-link active"
-                id="pills-profile-tab"
-                data-toggle="pill"
-                href="#pills-profile"
-                role="tab"
-                aria-controls="pills-profile"
-                aria-selected="false"
-                >About Me</a
-              >
-            </li>
+      <ul class="nav nav-tabs nav-fill mb-3" id="pills-tab" role="tablist">
+        <li class="nav-item">
+          <a
+            class="nav-link active"
+            id="pills-aboutme-tab"
+            data-toggle="pill"
+            href="#pills-aboutme"
+            role="tab"
+            aria-controls="pills-aboutme"
+            aria-selected="false"
+            >About Me</a
+          >
+        </li>
         <li class="nav-item">
           <a
             class="nav-link"
-            id="pills-home-tab"
+            id="pills-sitehistory-tab"
             data-toggle="pill"
-            href="#pills-home"
+            href="#pills-sitehistory"
             role="tab"
-            aria-controls="pills-home"
+            aria-controls="pills-sitehistory"
             aria-selected="true"
             >Site History</a
           >
         </li>
-        
       </ul>
     </div>
     <!-- End Tabs  -->
@@ -55,61 +63,156 @@
     <div class="tab-content" id="pills-tabContent">
       <div
         class="tab-pane fade"
-        id="pills-home"
+        id="pills-sitehistory"
         role="tabpanel"
-        aria-labelledby="pills-home-tab"
+        aria-labelledby="pills-sitehistory-tab"
       >
+        <!-- Old Site Iframe -->
+        <div class="container text-center">
+          <h1 class="display-7">Original - Date: Dec 16 2018</h1>
+          <p>
+            When I first got a port forwarded to my Dell R710, I put this site
+            up. It went over the air with HTTP and no HTTPS! At the time, I had
+            written only one webpage with basic html and my own css. I was
+            incredibly happy to get my internet wire open to the world for the
+            first time.
+          </p>
+        </div>
 
-      <div class="container embed-responsive embed-responsive-1by1" allowfullscreen>
-          <iframe class="embed-responsive-item"
+        <div
+          class="container embed-responsive embed-responsive-1by1"
+          allowfullscreen
+        >
+          <iframe
+            class="embed-responsive-item"
             src="https://daroach.net/about/originalsite/index.html"
           ></iframe>
         </div>
-        <div class="container">
-          <figure class="figure">
-            <div class="container text-center border">
-              <br />
-              <h1 class="display-3">daroach.net</h1>
-              <p class="lead">
-                The realization of a childhood dream to self host a website on
-                the internet.
-              </p>
-              <hr class="my-2" />
-              <img
-                src="/static/images/baby_pic.jpg"
-                class="img-thumbnail img-thumbnail-legacy"
-                alt=""
-              />
-              <p class="">
-                Hello Visitor 👋 Welcome to the coolest website on the internet!
-                My name is Gagan, and this is the first landing page for my
-                website.
-              </p>
-            </div>
-            <figcaption class="figure-caption text-right">
-              Photo by Gian Daroach.
-            </figcaption>
-          </figure>
+        <br />
+        <!-- First Bootstrap Site -->
+        <div class="container text-center">
+          <h1 class="display-7">Bootstrapped - Date: Jan 7 2019</h1>
+          <p>
+            After I got the wire first open, I spent some time off by going to
+            Cancun with my mother and having a great time over Christmas break.
+            After coming back, I started 2019 by securing the line with HTTPS,
+            and learning Bootstrap at a Milwaukee Hackathon. The first page I
+            put together wtih bootstrap looked like this. I wanted to get my
+            name and reason for the site out there. Heads up, the links inside
+            the iFrame navbar may link you to a weird place, just
+            <a href="https://daroach.net/about/">refresh</a> the page.
+          </p>
+        </div>
+        <div
+          class="container embed-responsive embed-responsive-1by1"
+          allowfullscreen
+        >
+          <iframe
+            class="embed-responsive-item"
+            src="https://daroach.net/about/bootstrapped/index.html"
+          ></iframe>
         </div>
       </div>
       <div
         class="tab-pane fade show active"
-        id="pills-profile"
+        id="pills-aboutme"
         role="tabpanel"
-        aria-labelledby="pills-profile-tab"
+        aria-labelledby="pills-aboutme-tab"
       >
         <!-- About Gagan Daroach Content -->
 
-        <div class="container">
-          <div class="jumbotron jumbotron-fluid">
-            <div class="container col-md-8">
-              <h1 class="display-3">Fluid jumbo heading</h1>
-              <p class="lead">Jumbo helper text</p>
-              <hr class="my-2">
-              <p>More info</p>
-              <p class="lead">
-                <a class="btn btn-primary btn-lg" href="Jumbo action link" role="button">Jumbo action name</a>
-              </p>
+        <div class="container-fluid text-center">
+          <div class="jumbotron">
+            <h1 class="display-7">Gagandeep Bishamber Daroach</h1>
+            <br />
+            <div class="row">
+              <div class="container col-md-6 col-xl-12">
+                <p class="lead">Daroach.net Maintainer and Host</p>
+                <hr class="my-2" />
+                <p>
+                  I am an aspiring Software Engineer, hoping to
+                  <a href="https://youtu.be/J-GVd_HLlps?t=32"
+                    >make the world a better place</a
+                  >. With this website, I hope to create a place for people to
+                  share stories, knowledge, information, and data.
+                </p>
+                <div class="social-media-icons col-xs-12">
+                  <ul class="list-inline col-xs-12">
+                    <a href="https://www.facebook.com/gagany6"
+                      ><i class="fa fa-facebook-square fa-4x"></i
+                    ></a>
+                    <a href="https://github.com/gagandaroach"
+                      ><i class="fa fa-github-square fa-4x"></i
+                    ></a>
+                    <a href="https://www.linkedin.com/in/gdaroach/"
+                      ><i class="fa fa-linkedin-square fa-4x"></i
+                    ></a>
+                    <a href="https://twitter.com/gagany1"
+                      ><i class="fa fa-twitter-square fa-4x"></i
+                    ></a>
+                    <a href="https://www.instagram.com/galapagosislands/"
+                      ><i class="fa fa-instagram fa-4x"></i
+                    ></a>
+                  </ul>
+                </div>
+              </div>
+              <div class="container col-md-6">
+                <img
+                  src="../static/images/outside_home_tree.jpeg"
+                  class="img-fluid"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container-fluid text-center">
+          <div class="jumbotron">
+            <h1 class="display-7">I am the result of two wonderful parents.</h1>
+            <br />
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="card">
+                  <div class="card-header"><h5>Gurdeep Daroach</h5></div>
+                  <a href="https://www.facebook.com/gurdeep.daroach"
+                    ><img
+                      class="card-img-top"
+                      src="/static/images/mom.jpg"
+                      alt="My Mother, Gurdeep Daroach"
+                  /></a>
+                  <figcaption class="figure-caption text-right">
+                    Photo by Gagan Daroach&nbsp;
+                  </figcaption>
+                  <div class="card-body">
+                    <p class="card-text">
+                      The most loving mother in the world.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <br />
+              <div class="col-sm-6">
+                <div class="card">
+                  <div class="card-header"><h5>Gian Daroach</h5></div>
+                  <a
+                    href="https://www.aurorahealthcare.org/doctors/dr-gian-c-daroach-md"
+                    ><img
+                      class="card-img-top"
+                      src="/static/images/dad.jpg"
+                      alt="Picture of Site Maintainer and Host, Gagan Daroach"
+                  /></a>
+                  <figcaption class="figure-caption text-right">
+                    Photo by Gagan Daroach&nbsp;
+                  </figcaption>
+                  <div class="card-body">
+                    <p class="card-text">
+                      A kind man who set the bar at the highest possible
+                      position.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
