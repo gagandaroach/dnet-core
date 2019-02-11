@@ -1,43 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <title>About Me - Gagan Daroach</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!--# include virtual="/static/templates/css.html" -->
+    <script>
+      window.onload = function() {
+        $("#navabout").addClass("active");
+      };
+    </script>
+  </head>
 
-<head>
-  <title>About Me - Gagan Daroach</title>
-  <!-- Required meta tags -->
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <!--# include virtual="/static/templates/css.html" -->
-  <script>
-    window.onload = function () { $("#navabout").addClass("active") }
-  </script>
-</head>
+  <body>
+    <!--# include virtual="/static/templates/navbar.html" -->
 
-<body>
-  <!--# include virtual="/static/templates/navbar.html" -->
-<div class="container">
-  
-  <div class="card text-center border-0">
-    <img class="card-img-top" src="holder.js/100x180/" alt="">
-    <div class="card-body">
-      <h4 class="card-title">About Me</h4>
-      <p class="card-text">I have not written this page. For the time being, enjoy a piece of history by looking at the original front page. #nostalgia</p>
+    <!-- Tabs  -->
+    <div class="container">
+      <br />
+      <ul class="nav nav-tabs mb-3" id="pills-tab" role="tablist">
+          <li class="nav-item">
+              <a
+                class="nav-link active"
+                id="pills-profile-tab"
+                data-toggle="pill"
+                href="#pills-profile"
+                role="tab"
+                aria-controls="pills-profile"
+                aria-selected="false"
+                >About Me</a
+              >
+            </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            id="pills-home-tab"
+            data-toggle="pill"
+            href="#pills-home"
+            role="tab"
+            aria-controls="pills-home"
+            aria-selected="true"
+            >Site History</a
+          >
+        </li>
+        
+      </ul>
     </div>
-  </div>
-</div>
+    <!-- End Tabs  -->
 
-  <div class="container text-center border"><br>
-    <h1 class="display-3">daroach.net</h1>
-    <p class="lead">
-      The realization of a childhood dream to self host a website on the
-      internet.
-    </p>
-    <hr class="my-2" />
-    <img src="/static/images/baby_pic.jpg" class="img-thumbnail img-thumbnail-legacy" alt="" />
-    <p class="">
-      Hello Visitor 👋 Welcome to the coolest website on the internet! My
-      name is Gagan, and this is the first landing page for my website.
-    </p>
+    <div class="tab-content" id="pills-tabContent">
+      <div
+        class="tab-pane fade"
+        id="pills-home"
+        role="tabpanel"
+        aria-labelledby="pills-home-tab"
+      >
+
+      <div class="container embed-responsive embed-responsive-1by1" allowfullscreen>
+          <iframe class="embed-responsive-item"
+            src="https://daroach.net/about/originalsite/index.html"
+          ></iframe>
+        </div>
+        <div class="container">
+          <figure class="figure">
+            <div class="container text-center border">
+              <br />
+              <h1 class="display-3">daroach.net</h1>
+              <p class="lead">
+                The realization of a childhood dream to self host a website on
+                the internet.
+              </p>
+              <hr class="my-2" />
+              <img
+                src="/static/images/baby_pic.jpg"
+                class="img-thumbnail img-thumbnail-legacy"
+                alt=""
+              />
+              <p class="">
+                Hello Visitor 👋 Welcome to the coolest website on the internet!
+                My name is Gagan, and this is the first landing page for my
+                website.
+              </p>
+            </div>
+            <figcaption class="figure-caption text-right">
+              Photo by Gian Daroach.
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+      <div
+        class="tab-pane fade show active"
+        id="pills-profile"
+        role="tabpanel"
+        aria-labelledby="pills-profile-tab"
+      >
+        <!-- About Gagan Daroach Content -->
+
+        <div class="container">
+          <div class="jumbotron jumbotron-fluid">
+            <div class="container col-md-8">
+              <h1 class="display-3">Fluid jumbo heading</h1>
+              <p class="lead">Jumbo helper text</p>
+              <hr class="my-2">
+              <p>More info</p>
+              <p class="lead">
+                <a class="btn btn-primary btn-lg" href="Jumbo action link" role="button">Jumbo action name</a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- End Gagan Daroach Content -->
+      </div>
+    </div>
+
     <!--# include virtual="/static/templates/scripts.html" -->
-</body>
-
+  </body>
 </html>
