@@ -1,64 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <!--# include virtual="/static/templates/google_analytics.html" -->
-  <title>The Coolest Website On The Internet</title>
-  <!-- Required meta tags -->
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <!--# include virtual="/static/templates/css.html" -->
-  <script>
-    let website_birth_day = new Date("Dec 16, 2018"); //"Dec 16, 2018"
-    updateTimer = function() {
-      var time_live_seconds = (Date.now() - website_birth_day) / 1000 / 60/ 60/ 24;
-      $("#tracka").html(`${time_live_seconds.toFixed(2)}`);
-      setTimeout(() => {
+  <head>
+    <!--# include virtual="/static/templates/google_analytics.html" -->
+    <!--# include virtual="/static/templates/default_headers.html" -->
+    <!--# include virtual="/static/templates/css.html" -->
+    <title>The Coolest Website On The Internet</title>
+    <script>
+      let website_birth_day = new Date("Dec 16, 2018"); //"Dec 16, 2018"
+      updateTimer = function() {
+        var time_live_seconds =
+          (Date.now() - website_birth_day) / 1000 / 60 / 60 / 24;
+        $("#tracka").html(`${time_live_seconds.toFixed(2)}`);
+        setTimeout(() => {
+          updateTimer();
+        }, 10000);
+      };
+      window.onload = function() {
+        $("#navhome").addClass("active");
+        // $("#daroachnet_navbar").addClass("fixed-top")
         updateTimer();
-      }, 10000);
-    }
-    window.onload = function () { 
-      $("#navhome").addClass("active") 
-      // $("#daroachnet_navbar").addClass("fixed-top")
-            updateTimer();
-    }
-  </script>
-</head>
-
-<body>
-  <!--# include virtual="/static/templates/navbar.html" -->
-  <section id="intro">
+      };
+    </script>
     
-    <div class="jumbotron jumbotron-fluid bg-dark text-light">
-      
-      <div class="container">
-          <h1 class="display-3"><i class="fa fa-coffee" aria-hidden="true"></i> daroach.net</h1>
-            
-            <hr class="my-2">
-            <p>A warm welcome :). Thanks for visiting my website, daroach.net. My name is Gagan Daroach, and this website has been running in <a href="https://www.instagram.com/p/BtSgNa8ni0i/?utm_source=ig_web_button_share_sheet">my apartment</a> <span class=""> for <a href="https://github.com/gagandaroach/daroachnet/commit/80dbe7c5bcb8c102a7e54d2bf0a1ca012910150a" id="tracka">(enable JS to see)</a> days.</span> Be sure to stick around and take a look. </p>
-            <figure class="figure">
-            <img class="figure-img img-fluid" src="/static/images/boys.jpg" alt="A picture of my brother and I">
-                <figcaption class="figure-caption">Deepak Daroach (brother) and Gagan Daroach (me).</figcaption>
-              </figure>
-          </div>
-    </div>
-  </section>
-  <div class="container">
+  </head>
 
-    <h2 class="text-center">Currently on the site. (not much)</h2><br>
-    <div class="card">
+  <body>
+    <!--# include virtual="/static/templates/navbar.html" -->
+    <section id="intro">
+      <div class="jumbotron jumbotron-fluid bg-light text-dark">
+        <div class="container">
+          <h1 class="display-3">
+            <i class="fa fa-coffee" aria-hidden="true"></i> daroach.net
+          </h1>
+
+          <hr class="my-2" />
+          <p>
+            A warm welcome :). My
+            name is Gagan Daroach, and thanks for visiting my website. Daroach.net has been running in
+            <a
+              href="https://www.instagram.com/p/BtSgNa8ni0i/?utm_source=ig_web_button_share_sheet"
+              >my apartment</a
+            >
+            <span class="">
+              for
+              <a
+                href="https://github.com/gagandaroach/daroachnet/commit/80dbe7c5bcb8c102a7e54d2bf0a1ca012910150a"
+                id="tracka"
+                >(enable JS to see)</a
+              >
+              days.</span
+            >
+            Be sure to stick around and take a look at some of the site content. 
+          </p>
+          <figure class="figure">
+            <img
+              class="figure-img img-fluid"
+              src="/static/images/boys.jpg"
+              alt="A picture of my brother and I"
+            />
+            <figcaption class="figure-caption">
+              Deepak Daroach (brother) and Gagan Daroach (me). Photo by Gian
+              Daroach.
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="content" class="container-fluid bg-dark text-light"></section>
+    <div class="container">
+      <h2 class="text-center">Site Features</h2>
+      <br>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-header"><h5>The Daroach.net Cloud</h5></div>
+            <a href="https://cloud.daroach.net"
+          ><img
+            class="card-img-top"
+            src="/static/images/taj.png"
+            alt="Daroach.net Cloud Main Page"
+        /></a>
+        <figcaption class="figure-caption text-right">
+          Photo by Gagan Daroach&nbsp;
+        </figcaption>
+            <div class="card-body">
+              <p class="card-text">
+                I have created a safe data space to store files on the internet. Like the Taj Mahal, the Daroach Cloud intends to stand (or float?) for many centuries!
+              </p>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="col-sm-6">
+            <div class="card">
+              <div class="card-header"><h5>About The Site</h5></div>
+              <a href="https://daroach.net/about/"
+            ><img
+              class="card-img-top"
+              src="/static/images/outside_home_tree.jpeg"
+              alt="Picture of Site Maintainer and Host, Gagan Daroach"
+          /></a>
+          <figcaption class="figure-caption text-right">
+            Photo by Gagan Daroach&nbsp;
+          </figcaption>
+              <div class="card-body">
+                <p class="card-text">
+                  Explore the history of the site with portals to the previous landing pages. Also learn some information about the site owner.
+                </p>
+              </div>
+            </div>
+          </div>
+      </div>
+      <br />
+      <h2 class="text-center">In The Works</h2>
+      <br />
+      <div class="card">
         <div class="card-header"><h3>Karnana</h3></div>
 
-      <a href="http://daroach.net/karnana/"><img class="card-img-top" src="/static/images/karnana_wide.jpg" alt="Karnana Punjab Picture of Gian Chand's Community"></a>
-      
-      <div class="card-body">
+        <a href="http://daroach.net/karnana/"
+          ><img
+            class="card-img-top"
+            src="/static/images/karnana_wide.jpg"
+            alt="Karnana Punjab Picture of Gian Chand's Community"
+        /></a>
+        <figcaption class="figure-caption text-right">
+          Photo by Gagan Daroach&nbsp;
+        </figcaption>
+        <div class="card-body">
           <!-- <h3 class = "card-text">Karnana</h3> -->
-          <p class="card-text">I am working on a write up about Karnana in Punjab, India. My <a href="/static/images/dad.jpg">father</a> spent the first 28 years of his life growing up here with the love and support of an amazing family & community. Above you can see a large part of the community gathering together on the street in front of my father's home for an annual village celebration.</p>
-        <!-- <a href="#" class="btn btn-outline-black">Check it out.</a> -->
+          <p class="card-text">
+            I am working on a write up about Karnana in Punjab, India. My
+            <a href="/static/images/dad.jpg">father</a> spent the first 28 years
+            of his life growing up here with the love and support of an amazing
+            family & community. Above you can see a large part of the community
+            gathering together on the street in front of my father's home for an
+            annual village celebration.
+          </p>
+          <!-- <a href="#" class="btn btn-outline-black">Check it out.</a> -->
+        </div>
       </div>
-    </div><br>
+      <br />
     </div>
-  <!--# include virtual="/static/templates/scripts.html" -->
-</body>
-
+    <!--# include virtual="/static/templates/scripts.html" -->
+  </body>
 </html>

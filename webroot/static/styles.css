@@ -10,9 +10,13 @@
     background-size: cover;
     background-repeat: no-repeat;
     color: white;
-        }
-
-.bottom_it_up {
-    margin-top:50%;
 }
 
+
+.bottom_it_up {
+    margin-top: 50%;
+}
+
+.body {
+    background-color: aquamarine;
+}
