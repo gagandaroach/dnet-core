@@ -1,17 +1,19 @@
 <template>
   <div id="app">
     <Toolbar/>
-    
+    <Home/>
   </div>
 </template>
 
 <script>
 import Toolbar from './components/Toolbar.vue'
+import Home from './components/Home.vue'
 
 export default {
   name: 'app',
   components: {
-    Toolbar
+    Toolbar,
+    Home
   }
 }
 </script>
