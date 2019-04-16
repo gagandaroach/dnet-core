@@ -1,16 +1,17 @@
 <template>
   <div id="app">
-    <Landing/>
+    <Toolbar/>
+    
   </div>
 </template>
 
 <script>
-import Landing from './components/Landing.vue'
+import Toolbar from './components/Toolbar.vue'
 
 export default {
   name: 'app',
   components: {
-    Landing
+    Toolbar
   }
 }
 </script>
