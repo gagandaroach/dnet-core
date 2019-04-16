@@ -1,6 +1,8 @@
 <template>
   <div>
-    <h1>{{ msg }}</h1>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <h1 class="display-1"> <md-icon class="fa fa-coffee"></md-icon> daroach.net </h1>
     
   </div>
 </template>
