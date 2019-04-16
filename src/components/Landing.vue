@@ -1,9 +1,28 @@
 <template>
   <div>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <md-toolbar class="md-large md-accent">
+      <div class="md-toolbar-row">
+        <div class="md-toolbar-section-start">
+          <md-button class="md-icon-button">
+            <md-icon>menu</md-icon>
+          </md-button>
+        </div>
 
-    <h1 class="display-1"> <md-icon class="fa fa-coffee"></md-icon> daroach.net </h1>
-    
+        <div class="md-toolbar-section-end">
+          <md-button class="md-icon-button">
+            <md-icon>refresh</md-icon>
+          </md-button>
+
+          <md-button class="md-icon-button">
+            <md-icon>more_vert</md-icon>
+          </md-button>
+        </div>
+      </div>
+
+      <div class="md-toolbar-row md-toolbar-offset">
+    <h3 class="md-title"><md-icon>local_cafe</md-icon> daroach.net</h3>
+    </div>
+    </md-toolbar>
   </div>
 </template>
 
@@ -18,18 +37,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+.md-toolbar-row {
+  text-align: center;
 }
 </style>
