@@ -1,10 +1,29 @@
-# Daroach.net Live HTML
-> the html for my webserver
-# [LINK](https://daroach.net/)
+# daroachnet
 
-## Development setup
+## Project setup
+```
+npm install
+```
 
-[docker-compose up](https://docs.docker.com/compose/reference/up/)
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
 
-[http://localhost:5000](http://localhost:5000)
+### Compiles and minifies for production
+```
+npm run build
+```
 
+### Run your tests
+```
+npm run test
+```
+
+### Lints and fixes files
+```
+npm run lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
