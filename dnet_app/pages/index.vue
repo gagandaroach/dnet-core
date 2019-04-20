@@ -1,34 +1,29 @@
 <template>
   <section class="container">
     <div>
+      <div>
+        <b-alert show variant="warning" dismissible>
+          Heads up, the site is in BETA. Everything you see is not final and may
+          change.
+        </b-alert>
+      </div>
       <logo />
       <h1 class="title">
-        dnet_app
+        daroach.net
       </h1>
-      <h2 class="subtitle">
-        The Coolest Website on the Internet - Daroach.net
-      </h2>
-      <div class="links">
-        <a href="https://nuxtjs.org/" target="_blank" class="button--green"
-          >Documentation</a
-        >
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-          >GitHub</a
-        >
-      </div>
+      <Nav />
     </div>
   </section>
 </template>
 
 <script>
 import Logo from '~/components/Logo.vue'
+import Nav from '~/components/Nav.vue'
 
 export default {
   components: {
-    Logo
+    Logo,
+    Nav
   }
 }
 </script>

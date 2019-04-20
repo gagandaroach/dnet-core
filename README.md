@@ -1,7 +1,7 @@
 # [Daroach.net Live HTML](https://daroach.net/)
 > the html for my homelab webserver. https://daroach.net/
 
-after much deliberation, i settled with a [material design](https://vuematerial.io/) front end and vuejs backend. The deliberation was solely spent on the front end. [VueJS](https://vuejs.org/) is great.
+I use nuxt js to serve the content, amazing tool. I am using the bootstrap vue frontend becaue its easy. The deliberation was solely spent on the front end. [VueJS](https://vuejs.org/) is great.
 
 ## **FEEDBACK IS ENCOURAGED**
 
