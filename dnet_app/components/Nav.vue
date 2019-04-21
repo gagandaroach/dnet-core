@@ -1,16 +1,19 @@
 <template>
   <section>
-    <b-nav fill pills>
-      <!-- <b-nav-item to="/" active>home</b-nav-item> -->
-      <b-nav-item to="/about">about</b-nav-item>
-      <b-nav-item to="/blog">blog</b-nav-item>
-      <b-nav-item href="https://cloud.daroach.net">cloud</b-nav-item>
-      <b-nav-item-dropdown id="nav-admin-dropdown" text="admin" right>
-        <b-dropdown-item href="https://portainer.daroach.net"
-          >portainer
-        </b-dropdown-item>
-      </b-nav-item-dropdown>
-    </b-nav>
+    <div class="mt-3">
+      <b-button-group size="lg">
+        <b-button variant="outline-dark" to="/about">About</b-button>
+        <b-button variant="outline-dark" to="/blog">Blog</b-button>
+        <b-button variant="outline-dark" href="https://cloud.daroach.net"
+          >Cloud</b-button
+        >
+        <b-dropdown variant="outline-dark" size="lg" text="Misc">
+          <b-dropdown-item href="https://portainer.daroach.net"
+            >Portainer
+          </b-dropdown-item>
+        </b-dropdown>
+      </b-button-group>
+    </div>
   </section>
 </template>
 
