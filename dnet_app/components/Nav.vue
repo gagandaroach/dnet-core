@@ -2,8 +2,8 @@
   <section>
     <b-nav justified pills>
       <b-nav-item to="/" active>home</b-nav-item>
-      <b-nav-item>about</b-nav-item>
-      <b-nav-item>blog</b-nav-item>
+      <b-nav-item to="/about">about</b-nav-item>
+      <b-nav-item to="/blog">blog</b-nav-item>
       <b-nav-item-dropdown
         id="nav-users-dropdown"
         text="services"
