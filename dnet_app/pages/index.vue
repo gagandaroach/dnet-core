@@ -1,12 +1,6 @@
 <template>
   <section class="container">
     <div>
-      <div>
-        <b-alert show variant="warning" dismissible>
-          Heads up, the site is in BETA. Everything you see is not final and may
-          change.
-        </b-alert>
-      </div>
       <logo />
       <h1 class="display-2">
         daroach.net
