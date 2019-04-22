@@ -1,7 +1,7 @@
 # Docker Compose File
-# daroach.net environment
+# daroach.net environment nuxtjs server
 # Author: Gagan Daroach gagandaroach@gmail.com
-# Date: April 16 2019
+# Date: April 21 2019
 
 version: "3"
 
@@ -11,15 +11,17 @@ networks:
     external: true
 
 services:
-  vuejs_node_alpine:
-    build: ./dnet_vuejs
+  nuxt_app_server:
+    build: ./dnet_app
     restart: always
     ports: 
-      - 8080:8080
+      - 3000:3000
     # if you want to use jwilder's nginx proxy container
     env_file: 
        - jwilder_nginx_proxy.env
     # to attach to my servers network
     networks:
        - daroachnetwork
+    command:
+      "npm run start"
     
