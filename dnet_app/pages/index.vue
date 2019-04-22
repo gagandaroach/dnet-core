@@ -2,7 +2,7 @@
   <b-container class="container">
     <div>
       <logo />
-      <h1 class="display-2">
+      <h1 class="display-3">
         daroach.net
       </h1>
       <Nav />
