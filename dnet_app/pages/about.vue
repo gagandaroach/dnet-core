@@ -1,11 +1,17 @@
 <template>
   <section>
     <Navbar />
-    <div class="container">
+    <b-container-fluid>
+      <b-alert show variant="warning"
+        >Heads Up! This site is in its infancy. I'm working on and changing
+        content every day. Please contact me with any site suggestions or
+        bugs.</b-alert
+      >
+    </b-container-fluid>
+    <b-container>
       <h1>About Me</h1>
-      <br />
       <p>Work in Progress</p>
-    </div>
+    </b-container>
   </section>
 </template>
 
