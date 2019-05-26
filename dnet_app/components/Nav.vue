@@ -4,21 +4,21 @@
       <b-button-group size="lg">
         <b-button
           v-b-popover.hover.bottom="
+            'See my thoughts on the latest technologies, politics, and memes.'
+          "
+          title=""
+          variant="outline-dark"
+          to="/blog"
+          >Blog</b-button
+        >
+        <b-button
+          v-b-popover.hover.bottom="
             'What is Daroach?\nLearn about me and my site.'
           "
           title=""
           variant="outline-dark"
           to="/about"
           >About</b-button
-        >
-        <b-button
-          v-b-popover.hover.bottom="
-            'See my thoughts on the latest technologies, politics, and memes.'
-          "
-          title=""
-          variant="outline-dark"
-          to="/blog"
-          >My Blog</b-button
         >
         <b-dropdown variant="outline-dark" size="lg" text="Services">
           <b-dropdown-item
