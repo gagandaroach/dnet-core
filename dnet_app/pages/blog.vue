@@ -1,16 +1,9 @@
 <template>
   <section>
     <Navbar />
-    <b-container-fluid>
-      <b-alert show variant="warning"
-        >Heads Up! This site is in its infancy. I'm working on and changing
-        content every day. Please contact me with any site suggestions or
-        bugs.</b-alert
-      >
-    </b-container-fluid>
-    <b-container>
-      <h1>Blog Page</h1>
-      <p>Work in Progress</p>
+    <b-container class="main">
+      <h1 class="display-3">Blog Page</h1>
+      <p class="lead">A Work in Progress</p>
     </b-container>
   </section>
 </template>
@@ -26,7 +19,8 @@ export default {
 </script>
 
 <style scoped>
-.container {
+.main {
+  margin-top: 40px;
   text-align: center;
 }
 </style>
