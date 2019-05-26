@@ -1,28 +1,20 @@
 <template>
   <section>
     <Navbar />
-    <b-container class="main">
-      <h1 class="display-3">About Me</h1>
-      <p class="lead">A Work in Progress</p>
-    </b-container>
+    <PageTitle title="About" description="A Work In Progress" />
   </section>
 </template>
 
 <script>
 import Navbar from '~/components/Navbar.vue'
+import PageTitle from '~/components/PageTitle.vue'
 
 export default {
   components: {
-    Navbar
+    Navbar,
+    PageTitle
   }
 }
 </script>
 
-<style scoped>
-.main {
-  margin-top: 40px;
-}
-.container {
-  text-align: center;
-}
-</style>
+<style scoped></style>
