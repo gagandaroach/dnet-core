@@ -5,6 +5,7 @@
       <h1 class="display-3">
         daroach.net
       </h1>
+      <p class="lead">The coolest website on the internet.</p>
       <Nav />
     </div>
   </b-container>
