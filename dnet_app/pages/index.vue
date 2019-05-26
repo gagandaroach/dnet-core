@@ -1,5 +1,5 @@
 <template>
-  <b-container class="container">
+  <b-container fluid class="container">
     <div>
       <logo />
       <h1 class="display-3">

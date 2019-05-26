@@ -9,6 +9,7 @@
           title=""
           variant="outline-dark"
           to="/blog"
+          active-class="active"
           >Blog</b-button
         >
         <b-button
@@ -18,6 +19,7 @@
           title=""
           variant="outline-dark"
           to="/about"
+          active-class="active"
           >About</b-button
         >
         <b-dropdown variant="outline-dark" size="lg" text="Services">
@@ -27,7 +29,7 @@
             >Cloud
           </b-dropdown-item>
           <b-dropdown-item
-            v-b-popover.hover.left="'My Netflix Server'"
+            v-b-popover.hover.left="'A Personal Netflix Server'"
             href="https://media.daroach.net"
             >Plex
           </b-dropdown-item>
