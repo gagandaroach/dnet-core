@@ -18,25 +18,39 @@
               >. With this website, I hope to create a place for people to share
               stories, knowledge, information, and data.
             </p>
-            <div class="social-media-icons col-xs-12">
-              <ul class="list-inline col-xs-12">
-                <a href="https://www.facebook.com/gagany6">
-                  <i class="fa fa-facebook-square fa-4x"></i>
-                </a>
-                <a href="https://github.com/gagandaroach">
-                  <i class="fa fa-github-square fa-4x"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/gdaroach/">
-                  <i class="fa fa-linkedin-square fa-4x"></i>
-                </a>
-                <a href="https://twitter.com/gagany1">
-                  <i class="fa fa-twitter-square fa-4x"></i>
-                </a>
-                <a href="https://www.instagram.com/galapagosislands/">
-                  <i class="fa fa-instagram fa-4x"></i>
-                </a>
-              </ul>
-            </div>
+            <hr class="my-2" />
+            <b-button-group>
+              <b-button
+                id="facebook"
+                type="light"
+                href="https://www.facebook.com/gagany6"
+                >Facebook</b-button
+              >
+              <b-button
+                id="github"
+                type="light"
+                href="https://github.com/gagandaroach"
+                >Github</b-button
+              >
+              <b-button
+                id="linkedin"
+                type="light"
+                href="https://www.linkedin.com/in/gdaroach/"
+                >LinkedIn</b-button
+              >
+              <b-button
+                id="twitter"
+                type="light"
+                href="https://twitter.com/gagany1"
+                >Twitter</b-button
+              >
+              <b-button
+                id="instagram"
+                type="light"
+                href="https://www.instagram.com/galapagosislands/"
+                >Instagram</b-button
+              >
+            </b-button-group>
           </div>
           <div class="container col-md-6">
             <img src="~/assets/outside_home_tree.jpeg" class="img-fluid" alt />
@@ -45,7 +59,7 @@
       </div>
     </div>
 
-    <div class="container-fluid text-center">
+    <!-- <div class="container-fluid text-center">
       <div class="jumbotron">
         <h1 class="display-7">I am the result of two wonderful parents.</h1>
 
@@ -189,7 +203,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <!-- End Gagan Daroach Content -->
   </section>
@@ -205,4 +219,20 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+#instagram {
+  background-color: #405de6;
+}
+#linkedin {
+  background-color: #0077b5;
+}
+#facebook {
+  background-color: #3b5998;
+}
+#github {
+  background-color: #4078c0;
+}
+#twitter {
+  background-color: #1da1f2;
+}
+</style>
