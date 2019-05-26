@@ -3,12 +3,14 @@
     <Navbar />
     <br />
     <!--  -->
-    <div class="container-fluid text-center">
-      <div class="jumbotron">
-        <h1>Gagandeep Bishamber Daroach</h1>
+    <b-container fluid>
+      <b-jumbotron>
+        <b-col offset-lg="2">
+          <h1>Gagandeep Bishamber Daroach</h1>
+        </b-col>
         <br />
-        <div class="row">
-          <div class="container col-md-6 col-xl-12">
+        <b-row>
+          <b-col md="6" lg="4" offset-lg="2">
             <p class="lead">Daroach.net Maintainer and Host</p>
             <hr class="my-2" />
             <p>
@@ -18,6 +20,8 @@
               >. With this website, I hope to create a place for people to share
               stories, knowledge, information, and data.
             </p>
+            <br />
+            <p class="lead">Contact Information</p>
             <hr class="my-2" />
             <b-button-group>
               <b-button
@@ -51,13 +55,13 @@
                 >Instagram</b-button
               >
             </b-button-group>
-          </div>
-          <div class="container col-md-6">
+          </b-col>
+          <b-col md="6" lg="4">
             <img src="~/assets/outside_home_tree.jpeg" class="img-fluid" alt />
-          </div>
-        </div>
-      </div>
-    </div>
+          </b-col>
+        </b-row>
+      </b-jumbotron>
+    </b-container>
 
     <!-- <div class="container-fluid text-center">
       <div class="jumbotron">
@@ -114,9 +118,9 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
-    <div class="container-fluid text-center">
+    <!-- <div class="container-fluid text-center">
       <div class="jumbotron">
         <div class="container">
           <h1>Where do I spend my time?</h1>
