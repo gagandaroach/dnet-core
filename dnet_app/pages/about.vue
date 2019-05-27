@@ -5,7 +5,7 @@
     <!--  -->
     <b-container fluid>
       <b-jumbotron>
-        <b-col offset-lg="2">
+        <b-col md="12" lg="8" offset-lg="2">
           <h1>Gagandeep Bishamber Daroach</h1>
         </b-col>
         <br />
@@ -18,18 +18,18 @@
               <a href="https://youtu.be/J-GVd_HLlps?t=32"
                 >make the world a better place</a
               >. With this website, I hope to create a place for people to share
-              stories, knowledge, information, and data.
+              stories, knowledge, information, and data. Right now, this website
+              is running on
+              <a
+                href="https://www.instagram.com/p/BtSgNa8ni0i/?utm_source=ig_web_options_share_sheet"
+                >a server</a
+              >
+              in my apartment.
             </p>
             <br />
-            <p class="lead">Contact Information</p>
+            <p class="lead">Follow Me on Social Media</p>
             <hr class="my-2" />
-            <b-button-group>
-              <b-button
-                id="facebook"
-                type="light"
-                href="https://www.facebook.com/gagany6"
-                >Facebook</b-button
-              >
+            <b-button-group fluid>
               <b-button
                 id="github"
                 type="light"
@@ -54,10 +54,20 @@
                 href="https://www.instagram.com/galapagosislands/"
                 >Instagram</b-button
               >
+              <b-button
+                id="facebook"
+                type="light"
+                href="https://www.facebook.com/gagany6"
+                >Facebook</b-button
+              >
             </b-button-group>
           </b-col>
           <b-col md="6" lg="4">
-            <img src="~/assets/outside_home_tree.jpeg" class="img-fluid" alt />
+            <b-img
+              thumbnail
+              fluid
+              src="~/assets/outside_home_tree.jpeg"
+            ></b-img>
           </b-col>
         </b-row>
       </b-jumbotron>
