@@ -1,14 +1,16 @@
 <template>
-  <b-container fluid class="container">
-    <div>
-      <logo />
-      <h1 class="display-3">
-        daroach.net
-      </h1>
-      <p class="lead">The coolest website on the internet.</p>
-      <Nav />
-    </div>
-  </b-container>
+  <div class="body">
+    <b-container fluid class="container">
+      <div>
+        <logo />
+        <h1 class="display-3">
+          daroach.net
+        </h1>
+        <p class="lead">The coolest website on the internet.</p>
+        <Nav />
+      </div>
+    </b-container>
+  </div>
 </template>
 
 <script>
@@ -31,5 +33,10 @@ export default {
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+.body {
+  background-color: #333;
+  color: #fff;
+  box-shadow: inset 0 0 5rem rgba(0, 0, 0, 0.5);
 }
 </style>

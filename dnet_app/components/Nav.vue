@@ -7,7 +7,7 @@
             'See my thoughts on the latest technologies, politics, and memes.'
           "
           title=""
-          variant="outline-dark"
+          variant="outline-light"
           to="/blog"
           active-class="active"
           >Blog</b-button
@@ -17,12 +17,12 @@
             'What is Daroach?\nLearn about me and my site.'
           "
           title=""
-          variant="outline-dark"
+          variant="outline-light"
           to="/about"
           active-class="active"
           >About</b-button
         >
-        <b-dropdown variant="outline-dark" size="lg" text="Services">
+        <b-dropdown variant="outline-light" size="lg" text="Services">
           <b-dropdown-item
             v-b-popover.hover.left="'A Personal Dropbox Server'"
             href="https://cloud.daroach.net"
