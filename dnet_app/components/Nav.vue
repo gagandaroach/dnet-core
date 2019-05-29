@@ -32,7 +32,12 @@
           active-class="active"
           >About</b-button
         >
-        <b-dropdown variant="outline-light" size="lg" text="">
+        <b-dropdown
+          v-b-popover.hover.bottom="'The Web Services running on my box.'"
+          variant="outline-light"
+          size="lg"
+          text=""
+        >
           <b-dropdown-item
             v-b-popover.hover.left="'A Personal Dropbox Server'"
             href="https://cloud.daroach.net"
