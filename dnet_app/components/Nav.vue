@@ -4,7 +4,17 @@
       <b-button-group size="lg">
         <b-button
           v-b-popover.hover.bottom="
-            'See my thoughts on the latest technologies, politics, and memes.'
+            'Welcome to the coolest site on the internet!'
+          "
+          title=""
+          variant="outline-light"
+          to="/"
+          active-class=""
+          >Welcome</b-button
+        >
+        <b-button
+          v-b-popover.hover.bottom="
+            'A place where I share my latest learning, travels, and thoughts.'
           "
           title=""
           variant="outline-light"
@@ -22,7 +32,7 @@
           active-class="active"
           >About</b-button
         >
-        <b-dropdown variant="outline-light" size="lg" text="Services">
+        <b-dropdown variant="outline-light" size="lg" text="">
           <b-dropdown-item
             v-b-popover.hover.left="'A Personal Dropbox Server'"
             href="https://cloud.daroach.net"
