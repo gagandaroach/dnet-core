@@ -24,7 +24,7 @@
         >
         <b-button
           v-b-popover.hover.bottom="
-            'What is Daroach?\nLearn about me and my site.'
+            'Learn about this site\'s hoster, features, and history.'
           "
           title=""
           variant="outline-light"

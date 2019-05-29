@@ -2,7 +2,10 @@
   <section>
     <Navbar />
     <br />
-    <!--  -->
+    <PageTitle
+      title="About"
+      description="Learn about this site's hoster, features, and history."
+    />
     <b-container fluid>
       <b-jumbotron>
         <b-col md="12" lg="8" offset-lg="2">
@@ -225,10 +228,11 @@
 
 <script>
 import Navbar from '~/components/Navbar.vue'
-
+import PageTitle from '~/components/PageTitle.vue'
 export default {
   components: {
-    Navbar
+    Navbar,
+    PageTitle
   }
 }
 </script>
