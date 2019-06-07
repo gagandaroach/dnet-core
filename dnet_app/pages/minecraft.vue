@@ -24,7 +24,7 @@
               header-border-variant="danger"
             ></b-card-header>
             <b-card-body
-              ><ol>
+              ><ul>
                 <li>
                   <b>The Golden Rule</b> Treat your neighbor how you would treat
                   yourself.
@@ -35,12 +35,9 @@
                 </li>
                 <li>Cut down trees entirely. No dangling logs in the air.</li>
                 <li>
-                  Don't make your animal farms contain more than 50 entities. In
-                  excess, this will lag the server. This is a Java Minecraft
-                  Bottleneck I do not know how to fix, so we have to deal with
-                  it.
+                  No animal farms with more than 50 animals.
                 </li>
-              </ol></b-card-body
+              </ul></b-card-body
             >
           </b-card>
         </b-col>
@@ -55,11 +52,8 @@
               header-text-variant="info"
               header-border-variant="info"
             ></b-card-header>
+            <b-img fluid src="~/assets/mc_server_info.png"></b-img>
             <b-card-body>Server Address: <code>daroach.net</code></b-card-body>
-            <b-card-img
-              src="~/assets/mc_server_info.png"
-              fluid="true"
-            ></b-card-img>
           </b-card>
         </b-col>
         <b-col md="6" lg="6">
@@ -74,13 +68,36 @@
               <ul>
                 <li>Vanilla Minecraft</li>
                 <li>
-                  I keep the server up to date with the latest official version.
+                  Always the latest Offical Version
                 </li>
                 <li>Large Biomes</li>
+                <li>Fun & Cool Players</li>
+              </ul>
+            </b-card-body>
+          </b-card>
+          <br />
+          <b-card no-body="true" border-variant="warning">
+            <b-card-header
+              header="Server Technology"
+              class="display-4"
+              header-text-variant="warning"
+              header-border-variant="warning"
+            ></b-card-header>
+            <b-card-body>
+              <ul>
                 <li>Automatic daily server backups.</li>
                 <li>
-                  An instantiation of the offical minecraft docker container. -
-                  So really good performance!
+                  An instantiation of the
+                  <a href="https://hub.docker.com/r/itzg/minecraft-server/"
+                    ><code>itzg/minecraft-server</code></a
+                  >
+                  docker container.
+                </li>
+                <li>
+                  48GB of RAM headroom.
+                </li>
+                <li>
+                  Dual Intel Xeon L5520 @ 2.27GHz
                 </li>
               </ul>
             </b-card-body>
@@ -88,6 +105,7 @@
         </b-col>
       </b-row>
     </b-container>
+    <br />
   </section>
 </template>
 
