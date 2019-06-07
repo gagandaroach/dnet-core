@@ -85,7 +85,7 @@
             ></b-card-header>
             <b-card-body>
               <ul>
-                <li>Automatic daily server backups.</li>
+                <li>Automatic server backups every six hours.</li>
                 <li>
                   An instantiation of the
                   <a href="https://hub.docker.com/r/itzg/minecraft-server/"
@@ -94,7 +94,7 @@
                   docker container.
                 </li>
                 <li>
-                  48GB of RAM headroom.
+                  32GB of dedicated RAM space.
                 </li>
                 <li>
                   Dual Intel Xeon L5520 @ 2.27GHz
