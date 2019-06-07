@@ -19,3 +19,8 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw?
+
+# old projs
+dnet_nuxtjs
+dnet_vuejs
+webroot
