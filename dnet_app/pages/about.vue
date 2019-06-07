@@ -9,12 +9,12 @@
     <b-container fluid>
       <b-jumbotron>
         <b-col md="12" lg="8" offset-lg="2">
-          <h1>Gagandeep Bishamber Daroach</h1>
+          <h1>Daroach.net Maintainer and Host</h1>
         </b-col>
         <br />
         <b-row>
           <b-col md="6" lg="4" offset-lg="2">
-            <p class="lead">Daroach.net Maintainer and Host</p>
+            <p class="lead">Gagandeep Bishamber Daroach</p>
             <hr class="my-2" />
             <p>
               I am an aspiring Software Engineer, hoping to
