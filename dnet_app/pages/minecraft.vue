@@ -4,7 +4,7 @@
 
     <PageTitle
       title="Daroach.net Minecraft"
-      description="A fun place to procrastinate your life's responsibiliteis."
+      description="A fun place to procrastinate your life's responsibilities."
       background="#56962c"
     />
 
@@ -17,94 +17,106 @@
             <b-card
               no-body="true"
               border-variant="danger"
-              body-border-variant="danger"
+              body-border-variant="dark"
+              bg-variant="dark"
             >
               <b-card-header
                 header="Server Rules"
-                class="display-4"
+                class="h1"
                 header-text-variant="danger"
                 header-border-variant="danger"
-              ></b-card-header>
-              <b-card-body
-                ><ul>
-                  <li>
-                    <b>The Golden Rule</b> Treat your neighbor how you would
-                    treat yourself.
-                  </li>
-                  <li>
-                    So <b>NO</b> griefing, stealing, or uncalled-for player
-                    killing!
-                  </li>
-                  <li>Cut down trees entirely. No dangling logs in the air.</li>
-                  <li>
-                    No animal farms with more than 50 animals.
-                  </li>
-                </ul></b-card-body
-              >
+              ></b-card-header
+              ><b-list-group flush>
+                <b-list-group-item class="themed_dark">
+                  <b>The Golden Rule</b> Treat your neighbor how you would treat
+                  yourself.
+                </b-list-group-item>
+                <b-list-group-item class="themed_dark">
+                  So <b>NO</b> griefing, stealing, or uncalled-for player
+                  killing!
+                </b-list-group-item>
+                <b-list-group-item class="themed_dark"
+                  >Cut down trees entirely. No dangling logs in the
+                  air.</b-list-group-item
+                >
+                <b-list-group-item class="themed_dark">
+                  No animal farms with more than 50 animals.
+                </b-list-group-item>
+              </b-list-group>
             </b-card>
           </b-col>
         </b-row>
         <br />
         <b-row>
           <b-col md="6" lg="6">
-            <b-card no-body="true" border-variant="info">
+            <b-card no-body="true" bg-variant="dark" border-variant="info">
               <b-card-header
                 header="How to Connect"
-                class="display-4"
+                class="h1"
                 header-text-variant="info"
                 header-border-variant="info"
               ></b-card-header>
               <b-img fluid src="~/assets/mc/server_info.png"></b-img>
-              <b-card-body
-                >Server Address: <code>daroach.net</code></b-card-body
+              <b-card-body style="color: white"
+                >Just input the Server Address:
+                <code>daroach.net</code></b-card-body
               >
             </b-card>
           </b-col>
           <b-col md="6" lg="6">
-            <b-card no-body="true" border-variant="success">
+            <b-card no-body="true" border-variant="success" bg-variant="dark">
               <b-card-header
                 header="Server Features"
-                class="display-4"
+                class="h1"
                 header-text-variant="success"
                 header-border-variant="success"
               ></b-card-header>
-              <b-card-body>
-                <ul>
-                  <li>Vanilla Minecraft</li>
-                  <li>
-                    Always the latest Offical Version
-                  </li>
-                  <li>Large Biomes</li>
-                  <li>Fun & Cool Players</li>
-                </ul>
-              </b-card-body>
+              <b-list-group flush>
+                <b-list-group-item class="themed_dark"
+                  >Vanilla Minecraft</b-list-group-item
+                >
+                <b-list-group-item class="themed_dark">
+                  Always the Official latest Version
+                </b-list-group-item>
+                <b-list-group-item class="themed_dark"
+                  >Large Biomes</b-list-group-item
+                >
+                <b-list-group-item class="themed_dark"
+                  >Fun & Cool Players</b-list-group-item
+                >
+              </b-list-group>
             </b-card>
             <br />
-            <b-card no-body="true" border-variant="warning">
+            <b-card
+              no-body="true"
+              border-variant="warning"
+              bg-variant="dark"
+              text-variant="light"
+            >
               <b-card-header
                 header="Server Technology"
-                class="display-4"
+                class="h1"
                 header-text-variant="warning"
                 header-border-variant="warning"
               ></b-card-header>
-              <b-card-body>
-                <ul>
-                  <li>Automatic server backups every six hours.</li>
-                  <li>
-                    An instantiation of the
-                    <a href="https://hub.docker.com/r/itzg/minecraft-server/"
-                      ><code>itzg/minecraft-server</code></a
-                    >
-                    docker container.
-                  </li>
-                  <li>
-                    32GB of dedicated RAM space.
-                  </li>
-                  <li>
-                    Dual Intel Xeon L5520 @ 2.27GHz
-                  </li>
-                </ul>
-              </b-card-body>
+              <b-list-group flush>
+                <b-list-group-item class="themed_dark"
+                  >Automatic server backups every six hours.</b-list-group-item
+                >
+                <b-list-group-item class="themed_dark">
+                  An instantiation of the
+                  <a href="https://hub.docker.com/r/itzg/minecraft-server/"
+                    ><code>itzg/minecraft-server</code></a
+                  >
+                  docker container.
+                </b-list-group-item>
+                <b-list-group-item class="themed_dark">
+                  32GB of dedicated RAM space.
+                </b-list-group-item>
+                <b-list-group-item class="themed_dark">
+                  Dual Intel Xeon L5520 @ 2.27GHz
+                </b-list-group-item>
+              </b-list-group>
             </b-card>
           </b-col>
         </b-row>
@@ -134,9 +146,14 @@ export default {
 .body {
   background-image: url('~assets/mc/dirt_background.png');
   background-repeat: repeat;
+  text-align: center;
 }
 #PageTitle {
   background-image: url('~assets/mc/dirt_background.png');
   background-repeat: repeat;
+}
+.themed_dark {
+  background-color: var(--dark);
+  color: white;
 }
 </style>
