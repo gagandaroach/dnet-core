@@ -1,6 +1,6 @@
 <template>
-  <section>
-    <b-container class="main">
+  <section id="PageTitle" :style="style">
+    <b-container>
       <h1 class="display-3">{{ title }}</h1>
       <p class="lead">{{ description }}</p>
     </b-container>
@@ -10,13 +10,48 @@
 <script>
 export default {
   components: {},
-  props: ['title', 'description']
+  props: {
+    title: {
+      type: String,
+      default: `Page-Title`
+    },
+    description: {
+      type: String,
+      default: 'Page Description'
+    },
+    textColor: {
+      type: String,
+      default: `white`
+    },
+    background: {
+      type: String,
+      default: 'var(--secondary)'
+    },
+    paddingTop: {
+      type: Number,
+      default: 40
+    },
+    paddingBottom: {
+      type: Number,
+      default: 40
+    }
+  },
+  computed: {
+    style() {
+      const styleText =
+        'color: ' +
+        this.textColor +
+        ';padding-top: ' +
+        this.paddingTop +
+        'px; padding-bottom: ' +
+        this.paddingBottom +
+        'px; text-align: center' +
+        ';background-color: ' +
+        this.background
+      return styleText
+    }
+  }
 }
 </script>
 
-<style scoped>
-.main {
-  margin-top: 40px;
-  text-align: center;
-}
-</style>
+<style scoped></style>
