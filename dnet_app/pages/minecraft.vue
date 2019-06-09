@@ -141,10 +141,12 @@ export default {
   background-image: url('~assets/mc/dirt_background.png');
   background-repeat: repeat;
   text-align: center;
+  font-family: 'Minecraft Regular';
 }
 #PageTitle {
   background-image: url('~assets/mc/dirt_background.png');
   background-repeat: repeat;
+  font-family: 'Minecraft Regular';
 }
 .themed_dark {
   background-color: var(--dark);
