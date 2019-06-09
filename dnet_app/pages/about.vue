@@ -1,7 +1,6 @@
 <template>
   <section>
     <Navbar />
-    <br />
     <PageTitle
       title="About"
       description="Learn about this site's hoster, features, and history."
