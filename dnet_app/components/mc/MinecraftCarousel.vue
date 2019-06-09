@@ -2,8 +2,7 @@
   <div>
     <b-carousel
       id="MinecraftCarousel"
-      v-model="slide"
-      :interval="4000"
+      interval="4000"
       controls
       indicators
       background="#5c473c"
