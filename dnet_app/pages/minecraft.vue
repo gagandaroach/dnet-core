@@ -61,7 +61,7 @@
           </b-card>
           <b-card no-body="true" border-variant="success" bg-variant="dark">
             <b-card-header
-              header="Server Features"
+              header="World Details"
               class="h1"
               header-text-variant="success"
               header-border-variant="success"
@@ -88,7 +88,7 @@
             text-variant="light"
           >
             <b-card-header
-              header="Server Technology"
+              header="Server Tech Specs"
               class="h1"
               header-text-variant="warning"
               header-border-variant="warning"
