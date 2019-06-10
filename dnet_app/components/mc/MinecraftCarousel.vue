@@ -4,7 +4,7 @@
       id="MinecraftCarousel"
       interval="4000"
       controls
-      indicators
+      fade
       background="#5c473c"
       img-width="1920"
       img-height="1080"
