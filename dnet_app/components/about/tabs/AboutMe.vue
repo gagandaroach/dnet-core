@@ -153,7 +153,7 @@
 </template>
 
 <script>
-import GaganJumbotron from '~/components/about/GaganJumbotron.vue'
+import GaganJumbotron from '~/components/about/cards/GaganJumbotron.vue'
 
 export default {
   components: {

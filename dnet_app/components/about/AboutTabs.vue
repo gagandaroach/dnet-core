@@ -15,9 +15,9 @@
 </template>
 
 <script>
-import AboutMe from '~/components/about/AboutMe.vue'
-import HomeLab from '~/components/about/HomeLab.vue'
-import SiteHistory from '~/components/about/SiteHistory.vue'
+import AboutMe from '~/components/about/tabs/AboutMe.vue'
+import HomeLab from '~/components/about/tabs/HomeLab.vue'
+import SiteHistory from '~/components/about/tabs/SiteHistory.vue'
 
 export default {
   components: {
