@@ -1,7 +1,11 @@
 <template>
   <section>
     <Navbar />
-    <PageTitle title="About" description="" padding-bottom="10" />
+    <PageTitle
+      title="About"
+      description="Learn about my homelab and me."
+      padding-bottom="10"
+    />
 
     <AboutTabs />
 
