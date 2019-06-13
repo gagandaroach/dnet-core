@@ -8,8 +8,8 @@
           "
           title=""
           variant="outline-light"
-          to="/"
-          active-class=""
+          to="/welcome"
+          active-class="active"
           >Welcome</b-button
         >
         <b-button
