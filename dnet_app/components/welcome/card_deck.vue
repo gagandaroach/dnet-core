@@ -1,7 +1,9 @@
 <template>
   <section>
-    <b-container
-      ><b-card-group deck class="mt-3">
+    <b-container fluid
+      ><b-card-group class="mt-3" columns>
+        <AboutMeCard />
+        <HomelabCard />
         <MinecraftCard />
       </b-card-group>
     </b-container>
@@ -10,10 +12,14 @@
 
 <script>
 import MinecraftCard from '~/components/welcome/cards/mc_card.vue'
+import AboutMeCard from '~/components/welcome/cards/aboutme.vue'
+import HomelabCard from '~/components/welcome/cards/homelab.vue'
 
 export default {
   components: {
-    MinecraftCard
+    MinecraftCard,
+    AboutMeCard,
+    HomelabCard
   }
 }
 </script>
