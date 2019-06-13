@@ -1,7 +1,7 @@
 <template>
   <section>
     <b-container
-      ><b-card-group deck>
+      ><b-card-group deck class="mt-3">
         <MinecraftCard />
       </b-card-group>
     </b-container>
