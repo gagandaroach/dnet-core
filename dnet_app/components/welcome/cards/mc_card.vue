@@ -1,35 +1,33 @@
 <template>
   <section>
-    <b-card
+    <!-- <b-card
       no-body="true"
-      border-variant="warning"
+      border-variant="dark"
       bg-variant="dark"
       text-variant="light"
     >
       <b-card-header
-        header="Server Tech Specs"
+        header="Minecraft Server"
         class="h1"
-        header-text-variant="warning"
-        header-border-variant="warning"
+        header-text-variant="primary"
+        header-border-variant="primary"
       ></b-card-header>
-      <b-list-group flush>
-        <b-list-group-item class="themed_dark"
-          >Automatic server backups every six hours.</b-list-group-item
-        >
-        <b-list-group-item class="themed_dark">
-          An instantiation of the
-          <a href="https://hub.docker.com/r/itzg/minecraft-server/"
-            ><code>itzg/minecraft-server</code></a
-          >
-          docker container.
-        </b-list-group-item>
-        <b-list-group-item class="themed_dark">
-          32GB of dedicated RAM space.
-        </b-list-group-item>
-        <b-list-group-item class="themed_dark">
-          Dual Intel Xeon L5520 @ 2.27GHz
-        </b-list-group-item>
-      </b-list-group>
+      <b-card-img src="~/assets/mc/gagany.png" />
+    </b-card> -->
+    <b-card
+      title="Minecraft Server"
+      img-src="~/assets/mc/gagany.png"
+      img-alt="Minecraft Server Screenshot"
+      img-top
+      style="max-width: 40%;"
+      class="mb-2"
+    >
+      <b-card-text>
+        A free to play vanilla Minecraft server. A place to relax, design, and
+        compete with friends.
+      </b-card-text>
+
+      <b-button to="/minecraft" variant="primary">Visit</b-button>
     </b-card>
   </section>
 </template>
