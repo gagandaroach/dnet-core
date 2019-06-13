@@ -6,7 +6,6 @@
       description="Website Features"
       padding-bottom="10"
     />
-    <hr />
     <CardDeck />
   </section>
 </template>
