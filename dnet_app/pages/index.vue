@@ -35,7 +35,7 @@ export default {
   text-align: center;
 }
 .body {
-  background-color: #333;
+  background-color: var(--secondary);
   color: #fff;
   box-shadow: inset 0 0 5rem rgba(0, 0, 0, 0.5);
 }
