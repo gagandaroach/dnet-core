@@ -12,7 +12,7 @@ networks:
 
 services:
   nuxt_app_server:
-    build: ./dnet_app
+    image: gagany/daroachnet:latest
     restart: always
     ports: 
       - 3000:3000
