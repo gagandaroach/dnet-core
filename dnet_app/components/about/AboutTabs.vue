@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-tabs nav-class="bg-secondary" content-class="mt-3" align="center">
+    <b-tabs nav-class="bg-primary" content-class="mt-3" align="center">
       <b-tab title="The Homelab" title-link-class="btn-outline-light" active
         ><HomeLab
       /></b-tab>
