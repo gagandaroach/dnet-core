@@ -40,6 +40,15 @@ export default {
     '@nuxtjs/pwa'
   ],
 
+  /**
+   * to override default bootstrap stylings
+   * i got this from: https://bootstrap-vue.js.org/docs/#nuxtjs-module
+   */
+  bootstrapVue: {
+    bootstrapCSS: false, // Or `css: false`
+    bootstrapVueCSS: false // Or `bvCSS: false`
+  },
+
   /*
    ** Build configuration
    */
