@@ -14,8 +14,8 @@
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-import Nav from '~/components/Nav.vue'
+import Logo from '~/components/landing/Logo.vue'
+import Nav from '~/components/landing/Nav.vue'
 
 export default {
   components: {
