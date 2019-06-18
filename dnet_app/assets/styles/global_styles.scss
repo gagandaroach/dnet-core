@@ -1,0 +1,11 @@
+@font-face {
+  font-family: 'Minecraft Regular';
+  src: url('~assets/fonts/Minecraft/MinecraftRegular.otf') format('opentype');
+  font-weight: normal;
+}
+
+$theme-colors: (
+  "primary": #0074d9,
+  "secondary": #0074d9,
+  "danger": #ff4136
+);
