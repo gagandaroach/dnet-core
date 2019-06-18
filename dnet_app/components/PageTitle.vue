@@ -25,7 +25,7 @@ export default {
     },
     background: {
       type: String,
-      default: 'var(--secondary)'
+      default: 'var(--primary)'
     },
     paddingTop: {
       type: Number,
