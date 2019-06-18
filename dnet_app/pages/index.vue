@@ -14,8 +14,8 @@
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-import Nav from '~/components/Nav.vue'
+import Logo from '~/components/landing/Logo.vue'
+import Nav from '~/components/landing/Nav.vue'
 
 export default {
   components: {
@@ -35,8 +35,8 @@ export default {
   text-align: center;
 }
 .body {
-  background-color: #333;
+  background-color: var(--primary);
   color: #fff;
-  box-shadow: inset 0 0 5rem rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 0 5rem var(--secondary);
 }
 </style>

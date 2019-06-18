@@ -2,12 +2,12 @@
   <div>
     <b-carousel
       id="MinecraftCarousel"
-      interval="4000"
+      :interval="4000"
       controls
       fade
       background="#5c473c"
-      img-width="1920"
-      img-height="1080"
+      :img-width="1920"
+      :img-height="1080"
     >
       <b-carousel-slide
         caption="A Great Community"

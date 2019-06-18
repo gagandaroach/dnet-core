@@ -1,19 +1,18 @@
 <template>
   <section>
     <Navbar />
-    <b-container class="main">
-      <h1 class="display-3">Blog Page</h1>
-      <p class="lead">A Work in Progress</p>
-    </b-container>
+    <PageTitle title="Blog Page" description="A Work in Progress" />
   </section>
 </template>
 
 <script>
 import Navbar from '~/components/Navbar.vue'
+import PageTitle from '~/components/PageTitle.vue'
 
 export default {
   components: {
-    Navbar
+    Navbar,
+    PageTitle
   }
 }
 </script>

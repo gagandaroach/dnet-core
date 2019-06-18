@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-tabs nav-class="bg-secondary" content-class="mt-3" align="center">
+    <b-tabs nav-class="bg-primary" content-class="mt-3" align="center">
       <b-tab title="The Homelab" title-link-class="btn-outline-light" active
         ><HomeLab
       /></b-tab>
@@ -15,9 +15,9 @@
 </template>
 
 <script>
-import AboutMe from '~/components/about/AboutMe.vue'
-import HomeLab from '~/components/about/HomeLab.vue'
-import SiteHistory from '~/components/about/SiteHistory.vue'
+import AboutMe from '~/components/about/tabs/AboutMe.vue'
+import HomeLab from '~/components/about/tabs/HomeLab.vue'
+import SiteHistory from '~/components/about/tabs/SiteHistory.vue'
 
 export default {
   components: {

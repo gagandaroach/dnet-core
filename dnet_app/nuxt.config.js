@@ -24,7 +24,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: ['~assets/global_styles.css'],
+  css: ['@/assets/styles/global_styles.scss'],
 
   /*
    ** Plugins to load before mounting the App
@@ -39,6 +39,15 @@ export default {
     'bootstrap-vue/nuxt',
     '@nuxtjs/pwa'
   ],
+
+  /**
+   * to override default bootstrap stylings
+   * i got this from: https://bootstrap-vue.js.org/docs/#nuxtjs-module
+   */
+  bootstrapVue: {
+    bootstrapCSS: false, // Or `css: false`
+    bootstrapVueCSS: false // Or `bvCSS: false`
+  },
 
   /*
    ** Build configuration

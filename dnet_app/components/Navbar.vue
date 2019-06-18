@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-navbar class="main" type="dark" variant="secondary" sticky>
+    <b-navbar class="main" type="dark" variant="primary" sticky>
       <b-container>
         <b-navbar-brand to="/">daroach.net</b-navbar-brand>
         <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>

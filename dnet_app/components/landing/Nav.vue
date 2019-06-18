@@ -3,13 +3,11 @@
     <div class="mt-3">
       <b-button-group size="lg">
         <b-button
-          v-b-popover.hover.bottom="
-            'Welcome to the coolest site on the internet!'
-          "
+          v-b-popover.hover.bottom="'What is this page all about?'"
           title=""
           variant="outline-light"
-          to="/"
-          active-class=""
+          to="/welcome"
+          active-class="active"
           >Welcome</b-button
         >
         <b-button
