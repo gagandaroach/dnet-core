@@ -4,7 +4,7 @@
     <PageTitle
       title="Welcome to Daroach.net"
       description="Website Features"
-      padding-bottom="10"
+      :padding-bottom="10"
     />
     <CardDeck />
   </section>
