@@ -5,7 +5,12 @@
 }
 
 $theme-colors: (
-  "primary": #0074d9,
-  "secondary": #0074d9,
+  "primary": #69140E,
+  "secondary": #A7333F,
   "danger": #ff4136
 );
+
+
+// Import Bootstrap Stylings
+@import 'bootstrap/scss/bootstrap.scss';
+@import 'bootstrap-vue/src/index.scss';
