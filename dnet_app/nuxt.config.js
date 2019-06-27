@@ -17,7 +17,8 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       {
         rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css?family=Roboto|Rubik+Mono+One'
+        href:
+          'https://fonts.googleapis.com/css?family=Roboto|Rubik+Mono+One|Bungee'
       }
     ]
   },

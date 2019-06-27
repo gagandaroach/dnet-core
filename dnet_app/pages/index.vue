@@ -34,10 +34,16 @@ export default {
   align-items: center;
   text-align: center;
 }
+h1 {
+  color: var(--white);
+}
+p {
+  color: var(--white);
+}
 .body {
-  background-color: var(--primary);
-  color: var(--light);
+  background-color: var(--secondary);
+  text-shadow: 12px;
   box-shadow: inset 0 0 5rem var(--black);
-  font-family: 'Rubik Mono One', sans-serif;
+  font-family: 'Bungee', sans-serif;
 }
 </style>
