@@ -4,7 +4,7 @@
       <div>
         <b-button
           size="lg"
-          v-b-popover.hover.bottom="'What is this page all about?'"
+          v-b-popover.hover.bottom="'Newcomers click here!'"
           title=""
           variant="outline-light"
           to="/welcome"
@@ -14,7 +14,7 @@
         <b-button
           size="lg"
           v-b-popover.hover.bottom="
-            'A place where I share my latest learning, travels, and thoughts.'
+            'A place of discussions and learning I am sharing to the world.'
           "
           title=""
           variant="outline-light"
@@ -25,7 +25,7 @@
         <b-button
           size="lg"
           v-b-popover.hover.bottom="
-            'Learn about this site\'s hoster, features, and history.'
+            'Learn more about this website and its creator.'
           "
           title=""
           variant="outline-light"
