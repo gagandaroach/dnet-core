@@ -30,7 +30,7 @@
           active-class="active"
           >About</b-button
         >
-        <b-dropdown
+        <!-- <b-dropdown
           v-b-popover.hover.bottom="'The Web Services running on my box.'"
           variant="outline-light"
           size="lg"
@@ -59,7 +59,7 @@
             href="https://portainer.daroach.net"
             >Portainer
           </b-dropdown-item>
-        </b-dropdown>
+        </b-dropdown> -->
       </b-button-group>
     </div>
   </section>

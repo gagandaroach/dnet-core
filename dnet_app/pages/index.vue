@@ -2,11 +2,11 @@
   <div class="body">
     <b-container fluid class="container">
       <div>
-        <logo />
         <h1 class="display-3">
           daroach.net
         </h1>
         <p class="lead">The coolest website on the internet.</p>
+        <MilkAndDonutIntro />
         <Nav />
       </div>
     </b-container>
@@ -14,13 +14,13 @@
 </template>
 
 <script>
-import Logo from '~/components/landing/Logo.vue'
 import Nav from '~/components/landing/Nav.vue'
+import MilkAndDonutIntro from '~/components/landing/MilkAndDonutIntro.vue'
 
 export default {
   components: {
-    Logo,
-    Nav
+    Nav,
+    MilkAndDonutIntro
   }
 }
 </script>
