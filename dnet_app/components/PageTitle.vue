@@ -54,4 +54,11 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+h1 {
+  font-family: 'Bungee', sans-serif;
+}
+p {
+  font-family: 'Roboto', sans-serif;
+}
+</style>
