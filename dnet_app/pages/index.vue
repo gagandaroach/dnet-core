@@ -36,7 +36,8 @@ export default {
 }
 .body {
   background-color: var(--primary);
-  color: #fff;
+  color: var(--light);
   box-shadow: inset 0 0 5rem var(--black);
+  font-family: 'Rubik Mono One', sans-serif;
 }
 </style>

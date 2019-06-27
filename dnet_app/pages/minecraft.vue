@@ -137,11 +137,14 @@ export default {
 #rules {
   text-align: center;
 }
+.h1 {
+  font-family: 'Minecraft Regular', Courier, monospace;
+}
 .body {
   background-image: url('~assets/mc/dirt_background.png');
   background-repeat: repeat;
   text-align: center;
-  font-family: 'Minecraft Regular', Courier, monospace;
+  font-family: 'Roboto', sans-serif;
 }
 #PageTitle {
   background-image: url('~assets/mc/dirt_background.png');
