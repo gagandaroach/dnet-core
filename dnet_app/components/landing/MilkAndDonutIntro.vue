@@ -6,6 +6,7 @@
     loop
     src="~/assets/milk_and_donuts_intro_gagan_daroach_daroach.net.mp4"
     poster="~/assets/milk_and_donuts_intro_gagan_daroach_daroach.net.JPEG"
+    muted
   >
   </b-embed>
 </template>
