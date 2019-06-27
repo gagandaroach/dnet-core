@@ -1,9 +1,10 @@
 <template>
   <section>
     <div class="mt-3">
-      <b-button-group size="lg">
+      <div>
         <b-button
-          v-b-popover.hover.bottom="'What is this page all about?'"
+          v-b-popover.hover.bottom="'Newcomers click here!'"
+          size="lg"
           title=""
           variant="outline-light"
           to="/welcome"
@@ -12,8 +13,9 @@
         >
         <b-button
           v-b-popover.hover.bottom="
-            'A place where I share my latest learning, travels, and thoughts.'
+            'A place of discussions and learning I am sharing to the world.'
           "
+          size="lg"
           title=""
           variant="outline-light"
           to="/blog"
@@ -22,45 +24,16 @@
         >
         <b-button
           v-b-popover.hover.bottom="
-            'Learn about this site\'s hoster, features, and history.'
+            'Learn more about this website and its creator.'
           "
+          size="lg"
           title=""
           variant="outline-light"
           to="/about"
           active-class="active"
           >About</b-button
         >
-        <b-dropdown
-          v-b-popover.hover.bottom="'The Web Services running on my box.'"
-          variant="outline-light"
-          size="lg"
-          text=""
-        >
-          <b-dropdown-item
-            v-b-popover.hover.left="'A Personal Dropbox Server'"
-            href="https://cloud.daroach.net"
-            >Cloud
-          </b-dropdown-item>
-          <b-dropdown-item
-            v-b-popover.hover.left="'A Personal Netflix Server'"
-            href="https://media.daroach.net"
-            >Plex
-          </b-dropdown-item>
-          <b-dropdown-item
-            v-b-popover.hover.left="'Minecraft server for the boyz.'"
-            to="/minecraft"
-            >Minecraft
-          </b-dropdown-item>
-          <b-dropdown-divider></b-dropdown-divider>
-          <b-dropdown-item
-            v-b-popover.hover.left="
-              'Allows for administration of the homelab\'s docker containers.'
-            "
-            href="https://portainer.daroach.net"
-            >Portainer
-          </b-dropdown-item>
-        </b-dropdown>
-      </b-button-group>
+      </div>
     </div>
   </section>
 </template>
