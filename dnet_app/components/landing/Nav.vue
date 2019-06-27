@@ -3,8 +3,8 @@
     <div class="mt-3">
       <div>
         <b-button
-          size="lg"
           v-b-popover.hover.bottom="'Newcomers click here!'"
+          size="lg"
           title=""
           variant="outline-light"
           to="/welcome"
@@ -12,10 +12,10 @@
           >Welcome</b-button
         >
         <b-button
-          size="lg"
           v-b-popover.hover.bottom="
             'A place of discussions and learning I am sharing to the world.'
           "
+          size="lg"
           title=""
           variant="outline-light"
           to="/blog"
@@ -23,10 +23,10 @@
           >Blog</b-button
         >
         <b-button
-          size="lg"
           v-b-popover.hover.bottom="
             'Learn more about this website and its creator.'
           "
+          size="lg"
           title=""
           variant="outline-light"
           to="/about"
