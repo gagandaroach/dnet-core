@@ -4,7 +4,7 @@
       class="main"
       type="dark"
       variant="primary"
-      toggleable="lg"
+      toggleable="md"
       sticky
       print
     >
@@ -55,9 +55,6 @@
           >
         </b-navbar-nav>
       </b-collapse>
-      <b-navbar-brand v-show="showBrand" class="brand" to="/"
-        >daroach.net</b-navbar-brand
-      >
       <b-navbar-toggle v-model="toggle" target="nav-collapse"></b-navbar-toggle>
     </b-navbar>
   </div>
