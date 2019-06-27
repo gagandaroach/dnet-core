@@ -1,7 +1,10 @@
 <template>
   <section>
-    <b-container fluid
-      ><b-card-group class="mt-3" columns>
+    <b-container fluid>
+      <b-container class="text-center">
+        <h1 class="display-4">Whats on daroach.net?</h1>
+      </b-container>
+      <b-card-group class="mt-3" columns>
         <AboutMeCard />
         <HomelabCard />
         <MinecraftCard />
