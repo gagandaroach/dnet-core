@@ -1,14 +1,17 @@
 <template>
   <section>
     <b-card
-      title="About Me"
+      title="Who am I?"
       img-src="~/assets/gagan_daroach_selfie.jpeg"
       img-alt="Gagan Daroach Selfie"
       img-top
       class="mb-2"
     >
       <b-card-text>
-        Who am I? Learn about my mission, passed, present, and future.
+        Learn about me, my story, ambitions, and passions. :)
+      </b-card-text>
+      <b-card-text>
+        You can find links to my social media here.
       </b-card-text>
 
       <b-button to="/about" variant="primary">Find out</b-button>
