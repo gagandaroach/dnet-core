@@ -2,10 +2,11 @@
   <section>
     <Navbar />
     <PageTitle
-      title="Welcome to Daroach.net"
-      description="Website Features"
+      title="Welcome"
+      description="Thanks for connecting to my homelab!"
       :padding-bottom="10"
     />
+    <BetaTag />
     <CardDeck />
   </section>
 </template>
@@ -14,12 +15,14 @@
 import Navbar from '~/components/Navbar.vue'
 import PageTitle from '~/components/PageTitle.vue'
 import CardDeck from '~/components/welcome/card_deck.vue'
+import BetaTag from '~/components/betatag.vue'
 
 export default {
   components: {
     Navbar,
     PageTitle,
-    CardDeck
+    CardDeck,
+    BetaTag
   }
 }
 </script>

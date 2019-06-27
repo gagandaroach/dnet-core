@@ -2,11 +2,11 @@
   <div class="body">
     <b-container fluid class="container">
       <div>
-        <logo />
         <h1 class="display-3">
           daroach.net
         </h1>
-        <p class="lead">The coolest website on the internet.</p>
+        <p class="lead">Hello Visitor # 1</p>
+        <MilkAndDonutIntro />
         <Nav />
       </div>
     </b-container>
@@ -14,13 +14,13 @@
 </template>
 
 <script>
-import Logo from '~/components/landing/Logo.vue'
 import Nav from '~/components/landing/Nav.vue'
+import MilkAndDonutIntro from '~/components/landing/MilkAndDonutIntro.vue'
 
 export default {
   components: {
-    Logo,
-    Nav
+    Nav,
+    MilkAndDonutIntro
   }
 }
 </script>
@@ -37,6 +37,6 @@ export default {
 .body {
   background-color: var(--primary);
   color: #fff;
-  box-shadow: inset 0 0 5rem var(--secondary);
+  box-shadow: inset 0 0 5rem var(--black);
 }
 </style>
