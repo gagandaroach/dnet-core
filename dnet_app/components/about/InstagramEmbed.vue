@@ -5,6 +5,7 @@
     autoplay
     loop
     src="~/assets/about/daroachtech_family_video.mp4"
+    muted
   >
   </b-embed>
 </template>
