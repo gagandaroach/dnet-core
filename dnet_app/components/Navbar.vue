@@ -55,7 +55,7 @@
           >
         </b-navbar-nav>
       </b-collapse>
-      <b-navbar-toggle v-model="toggle" target="nav-collapse"></b-navbar-toggle>
+      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
     </b-navbar>
   </div>
 </template>

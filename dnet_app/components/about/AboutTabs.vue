@@ -1,13 +1,23 @@
 <template>
   <div>
     <b-tabs nav-class="bg-primary" content-class="mt-3" align="center">
-      <b-tab title="The Homelab" title-link-class="btn-outline-light" active
+      <b-tab
+        to="/about/homelab"
+        title="The Homelab"
+        title-link-class="btn-outline-light"
+        active
         ><HomeLab
       /></b-tab>
-      <b-tab title="The Hoster" title-link-class="btn-outline-light"
+      <b-tab
+        to="/about/me"
+        title="The Hoster"
+        title-link-class="btn-outline-light"
         ><AboutMe
       /></b-tab>
-      <b-tab title="Site History" title-link-class="btn-outline-light"
+      <b-tab
+        to="/about/history"
+        title="Site History"
+        title-link-class="btn-outline-light"
         ><SiteHistory
       /></b-tab>
     </b-tabs>
