@@ -43,7 +43,7 @@ export default {
     return {
       drawer: true,
       fixed: false,
-      miniVariant: true,
+      miniVariant: false,
       items: [
         {
           icon: 'mdi-apps',
