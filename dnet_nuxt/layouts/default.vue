@@ -52,7 +52,12 @@ export default {
         },
         {
           icon: 'mdi-chart-bubble',
-          title: 'Inspire',
+          title: 'Blog',
+          to: '/inspire'
+        },
+        {
+          icon: 'mdi-chart-bubble',
+          title: 'About',
           to: '/inspire'
         }
       ],
