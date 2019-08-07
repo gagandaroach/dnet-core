@@ -23,6 +23,10 @@
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-toolbar-title v-text="title" />
       <v-spacer />
+      <v-toolbar-items>
+        <v-btn text to="/">Home</v-btn>
+        <v-btn text to="/about">About Me</v-btn>
+      </v-toolbar-items>
     </v-app-bar>
     <v-content>
       <v-container>
@@ -41,7 +45,7 @@
 export default {
   data () {
     return {
-      drawer: true,
+      drawer: false,
       fixed: false,
       miniVariant: false,
       items: [
