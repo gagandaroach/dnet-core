@@ -4,7 +4,7 @@
 
     <v-list-item v-for="(item, i) in items" :key="i">
       <v-list-item-content>
-        <v-list-item-title v-text="item" />
+        <v-list-item-title v-html="item" />
       </v-list-item-content>
     </v-list-item>
   </v-card>
