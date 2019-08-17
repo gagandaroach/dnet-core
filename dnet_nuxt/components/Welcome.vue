@@ -3,7 +3,7 @@
     <v-layout align-center justify-center>
       <div class="body">
         <h1>DAROACH.NET</h1>
-        <hr />
+        <hr>
         <h2>Welcome Visitor {{ visitorNumber }}</h2>
       </div>
     </v-layout>
