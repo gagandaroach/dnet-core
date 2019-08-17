@@ -30,6 +30,11 @@ export default {
           icon: 'mdi-chart-bubble',
           title: 'About',
           to: '/inspire'
+        },
+        {
+          icon: 'mdi-game',
+          title: 'Minecraft Server',
+          to: '/Minecraft'
         }
       ]
     }
