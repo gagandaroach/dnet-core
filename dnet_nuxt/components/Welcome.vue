@@ -2,7 +2,7 @@
   <v-container fluid fill-height height="100vh">
     <v-layout align-center justify-center>
       <div class="body">
-        <h1 :class="titleClass">DAROACH.NET</h1>
+        <h1>DAROACH.NET</h1>
         <hr />
         <h2>Welcome Visitor {{ visitorNumber }}</h2>
       </div>
@@ -18,18 +18,7 @@ export default {
     }
   },
   method: { },
-  computed: {
-    // titleClass () {
-    //   // switch (this.$vuetify.breakpoint.name) {
-    //   //   case 'xs': return 'display-2'
-    //   //   case 'sm': return 'display-3'
-    //   //   case 'md': return 'display-4'
-    //   //   case 'lg': return 'display-4'
-    //   //   case 'xl': return 'display-4'
-    //   //   default: return 'display-4'
-    //   // }
-    // }
-  }
+  computed: { }
 }
 </script>
 
