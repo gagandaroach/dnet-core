@@ -6,39 +6,28 @@
       background="#56962c"
     />
     <br>
-    <v-card>
-      <v-card-title primary-title>
-        Server Rules
-      </v-card-title>
-
-      <v-list-item>
-        <v-list-item-content>
-          <v-list-item-title>The Golden Rule Treat your neighbor how you would treat yourself.</v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
-
-      <v-list-item>
-        <v-list-item-content>
-          <v-list-item-title>So NO griefing, stealing, or uncalled-for player killing!</v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
-
-      <v-list-item>
-        <v-list-item-content>
-          <v-list-item-title>Cut down trees entirely. No dangling logs in the air.</v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
-    </v-card>
+    <CardList :items="serverRules" title="Server Rules" />
   </section>
 </template>
 
 <script>
 import PageTitle from '~/components/PageTitle.vue'
+import CardList from '~/components/mc/CardList.vue'
 // import MinecraftCarousel from '~/components/mc/MinecraftCarousel.vue'
 export default {
   components: {
-    PageTitle
+    PageTitle,
+    CardList
     // MinecraftCarousel
+  },
+  data () {
+    return {
+      serverRules: [
+        'The Golden Rule Treat your neighbor how you would treat yourself.',
+        'So NO griefing, stealing, or uncalled-for player killing!',
+        'Cut down trees entirely. No dangling logs in the air.'
+      ]
+    }
   }
 }
 </script>
