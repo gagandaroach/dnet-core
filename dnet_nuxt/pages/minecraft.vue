@@ -1,40 +1,39 @@
 <template>
-  <section>
+  <section class="body">
     <PageTitle
       title="Daroach.net Minecraft"
       description="A fun place to procrastinate your life's responsibilities."
       background="#56962c"
     />
-    <br>
-    <CardList :items="serverRules" title="Server Rules" />
-    <br>
-    <CardList :items="worldDetails" title="World Details" />
-    <br>
-    <CardList :items="serverNerdStats" title="Server Nerd Stats" />
-    <br>
-    <v-card>
-      <v-card-title>
-        <div>How to Connect</div>
-      </v-card-title>
-      <v-img
-        :src="require('assets/mc/server_info.png')"
-      />
-      <v-card-text>
-        Just input the Server Address:
-        <code>daroach.net</code>
-      </v-card-text>
-    </v-card>
+    <v-container>
+      <CardList :items="serverRules" title="Server Rules" />
+      <v-row>
+        <v-col>
+          <CardList :items="worldDetails" title="World Details" />
+        </v-col>
+        <v-col>
+          <CardList :items="serverNerdStats" title="Server Nerd Stats" />
+        </v-col>
+      </v-row>
+      <v-row>
+      <v-col class="col-6">
+        <HowToConnect />
+      </v-col>
+      </v-row>
+    </v-container>
   </section>
 </template>
 
 <script>
 import PageTitle from '~/components/PageTitle.vue'
 import CardList from '~/components/mc/CardList.vue'
+import HowToConnect from '~/components/mc/CardHowToConnect.vue'
 // import MinecraftCarousel from '~/components/mc/MinecraftCarousel.vue'
 export default {
   components: {
     PageTitle,
-    CardList
+    CardList,
+    HowToConnect
     // MinecraftCarousel
   },
   data () {

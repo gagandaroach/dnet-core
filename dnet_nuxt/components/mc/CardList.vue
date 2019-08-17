@@ -1,10 +1,10 @@
 <template>
-  <v-card>
-    <v-card-title primary-title v-text="title" />
+  <v-card :class="width">
+    <v-card-title class="justify-center" v-text="title" />
 
     <v-list-item v-for="(item, i) in items" :key="i">
       <v-list-item-content>
-        <v-list-item-title v-html="item" />
+        <v-list-item-text v-html="item" />
       </v-list-item-content>
     </v-list-item>
   </v-card>
@@ -19,6 +19,9 @@ export default {
         'List item 2',
         'List item 3'
       ]
+    },
+    width: {
+      default: 'col-12'
     },
     title: {
       default: 'default title'
