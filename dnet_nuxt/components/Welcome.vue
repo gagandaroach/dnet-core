@@ -1,5 +1,10 @@
 <template>
-  <v-container fluid fill-height height="100vh">
+  <section id="welcome">
+    <PageTitle
+      title="DAROACH.NET"
+      description="Thanks for connecting to my homelab!"
+    />
+  <!-- <v-container fluid fill-height height="100vh">
     <v-layout align-center justify-center>
       <div class="body">
         <h1>DAROACH.NET</h1>
@@ -7,11 +12,16 @@
         <h2>Welcome Visitor {{ visitorNumber }}</h2>
       </div>
     </v-layout>
-  </v-container>
+  </v-container> -->
+  </section>
 </template>
 
 <script>
+import PageTitle from '~/components/PageTitle.vue'
 export default {
+  components: {
+    PageTitle
+  },
   data () {
     return {
       visitorNumber: 1
