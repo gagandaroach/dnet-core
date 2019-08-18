@@ -9,19 +9,19 @@
     <v-container>
       <v-row>
         <v-col>
-        <CardList :items="serverRules" title="Server Rules" />
+          <CardList :items="serverRules" title="Server Rules" />
         </v-col>
         <v-col>
           <CardList :items="worldDetails" title="World Details" />
         </v-col>
       </v-row>
       <v-row>
-      <v-col>
-        <HowToConnect />
-      </v-col>
-      <v-col>
+        <v-col>
+          <HowToConnect />
+        </v-col>
+        <v-col>
           <CardList :items="serverNerdStats" title="Server Nerd Stats" />
-      </v-col>
+        </v-col>
       </v-row>
     </v-container>
   </section>
