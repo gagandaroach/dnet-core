@@ -17,24 +17,24 @@ export default {
     return {
       items: [
         {
-          icon: 'mdi-apps',
+          icon: 'mdi-home',
           title: 'Welcome',
           to: '/'
         },
         {
-          icon: 'mdi-chart-bubble',
+          icon: 'mdi-post',
           title: 'Blog',
-          to: '/inspire'
+          to: '/blog'
         },
         {
-          icon: 'mdi-chart-bubble',
+          icon: 'mdi-information',
           title: 'About',
-          to: '/inspire'
+          to: '/about'
         },
         {
-          icon: 'mdi-game',
+          icon: 'mdi-gamepad-variant',
           title: 'Minecraft Server',
-          to: '/Minecraft'
+          to: '/minecraft'
         }
       ]
     }
