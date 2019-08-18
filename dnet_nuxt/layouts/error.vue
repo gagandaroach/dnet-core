@@ -1,12 +1,20 @@
 <template>
   <v-app dark>
-    <PageTitle
-      :title="title"
-      description=""
-    />
-    <v-btn color="" to="/">
-      Return to homepage
-    </v-btn>
+    <v-contents class="align-self-center">
+      <PageTitle
+        :title="title"
+        description=""
+      />
+      <v-alert type="error" border="left" colored-border>
+        Looks like you are looking for a page that either doesn't exist, or maybe is not yet written.
+      </v-alert>
+      <v-btn color="" to="/">
+        Return to homepage
+      </v-btn>
+      <v-btn color="" href="https://github.com/gagandaroach/daroachnet/issues/new">
+        Let me know about a bug
+      </v-btn>
+    </v-contents>
   </v-app>
 </template>
 
