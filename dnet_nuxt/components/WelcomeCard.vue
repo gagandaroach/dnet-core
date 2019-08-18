@@ -1,32 +1,45 @@
 <template>
-  <v-card :class="width" outlined>
-    <v-card-title class="justify-center" v-text="title" />
-    <v-divider />
-    <v-list>
-      <v-list-item v-for="(item, i) in items" :key="i">
-        <v-list-item-content>
-          <v-list-item-text v-html="item" />
-        </v-list-item-content>
-      </v-list-item>
-    </v-list>
+  <v-card outlined>
+    <v-flex lg10>
+      <v-row>
+        <v-col>
+          <v-img
+            :src="require('assets/welcome/gagan_daroach_selfie.jpeg')"
+            aspect-ratio="1"
+            class="ma-2"
+          />
+        </v-col>
+        <v-col>
+          <v-card-title class="justify-center" v-text="title" />
+          <v-divider />
+          <v-list>
+            <v-list-item>
+              <v-list-item-content>
+                <v-list-item-text />
+              </v-list-item-content>
+            </v-list-item>
+          </v-list>
+        </v-col>
+      </v-row>
+    </v-flex>
   </v-card>
 </template>
 
 <script>
 export default {
   props: {
-    items: {
-      default: [
-        'List item 1',
-        'List item 2',
-        'List item 3'
-      ]
-    },
-    width: {
-      default: 'col-12'
-    },
     title: {
+      type: String,
       default: 'default title'
+    },
+    imgPath: {
+      type: String,
+      default: 'assets/mc/server_info.png'
+    }
+  },
+  computed: {
+    img () {
+      return null
     }
   }
 }

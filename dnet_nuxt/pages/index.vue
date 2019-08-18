@@ -6,8 +6,9 @@
   >
     <v-flex
       xs12
-      sm8
-      md6
+      sm12
+      md12
+      lg10
     >
       <Welcome />
       <WelcomeCard />

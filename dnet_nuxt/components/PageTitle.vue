@@ -29,7 +29,7 @@ export default {
     },
     background: {
       type: String,
-      default: 'var(--primary)'
+      default: ' '
     },
     paddingTop: {
       type: Number,
