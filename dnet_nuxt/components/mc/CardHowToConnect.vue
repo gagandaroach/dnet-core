@@ -1,8 +1,7 @@
 <template>
-  <v-card>
-    <v-card-title>
-      <div>How to Connect</div>
-    </v-card-title>
+  <v-card outline>
+    <v-card-title class="justify-center" v-text="'How to Connect'" />
+    <v-divider></v-divider>
     <v-img
       :src="require('assets/mc/server_info.png')"
     />

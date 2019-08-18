@@ -1,12 +1,14 @@
 <template>
   <v-card :class="width">
     <v-card-title class="justify-center" v-text="title" />
-
+    <v-divider></v-divider>
+    <v-list>
     <v-list-item v-for="(item, i) in items" :key="i">
       <v-list-item-content>
         <v-list-item-text v-html="item" />
       </v-list-item-content>
     </v-list-item>
+    </v-list>
   </v-card>
 </template>
 
