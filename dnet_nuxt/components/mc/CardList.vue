@@ -1,5 +1,5 @@
 <template>
-  <v-card :class="width">
+  <v-card :class="width" outlined>
     <v-card-title class="justify-center" v-text="title" />
     <v-divider />
     <v-list>

@@ -1,5 +1,5 @@
 <template>
-  <v-card outline>
+  <v-card outlined>
     <v-card-title class="justify-center" v-text="'How to Connect'" />
     <v-divider />
     <v-img
