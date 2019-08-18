@@ -5,19 +5,22 @@
       description="A fun place to procrastinate your life's responsibilities."
       background="#56962c"
     />
+    <MinecraftCarousel />
     <v-container>
-      <CardList :items="serverRules" title="Server Rules" />
       <v-row>
+        <v-col>
+        <CardList :items="serverRules" title="Server Rules" />
+        </v-col>
         <v-col>
           <CardList :items="worldDetails" title="World Details" />
         </v-col>
-        <v-col>
-          <CardList :items="serverNerdStats" title="Server Nerd Stats" />
-        </v-col>
       </v-row>
       <v-row>
-      <v-col class="col-6">
+      <v-col>
         <HowToConnect />
+      </v-col>
+      <v-col>
+          <CardList :items="serverNerdStats" title="Server Nerd Stats" />
       </v-col>
       </v-row>
     </v-container>
@@ -28,13 +31,13 @@
 import PageTitle from '~/components/PageTitle.vue'
 import CardList from '~/components/mc/CardList.vue'
 import HowToConnect from '~/components/mc/CardHowToConnect.vue'
-// import MinecraftCarousel from '~/components/mc/MinecraftCarousel.vue'
+import MinecraftCarousel from '~/components/mc/MinecraftCarousel.vue'
 export default {
   components: {
     PageTitle,
     CardList,
-    HowToConnect
-    // MinecraftCarousel
+    HowToConnect,
+    MinecraftCarousel
   },
   data () {
     return {
@@ -53,7 +56,7 @@ export default {
       serverNerdStats: [
         'Automatic server backups every fifteen minutes.',
         'Always the Official latest Version',
-        'An instantiation of the <a href="https://hub.docker.com/r/itzg/minecraft-server/"><code>itzg/minecraft-server</code></a> docker container.',
+        'An instantiation of the <a href="https://hub.docker.com/r/itzg/minecraft-server/"><kbd>itzg/minecraft-server</kbd></a> docker container.',
         '32GB of dedicated RAM space.',
         'Dual Intel Xeon L5520 @ 2.27GHz'
       ]

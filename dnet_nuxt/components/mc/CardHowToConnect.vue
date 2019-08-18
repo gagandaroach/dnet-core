@@ -8,7 +8,7 @@
     />
     <v-card-text>
       Just input the Server Address:
-      <code>daroach.net</code>
+      <kbd>daroach.net</kbd>
     </v-card-text>
   </v-card>
 </template>
