@@ -6,7 +6,7 @@
         description=""
       />
       <v-alert type="error" border="left" colored-border>
-        Looks like you are looking for a page that either doesn't exist, or maybe is not yet written.
+        Oops. Looks like something broke. Looks like you are looking for a page or feature that either doesn't exist... or maybe is not yet written.
       </v-alert>
       <v-btn color="" to="/">
         Return to homepage

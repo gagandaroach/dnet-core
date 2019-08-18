@@ -35,6 +35,11 @@ export default {
           icon: 'mdi-gamepad-variant',
           title: 'Minecraft Server',
           to: '/minecraft'
+        },
+        {
+          icon: 'mdi-chart-bubble',
+          title: 'Vuetify Inspire',
+          to: '/inspire'
         }
       ]
     }

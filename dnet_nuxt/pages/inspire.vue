@@ -1,5 +1,5 @@
 <template>
-  <v-layout>
+  <v-layout class="mt-10">
     <v-flex class="text-center">
       <img
         src="/v.png"
