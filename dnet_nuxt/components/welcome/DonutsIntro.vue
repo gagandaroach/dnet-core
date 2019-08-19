@@ -1,8 +1,8 @@
 <template>
-  <v-sheet align="center" justify="center" id="donutgif">
+  <v-sheet id="donutgif" align="center" justify="center">
     <v-img
       :src="require('assets/milk_and_donuts_intro_gagan_daroach_daroach.net.gif')"
-    ></v-img>
+    />
   </v-sheet>
 </template>
 

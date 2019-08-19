@@ -21,7 +21,7 @@
           Home
         </v-btn>
         <v-btn text to="/about">
-          About Me
+          About
         </v-btn>
       </v-toolbar-items>
     </v-app-bar>
