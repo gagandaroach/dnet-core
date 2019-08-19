@@ -11,16 +11,19 @@
       lg10
     >
       <PageTitle :title="PageTitle" :description="Description" />
+      <Tabs />
     </v-flex>
   </v-layout>
 </template>
 
 <script>
 import PageTitle from '~/components/PageTitle.vue'
+import Tabs from '~/components/about/Tabs.vue'
 
 export default {
   components: {
-    PageTitle
+    PageTitle,
+    Tabs
   },
   data () {
     return {
