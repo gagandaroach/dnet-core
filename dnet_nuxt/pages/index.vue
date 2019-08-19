@@ -11,19 +11,19 @@
       lg10
     >
       <Welcome />
-      <WelcomeCard />
+      <Donuts />
     </v-flex>
   </v-layout>
 </template>
 
 <script>
-import Welcome from '~/components/Welcome.vue'
-import WelcomeCard from '~/components/WelcomeCard.vue'
+import Welcome from '~/components/welcome/Welcome.vue'
+import Donuts from '~/components/welcome/DonutsIntro.vue'
 
 export default {
   components: {
     Welcome,
-    WelcomeCard
+    Donuts
   }
 }
 </script>
