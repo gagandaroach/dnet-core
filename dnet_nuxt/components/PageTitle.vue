@@ -21,15 +21,11 @@ export default {
     },
     description: {
       type: String,
-      default: 'Page Description'
+      default: 'Page Description blah blah blah'
     },
     textColor: {
       type: String,
       default: `white`
-    },
-    background: {
-      type: String,
-      default: ' '
     },
     paddingTop: {
       type: Number,
@@ -49,9 +45,7 @@ export default {
         this.paddingTop +
         'px; padding-bottom: ' +
         this.paddingBottom +
-        'px; text-align: center' +
-        ';background-color: ' +
-        this.background
+        'px; text-align: center'
       return styleText
     }
   }
