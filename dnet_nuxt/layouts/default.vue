@@ -12,15 +12,15 @@
         </div>
       </template>
     </v-navigation-drawer>
-    <v-app-bar clipped-left fixed app :collapse="collapse">
+    <v-app-bar :hidden="collapse" clipped-left fixed app>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-toolbar-title v-text="title" />
       <v-spacer />
       <v-toolbar-items>
-        <v-btn text to="/" :hidden="collapse">
+        <v-btn text to="/">
           Home
         </v-btn>
-        <v-btn text to="/about" :hidden="collapse">
+        <v-btn text to="/about">
           About
         </v-btn>
       </v-toolbar-items>
@@ -50,8 +50,12 @@ export default {
       drawer: false,
       fixed: false,
       miniVariant: false,
-      title: 'daroach.net',
-      collapse: false
+      title: 'daroach.net'
+    }
+  },
+  computed: {
+    collapse () {
+      return this.$store.state.navbar_hidden
     }
   }
 }

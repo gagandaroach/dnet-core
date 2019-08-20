@@ -3,7 +3,8 @@
     <PageTitle
       title="DAROACH.NET"
       description="Thanks for connecting to my homelab!"
-      :padding-bottom="1"
+      :padding-bottom="20"
+      :padding-top="0"
     />
   <!-- <v-container fluid fill-height height="100vh">
     <v-layout align-center justify-center>

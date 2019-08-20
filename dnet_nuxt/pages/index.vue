@@ -24,6 +24,12 @@ export default {
   components: {
     Welcome,
     Donuts
+  },
+  head () {
+    this.$store.commit('hideNavbar')
+  },
+  beforeDestroy () {
+    this.$store.commit('showNavbar')
   }
 }
 </script>
