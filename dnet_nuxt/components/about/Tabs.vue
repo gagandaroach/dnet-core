@@ -1,9 +1,9 @@
 <template>
   <v-container fluid>
     <v-tabs
+      v-model="tab"
       grow
       centered
-      v-model="tab"
       background-color="transparent"
       color="white"
     >

@@ -1,6 +1,13 @@
 <template>
   <v-app dark>
-    <v-navigation-drawer v-model="drawer" :mini-variant="miniVariant" clipped fixed app>
+    <v-navigation-drawer
+      v-model="drawer"
+      :hidden="collapse"
+      :mini-variant="miniVariant"
+      clipped
+      fixed
+      app
+    >
       <v-list>
         <NavDrawer />
       </v-list>
@@ -30,7 +37,7 @@
         <nuxt />
       </v-container>
     </v-content>
-    <v-footer :fixed="fixed" app>
+    <v-footer :hidden="collapse" :fixed="fixed" app>
       <span><a href="https://github.com/gagandaroach/daroachnet">Website Source Code</a></span>
       <v-spacer />
       <span>Gagan Daroach &copy; 2019</span>

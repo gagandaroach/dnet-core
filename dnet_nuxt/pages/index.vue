@@ -13,7 +13,9 @@
     >
       <Welcome />
       <Donuts />
-      <v-btn block color="dark" dark class="mt-10" to="/welcome">Welcome</v-btn>
+      <v-btn block color="dark" dark class="mt-10" to="/welcome">
+        Welcome
+      </v-btn>
     </v-flex>
   </v-layout>
 </template>
@@ -30,10 +32,10 @@ export default {
   head () {
     this.$store.commit('hideNavbar')
   },
+  computed: { },
   beforeDestroy () {
     this.$store.commit('showNavbar')
-  },
-  computed: { }
+  }
 }
 </script>
 
