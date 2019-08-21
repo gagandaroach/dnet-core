@@ -1,6 +1,7 @@
 <template>
-  <v-sheet id="donutgif" align="center" justify="center">
+  <v-sheet align="center" justify="center">
     <v-img
+      id="donutgif"
       :src="require('assets/milk_and_donuts_intro_gagan_daroach_daroach.net.gif')"
     />
   </v-sheet>
@@ -13,5 +14,7 @@ export default { }
 <style>
 #donutgif {
     padding: 4px;
+    width: auto;
+    max-height: 60vh;
 }
 </style>

@@ -3,6 +3,7 @@
     column
     justify-center
     align-center
+    fullscreen
   >
     <v-flex
       xs12
@@ -12,13 +13,14 @@
     >
       <Welcome />
       <Donuts />
+      <v-btn block color="dark" dark class="mt-10" to="/welcome">Welcome</v-btn>
     </v-flex>
   </v-layout>
 </template>
 
 <script>
-import Welcome from '~/components/welcome/Welcome.vue'
-import Donuts from '~/components/welcome/DonutsIntro.vue'
+import Welcome from '~/components/landing/Welcome.vue'
+import Donuts from '~/components/landing/DonutsIntro.vue'
 
 export default {
   components: {
@@ -30,6 +32,14 @@ export default {
   },
   beforeDestroy () {
     this.$store.commit('showNavbar')
-  }
+  },
+  computed: { }
 }
 </script>
+
+<style lang="scss">
+.mainbody {
+  min-height: 100vh;
+  max-height: 100vh;
+}
+</style>
