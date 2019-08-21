@@ -1,3 +1,5 @@
+// Gagan Daroach © 2019
+
 <template>
   <v-card :class="width" outlined>
     <v-card-title class="justify-center" v-text="title" />

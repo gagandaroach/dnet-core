@@ -1,3 +1,5 @@
+// Gagan Daroach © 2019
+
 <template>
   <v-app dark>
     <v-contents class="align-self-center">

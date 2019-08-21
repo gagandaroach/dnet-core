@@ -1,3 +1,5 @@
+// Gagan Daroach © 2019
+
 import colors from 'vuetify/es5/util/colors'
 
 export default {

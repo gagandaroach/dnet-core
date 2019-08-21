@@ -1,3 +1,5 @@
+// Gagan Daroach © 2019
+
 export const state = () => ({
   navbar_hidden: false
 })

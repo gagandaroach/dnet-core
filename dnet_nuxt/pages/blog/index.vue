@@ -26,8 +26,8 @@ export default {
   },
   data () {
     return {
-      PageTitle: 'Welcome',
-      Description: 'Thanks for connecting to my homelab!'
+      PageTitle: 'Blog',
+      Description: 'This page is on the to-do list'
     }
   }
 }

@@ -1,3 +1,5 @@
+// Gagan Daroach © 2019
+
 <template>
   <v-card outlined>
     <v-card-title class="justify-center" v-text="'How to Connect'" />

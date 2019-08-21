@@ -1,3 +1,5 @@
+// Gagan Daroach © 2019
+
 <template>
   <div>
     <v-carousel

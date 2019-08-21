@@ -1,3 +1,5 @@
+// Gagan Daroach © 2019
+
 <template>
   <div>
     <v-list-item v-for="(item, i) in items" :key="i" :to="item.to" router exact>

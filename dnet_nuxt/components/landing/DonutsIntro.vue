@@ -1,3 +1,5 @@
+// Gagan Daroach © 2019
+
 <template>
   <v-sheet align="center" justify="center">
     <v-img
