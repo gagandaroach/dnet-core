@@ -21,7 +21,7 @@
           x-large
           color="dark"
           dark
-          class="mt-10"
+          class="mt-10 font-weight-bold"
           to="/welcome"
         >
           Welcome

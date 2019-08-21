@@ -13,6 +13,9 @@
       lg10
     >
       <PageTitle :title="PageTitle" :description="Description" />
+
+      <h1 class="text-uppercase">Whats on daroach.net?</h1>
+
     </v-flex>
   </v-layout>
 </template>
