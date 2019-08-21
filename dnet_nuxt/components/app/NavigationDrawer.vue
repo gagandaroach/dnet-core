@@ -19,9 +19,9 @@ export default {
     return {
       items: [
         {
-          icon: 'mdi-home',
+          icon: 'mdi-coffee',
           title: 'Welcome',
-          to: '/'
+          to: '/welcome'
         },
         {
           icon: 'mdi-post',

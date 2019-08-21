@@ -15,9 +15,18 @@
     >
       <Welcome />
       <Donuts />
-      <v-btn block color="dark" dark class="mt-10" to="/welcome">
-        Welcome
-      </v-btn>
+      <v-container class="text-center">
+        <v-btn
+          outlined
+          x-large
+          color="dark"
+          dark
+          class="mt-10"
+          to="/welcome"
+        >
+          Welcome
+        </v-btn>
+      </v-container>
     </v-flex>
   </v-layout>
 </template>

@@ -23,11 +23,14 @@
     </v-navigation-drawer>
     <v-app-bar :hidden="collapse" clipped-left fixed app>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+      <v-btn icon to="/">
+        <v-icon>mdi-home</v-icon>
+      </v-btn>
       <v-toolbar-title v-text="title" />
       <v-spacer />
       <v-toolbar-items>
-        <v-btn text to="/">
-          Home
+        <v-btn text to="/welcome">
+          Welcome
         </v-btn>
         <v-btn text to="/about">
           About
