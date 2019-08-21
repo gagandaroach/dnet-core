@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import Welcome from '~/components/landing/Welcome.vue'
+import Welcome from '~/components/landing/TitleLine.vue'
 import Donuts from '~/components/landing/DonutsIntro.vue'
 
 export default {
@@ -39,9 +39,4 @@ export default {
 }
 </script>
 
-<style lang="scss">
-.mainbody {
-  min-height: 100vh;
-  max-height: 100vh;
-}
-</style>
+<style lang="scss"></style>
