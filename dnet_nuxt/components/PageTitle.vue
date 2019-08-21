@@ -55,10 +55,10 @@ export default {
 </script>
 
 <style scoped>
-/* h1 {
+h1 {
   font-family: 'Bungee', sans-serif;
 }
 p {
   font-family: 'Roboto', sans-serif;
-} */
+}
 </style>
