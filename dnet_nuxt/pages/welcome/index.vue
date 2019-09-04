@@ -2,35 +2,49 @@
 
 <template>
   <v-layout
-    column
     justify-center
-    align-center
+    text-center
   >
     <v-flex
       xs12
       sm12
       md12
       lg10
+      justify-center
     >
-      <PageTitle :title="PageTitle" :description="Description" />
-
-      <h1 class="text-uppercase">Whats on daroach.net?</h1>
-
+      <PageTitle
+        :title="PageTitle"
+        :description="Description"
+        padding-bottom="20"
+      />
+      <v-container>
+        <v-alert
+          dark
+          color="red"
+          border="left"
+          type="info"
+          v-text="Alert"
+        />
+      </v-container>
+      <Docket />
     </v-flex>
   </v-layout>
 </template>
 
 <script>
 import PageTitle from '~/components/PageTitle.vue'
+import Docket from '~/components/welcome/Docket.vue'
 
 export default {
   components: {
-    PageTitle
+    PageTitle,
+    Docket
   },
   data () {
     return {
-      PageTitle: 'Welcome',
-      Description: 'Thanks for connecting to my homelab!'
+      PageTitle: 'DAROACH.NET',
+      Description: 'Thanks for connecting to my homelab!',
+      Alert: 'Hello. My name is Gagan Daroach, and you have used the power of the internet to connect to a box in my apartment. Thanks for coming through! I am growing this website to contain more fun and informative things every day. Do feel free to explore around, and poke on every button.'
     }
   }
 }
