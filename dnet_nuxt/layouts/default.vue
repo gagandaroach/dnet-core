@@ -1,13 +1,15 @@
 // Gagan Daroach © 2019
 
 <template>
-  <v-app dark>
+  <v-app>
     <v-navigation-drawer
       v-model="drawer"
       :hidden="collapse"
       :mini-variant="miniVariant"
       clipped
       fixed
+      light
+      flat
       app
     >
       <v-list>
@@ -21,13 +23,22 @@
         </div>
       </template>
     </v-navigation-drawer>
-    <v-app-bar :hidden="collapse" clipped-left fixed app>
+    <v-app-bar
+      :hidden="collapse"
+      clipped-left
+      fixed
+      flat
+      light
+      app
+    >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <!-- <v-btn icon to="/">
         <v-icon>mdi-home</v-icon>
       </v-btn> -->
       <!-- <v-toolbar-title v-text="title" to="/"/> -->
-      <router-link to="/" tag="v-toolbar-title">{{title}}</router-link>
+      <router-link to="/" tag="v-toolbar-title">
+        {{ title }}
+      </router-link>
       <v-spacer />
       <v-toolbar-items>
         <v-btn text to="/welcome">
@@ -39,7 +50,7 @@
       </v-toolbar-items>
     </v-app-bar>
     <v-content>
-      <v-container class="pa-0">
+      <v-container class="pa-0" fluid>
         <nuxt />
       </v-container>
     </v-content>
@@ -63,7 +74,7 @@ export default {
       drawer: false,
       fixed: false,
       miniVariant: false,
-      title: 'daroach.net'
+      title: 'DAROACH.NET'
     }
   },
   computed: {
@@ -73,3 +84,5 @@ export default {
   }
 }
 </script>
+
+<style scoped></style>

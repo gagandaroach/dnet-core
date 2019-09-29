@@ -2,17 +2,20 @@
 
 <template>
   <v-layout
-    column
     justify-center
     align-center
   >
-    <v-flex
-      xs12
-      sm12
-      md12
-      lg10
-    >
+    <v-flex>
       <PageTitle :title="PageTitle" :description="Description" />
+      <v-container>
+        <v-alert
+          dark
+          color="red"
+          border="left"
+          type="info"
+          v-text="Alert"
+        />
+      </v-container>
     </v-flex>
   </v-layout>
 </template>

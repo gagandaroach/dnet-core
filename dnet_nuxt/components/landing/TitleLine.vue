@@ -7,6 +7,8 @@
       description="Thanks for connecting to my homelab!"
       :padding-bottom="20"
       :padding-top="0"
+      background-color="#00000000"
+      text-color="white"
     />
   </section>
 </template>

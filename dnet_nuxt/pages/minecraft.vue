@@ -6,6 +6,7 @@
       title="Daroach.net Minecraft"
       description="A fun place to procrastinate your life's responsibilities."
       background="#56962c"
+      text-color="#FFFFFF"
     />
     <MinecraftCarousel />
     <v-container>

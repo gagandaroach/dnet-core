@@ -5,17 +5,11 @@
     justify-center
     text-center
   >
-    <v-flex
-      xs12
-      sm12
-      md12
-      lg10
-      justify-center
-    >
+    <v-flex>
       <PageTitle
         :title="PageTitle"
         :description="Description"
-        padding-bottom="20"
+        :padding-bottom="20"
       />
       <v-container>
         <v-alert

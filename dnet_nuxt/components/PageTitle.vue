@@ -27,6 +27,10 @@ export default {
     },
     textColor: {
       type: String,
+      default: `black`
+    },
+    backgroundColor: {
+      type: String,
       default: `white`
     },
     paddingTop: {
@@ -47,7 +51,9 @@ export default {
         this.paddingTop +
         'px; padding-bottom: ' +
         this.paddingBottom +
-        'px; text-align: center'
+        'px; text-align: center; ' +
+        'background-color: ' +
+        this.backgroundColor
       return styleText
     }
   }
@@ -61,4 +67,7 @@ h1 {
 p {
   font-family: 'Roboto', sans-serif;
 }
+/* #PageTitle {
+  background-color: white;
+} */
 </style>

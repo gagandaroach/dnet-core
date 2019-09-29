@@ -2,17 +2,11 @@
 
 <template>
   <v-layout
-    column
     justify-center
     align-center
   >
-    <v-flex
-      xs12
-      sm12
-      md12
-      lg10
-    >
-      <PageTitle :title="PageTitle" :description="Description" />
+    <v-flex>
+      <PageTitle :title="PageTitle" :description="Description" :padding-bottom="5" />
       <Tabs />
     </v-flex>
   </v-layout>
