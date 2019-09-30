@@ -1,10 +1,10 @@
 <template>
-  <div>
+  <v-container>
     <CardList :items="SiteFeatures" :title="FeatureHeadline" />
     <br>
     <CardList :items="SiteDocket" :title="DocketHeadline" />
     <br>
-  </div>
+  </v-container>
 </template>
 
 <script>
