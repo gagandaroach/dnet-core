@@ -18,16 +18,16 @@
         </v-parallax>
         <br />
       </v-container>
-      <v-container>
+      <v-container class="col-md-12 col-lg-10 col-xl-8">
         <v-alert
           dark
           color="red"
-          border="left"
-          type="info"
-          v-text="Alert"
-        />
-      </v-container>
+          border="bottom"
+        >
+        <h2>{{Alert}}</h2>
+        </v-alert>
       <Docket />
+      </v-container>
     </v-flex>
   </v-layout>
 </template>
