@@ -20,25 +20,22 @@
           v-text="Alert"
         />
       </v-container>
-      <Docket />
     </v-flex>
   </v-layout>
 </template>
 
 <script>
 import PageTitle from '~/components/PageTitle.vue'
-import Docket from '~/components/welcome/Docket.vue'
 
 export default {
   components: {
-    PageTitle,
-    Docket
+    PageTitle
   },
   data () {
     return {
-      PageTitle: 'Welcome to Daroach.net',
-      Description: 'Thanks for connecting to my homelab!',
-      Alert: 'Hello. My name is Gagan Daroach, and you have used the power of the internet to connect to a box in my apartment. Thanks for coming through! I am growing this website to contain more fun and informative things every day. Do feel free to explore around, and poke on every button.'
+      PageTitle: 'Cloud.Daroach.Net',
+      Description: 'A place for people to syncronyize their data accross all of their devices.',
+      Alert: 'WIP'
     }
   }
 }

@@ -53,7 +53,7 @@ export default {
         {
           icon: 'mdi-api',
           title: 'DTECH API',
-          to: '/services/cloud'
+          to: '/services/api'
         },
         {
           icon: 'mdi-gamepad-variant',

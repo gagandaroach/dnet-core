@@ -3,19 +3,23 @@
 <template>
   <v-app dark>
     <v-contents class="align-self-center">
-      <PageTitle
-        :title="title"
-        description=""
-      />
-      <v-alert type="error" border="left" colored-border>
-        Oops. Looks like something broke. Looks like you are looking for a page or feature that either doesn't exist... or maybe is not yet written.
-      </v-alert>
-      <v-btn color="" to="/">
-        Return to homepage
-      </v-btn>
-      <v-btn color="" href="https://github.com/gagandaroach/daroachnet/issues/new">
-        Let me know about a bug
-      </v-btn>
+      <v-container fluid>
+        <PageTitle
+          :title="title"
+          description=""
+          background-color="dark"
+          text-color="white"
+        />
+        <v-alert type="error" border="left" colored-border>
+          Oops. Looks like something broke. Looks like you are looking for a page or feature that either doesn't exist... or maybe is not yet written.
+        </v-alert>
+        <v-btn color="" to="/">
+          Return to homepage
+        </v-btn>
+        <v-btn color="" href="https://github.com/gagandaroach/daroachnet/issues/new">
+          Let me know about a bug
+        </v-btn>
+      </v-container>
     </v-contents>
   </v-app>
 </template>

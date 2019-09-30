@@ -9,7 +9,7 @@
       clipped
       fixed
       light
-      flat
+      bottom
       app
     >
       <v-list>
@@ -17,7 +17,8 @@
       </v-list>
       <template v-slot:append>
         <div class="pa-2">
-          <v-btn icon @click.stop="miniVariant = !miniVariant">
+          <!-- <v-btn icon @click.stop="miniVariant = !miniVariant"> -->
+          <v-btn icon @click.stop="drawer = false">
             <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
           </v-btn>
         </div>
@@ -71,7 +72,7 @@ export default {
   },
   data () {
     return {
-      drawer: false,
+      drawer: true,
       fixed: false,
       miniVariant: false,
       title: 'DAROACH.NET'
