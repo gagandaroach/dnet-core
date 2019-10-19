@@ -16,7 +16,7 @@
             text-color="#FFF"
           />
         </v-parallax>
-        <br />
+        <br>
       </v-container>
       <v-container class="col-md-12 col-lg-10 col-xl-8">
         <v-alert
@@ -24,9 +24,9 @@
           color="red"
           border="bottom"
         >
-        <h2>{{Alert}}</h2>
+          <h2>{{ Alert }}</h2>
         </v-alert>
-      <Docket />
+        <Docket />
       </v-container>
     </v-flex>
   </v-layout>
