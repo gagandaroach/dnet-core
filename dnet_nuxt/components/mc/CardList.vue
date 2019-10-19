@@ -7,7 +7,7 @@
     <v-list>
       <v-list-item v-for="(item, i) in items" :key="i">
         <v-list-item-content>
-          <v-list-item-text v-html="item" />
+          <v-list-item-action-text v-html="item" />
         </v-list-item-content>
       </v-list-item>
     </v-list>
@@ -18,16 +18,21 @@
 export default {
   props: {
     items: {
-      default: [
-        'List item 1',
-        'List item 2',
-        'List item 3'
-      ]
+      type: Array,
+      default () {
+        return [
+          'List item 1',
+          'List item 2',
+          'List item 3'
+        ]
+      }
     },
     width: {
+      type: String,
       default: 'col-12'
     },
     title: {
+      type: String,
       default: 'default title'
     }
   }
