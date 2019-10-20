@@ -8,6 +8,9 @@
     <v-flex>
       <PageTitle :title="PageTitle" :description="Description" :padding-bottom="5" />
       <Tabs />
+      <v-container class="pa-0" fluid>
+        <nuxt />
+      </v-container>
     </v-flex>
   </v-layout>
 </template>
@@ -17,6 +20,7 @@ import PageTitle from '~/components/PageTitle.vue'
 import Tabs from '~/components/about/Tabs.vue'
 
 export default {
+  layout: 'default',
   components: {
     PageTitle,
     Tabs
