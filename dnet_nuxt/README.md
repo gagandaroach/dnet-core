@@ -20,3 +20,7 @@ $ npm run generate
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+
+## pointer to old bootstrap vue project
+
+> https://github.com/gagandaroach/daroachnet/tree/9f018bede2e197055bcbd23f3acbcd5bce239b61/dnet_app

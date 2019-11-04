@@ -22,8 +22,8 @@ export default {
   /*
   ** Global CSS
   */
-  css: [
-  ],
+  css: ['@/assets/styles/global.scss'],
+  // css: [],
   /*
   ** Plugins to load before mounting the App
   */
@@ -46,6 +46,16 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/pwa'
   ],
+
+  /**
+   * to override default bootstrap stylings
+   * i got this from: https://bootstrap-vue.js.org/docs/#nuxtjs-module
+   */
+  bootstrapVue: {
+    bootstrapCSS: false, // Or `css: false`
+    bootstrapVueCSS: false // Or `bvCSS: false`
+  },
+
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
@@ -57,9 +67,25 @@ export default {
   */
   build: {
     /*
-    ** You can extend webpack config here
-    */
+     ** You can extend webpack config here
+     */
     extend (config, ctx) {
+      const vueLoader = config.module.rules.find(
+        rule => rule.loader === 'vue-loader'
+      )
+      vueLoader.options.transformAssetUrls = {
+        video: ['src', 'poster'],
+        source: 'src',
+        img: 'src',
+        image: 'xlink:href',
+        'b-img': 'src',
+        'b-img-lazy': ['src', 'blank-src'],
+        'b-card': 'img-src',
+        'b-card-img': 'img-src',
+        'b-card-img-lazy': ['src', 'blank-src'],
+        'b-carousel-slide': 'img-src',
+        'b-embed': 'src'
+      }
     }
   }
 }

@@ -1,13 +1,14 @@
 <template>
   <div class="container">
     <div>
-      <logo />
-      <h1>
-        daroach.net
+      <h1 class="display-3">
+        DAROACH.NET
       </h1>
-      <h2>
-        daroach.net - gagan&#39;s homelab
-      </h2>
+      <p class="lead">
+        Thanks for connecting to my homelab!
+      </p>
+      <Donuts />
+      <br>
       <b-button variant="primary" size="lg" to="/welcome" replace>
         Welcome
       </b-button>
@@ -16,20 +17,20 @@
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+import Donuts from '~/components/Donuts.vue'
 
 export default {
   layout: 'landing',
   components: {
-    Logo
+    Donuts
   }
 }
 </script>
 
 <style>
 .container {
-  margin: 0 auto;
   min-height: 100vh;
+  max-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
