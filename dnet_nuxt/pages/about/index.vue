@@ -1,31 +1,18 @@
-// Gagan Daroach © 2019
-
 <template>
-  <v-layout
-    justify-center
-    align-center
-  >
-    <v-flex>
-      <PageTitle :title="PageTitle" :description="Description" :padding-bottom="5" />
-      <Tabs />
-    </v-flex>
-  </v-layout>
+  <div>
+    <h1>about - index.vue</h1>
+  </div>
 </template>
 
 <script>
-import PageTitle from '~/components/PageTitle.vue'
-import Tabs from '~/components/about/Tabs.vue'
-
 export default {
-  components: {
-    PageTitle,
-    Tabs
-  },
-  data () {
-    return {
-      PageTitle: 'About',
-      Description: 'Learn about my homelab and me.'
-    }
+  layout: 'about',
+  beforeCreate () {
+    this.$router.push('/about/me')
   }
 }
 </script>
+
+<style>
+
+</style>

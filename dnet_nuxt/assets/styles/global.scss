@@ -1,0 +1,21 @@
+// @font-face {
+//   font-family: "Minecraft Regular";
+//   src: url("~assets/fonts/Minecraft/MinecraftRegular.otf") format("opentype");
+//   font-weight: normal;
+// }
+
+$theme-colors: (
+  "primary": #69140e,
+  "secondary": #a7333f,
+  "danger": #ff4136
+);
+
+$enable-shadows: true;
+$enable-responsive-font-sizes: true;
+
+$font-family-sans-serif: 'Ubuntu', sans-serif;
+$font-family-monospace: 'Ubuntu Mono', monospace;
+
+// Import Bootstrap Stylings
+@import "bootstrap/scss/bootstrap.scss";
+@import "bootstrap-vue/src/index.scss";

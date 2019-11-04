@@ -1,15 +1,13 @@
-// Gagan Daroach © 2019
-
 <template>
   <section id="PageTitle" :style="style">
-    <v-container>
+    <b-container>
       <h1 class="display-3">
         {{ title }}
       </h1>
       <p class="lead">
         {{ description }}
       </p>
-    </v-container>
+    </b-container>
   </section>
 </template>
 
@@ -23,15 +21,15 @@ export default {
     },
     description: {
       type: String,
-      default: 'Page Description blah blah blah'
+      default: 'Page Description'
     },
     textColor: {
       type: String,
-      default: `black`
-    },
-    backgroundColor: {
-      type: String,
       default: `white`
+    },
+    background: {
+      type: String,
+      default: 'var(--primary)'
     },
     paddingTop: {
       type: Number,
@@ -51,9 +49,9 @@ export default {
         this.paddingTop +
         'px; padding-bottom: ' +
         this.paddingBottom +
-        'px; text-align: center; ' +
-        'background-color: ' +
-        this.backgroundColor
+        'px; text-align: center' +
+        ';background-color: ' +
+        this.background
       return styleText
     }
   }
@@ -62,12 +60,9 @@ export default {
 
 <style scoped>
 h1 {
-  font-family: 'Bungee', sans-serif;
+  font-family: 'Ubuntu', sans-serif;
 }
 p {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Ubuntu Condensed', sans-serif;
 }
-/* #PageTitle {
-  background-color: white;
-} */
 </style>
