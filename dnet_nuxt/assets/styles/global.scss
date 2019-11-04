@@ -1,0 +1,15 @@
+// @font-face {
+//   font-family: "Minecraft Regular";
+//   src: url("~assets/fonts/Minecraft/MinecraftRegular.otf") format("opentype");
+//   font-weight: normal;
+// }
+
+$theme-colors: (
+  "primary": #69140e,
+  "secondary": #a7333f,
+  "danger": #ff4136
+);
+
+// Import Bootstrap Stylings
+@import "bootstrap/scss/bootstrap.scss";
+@import "bootstrap-vue/src/index.scss";

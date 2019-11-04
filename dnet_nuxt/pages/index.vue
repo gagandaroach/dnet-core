@@ -1,53 +1,40 @@
-// Gagan Daroach © 2019
-
 <template>
-  <v-layout
-    column
-    justify-center
-    align-center
-    fullscreen
-  >
-    <v-flex
-      xs12
-      sm12
-      md12
-      lg10
-    >
-      <Welcome />
+  <div class="container">
+    <div>
+      <h1 class="display-3">
+        DAROACH.NET
+      </h1>
+      <p class="lead">
+        Thanks for connecting to my homelab!
+      </p>
       <Donuts />
-      <v-container class="text-center">
-        <v-btn
-          outlined
-          x-large
-          color="dark"
-          dark
-          class="mt-10 font-weight-bold"
-          to="/welcome"
-        >
-          Welcome
-        </v-btn>
-      </v-container>
-    </v-flex>
-  </v-layout>
+      <br>
+      <b-button block variant="outline-light" size="lg" to="/welcome" replace>
+        Welcome
+      </b-button>
+    </div>
+  </div>
 </template>
 
 <script>
-import Welcome from '~/components/landing/TitleLine.vue'
-import Donuts from '~/components/landing/DonutsIntro.vue'
+import Donuts from '~/components/Donuts.vue'
 
 export default {
+  layout: 'landing',
   components: {
-    Welcome,
     Donuts
-  },
-  head () {
-    this.$store.commit('hideNavbar')
-  },
-  computed: { },
-  beforeDestroy () {
-    this.$store.commit('showNavbar')
   }
 }
 </script>
 
-<style lang="scss"></style>
+<style scoped>
+.container {
+  min-height: 100vh;
+  max-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+}
+</style>
