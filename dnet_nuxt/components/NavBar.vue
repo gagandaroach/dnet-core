@@ -9,10 +9,10 @@
 
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav class="ml-auto">
-          <b-nav-item to="/welcome">
+          <b-nav-item to="/welcome" active-class="active">
             Welcome
           </b-nav-item>
-          <b-nav-item to="/about">
+          <b-nav-item to="/about" active-class="active">
             About
           </b-nav-item>
         </b-navbar-nav>
@@ -28,5 +28,4 @@ export default {
 </script>
 
 <style>
-
 </style>
