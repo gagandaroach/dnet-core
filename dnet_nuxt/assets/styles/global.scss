@@ -10,6 +10,12 @@ $theme-colors: (
   "danger": #ff4136
 );
 
+$enable-shadows: true;
+$enable-responsive-font-sizes: true;
+
+$font-family-sans-serif: 'Ubuntu', sans-serif;
+$font-family-monospace: 'Ubuntu Mono', monospace;
+
 // Import Bootstrap Stylings
 @import "bootstrap/scss/bootstrap.scss";
 @import "bootstrap-vue/src/index.scss";
