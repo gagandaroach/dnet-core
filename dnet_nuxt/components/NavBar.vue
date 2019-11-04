@@ -29,12 +29,12 @@ export default {
 
 <style scoped>
 .main {
-  font-family: 'Bungee', sans-serif;
+  font-family: 'Ubuntu Mono', sans-serif;
   /* margin-top: 40px; */
   /* padding-block: 30px; */
 }
 .brand {
   text-align: center;
-  font-family: 'Bungee', sans-serif;
+  font-family: 'Ubuntu Mono', sans-serif;
 }
 </style>

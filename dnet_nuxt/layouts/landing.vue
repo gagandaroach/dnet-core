@@ -4,9 +4,9 @@
   </div>
 </template>
 
-<style>
+<style scoped>
 .body {
-  background-color: var(--secondary);
-  font-family: 'Bungee', sans-serif;
+  background-color: var(--primary);
+  font-family: 'Ubuntu Mono', monospace;
 }
 </style>

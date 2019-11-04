@@ -60,9 +60,9 @@ export default {
 
 <style scoped>
 h1 {
-  font-family: 'Bungee', sans-serif;
+  font-family: 'Ubuntu', sans-serif;
 }
 p {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Ubuntu Condensed', sans-serif;
 }
 </style>
