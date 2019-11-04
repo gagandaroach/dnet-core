@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-navbar toggleable="md" type="dark" variant="primary">
+    <b-navbar toggleable="md" type="dark" variant="primary" class="main" sticky>
       <b-navbar-brand to="/">
         daroach.net
       </b-navbar-brand>
@@ -27,5 +27,14 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+.main {
+  font-family: 'Bungee', sans-serif;
+  /* margin-top: 40px; */
+  /* padding-block: 30px; */
+}
+.brand {
+  text-align: center;
+  font-family: 'Bungee', sans-serif;
+}
 </style>
