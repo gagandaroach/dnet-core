@@ -8,6 +8,9 @@
         background-color="#00000000"
         text-color="#FFF"
       />
+      <b-container>
+        <b-alert show variant="primary" class="mt-3">{{alert}}</b-alert>
+      </b-container>
     </div>
   </div>
 </template>
@@ -25,7 +28,7 @@ export default {
       title: 'Welcome',
       PageTitle: 'Welcome to Daroach.net',
       Description: 'Thanks for connecting to my homelab!',
-      Alert: 'Hello. My name is Gagan Daroach, and you have used the power of the internet to connect to a box in my apartment. Thanks for coming through! I am growing this website to contain more fun and informative things every day. Do feel free to explore around, and poke on every button.'
+      alert: 'Hello. My name is Gagan Daroach, and you have used the power of the internet to connect to a box in my apartment. Thanks for coming through! I am growing this website to contain more fun and informative things every day. Do feel free to explore around, and poke on every button.'
     }
   },
   head () {
