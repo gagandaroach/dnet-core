@@ -19,7 +19,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .app-footer, a, a:hover {
   background-color: var(--primary);
   color: white;
