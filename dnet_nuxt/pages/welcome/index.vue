@@ -9,7 +9,9 @@
         text-color="#FFF"
       />
       <b-container>
-        <b-alert show variant="primary" class="mt-3">{{alert}}</b-alert>
+        <b-alert show variant="primary" class="mt-3">
+          {{ alert }}
+        </b-alert>
       </b-container>
     </div>
   </div>

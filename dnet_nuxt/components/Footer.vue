@@ -23,7 +23,6 @@ export default {
 .app-footer, a, a:hover {
   background-color: var(--primary);
   color: white;
-  height: 32px;
 }
 .left {
   text-align: left;

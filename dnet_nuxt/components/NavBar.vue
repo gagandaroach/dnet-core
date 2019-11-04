@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-navbar toggleable="md" type="dark" variant="primary" class="main shadow-sm" sticky>
+    <b-navbar toggleable="md" type="dark" variant="primary" class="main" sticky>
       <b-navbar-brand to="/">
         daroach.net
       </b-navbar-brand>
