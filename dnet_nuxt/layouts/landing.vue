@@ -1,7 +1,11 @@
 <template>
-  <div>
+  <div class="body">
     <nuxt />
   </div>
 </template>
 
-<style></style>
+<style>
+.body {
+  background-color: var(--secondary);
+}
+</style>

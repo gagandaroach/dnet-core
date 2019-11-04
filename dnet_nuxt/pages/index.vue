@@ -9,7 +9,7 @@
       </p>
       <Donuts />
       <br>
-      <b-button variant="primary" size="lg" to="/welcome" replace>
+      <b-button block variant="outline-light" size="lg" to="/welcome" replace>
         Welcome
       </b-button>
     </div>
@@ -27,7 +27,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .container {
   min-height: 100vh;
   max-height: 100vh;
@@ -35,5 +35,6 @@ export default {
   justify-content: center;
   align-items: center;
   text-align: center;
+  color: white;
 }
 </style>
