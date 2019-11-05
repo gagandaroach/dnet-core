@@ -20,6 +20,12 @@ export default {
 </script>
 
 <style scoped>
+.app-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
 .app-footer, a, a:hover {
   background-color: var(--primary);
   color: white;
