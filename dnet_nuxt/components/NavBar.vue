@@ -12,7 +12,7 @@
           <b-nav-item to="/welcome" active-class="active">
             Welcome
           </b-nav-item>
-          <b-nav-item to="/about" active-class="active">
+          <b-nav-item to="/about/me" active-class="active">
             About
           </b-nav-item>
         </b-navbar-nav>
