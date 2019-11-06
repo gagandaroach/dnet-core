@@ -12,6 +12,14 @@
         <b-alert show variant="primary" class="mt-3">
           {{ alert }}
         </b-alert>
+        <b-row>
+          <b-col>
+            <CardList />
+          </b-col>
+          <b-col>
+            <Card />
+          </b-col>
+        </b-row>
       </b-container>
     </div>
   </div>
@@ -19,11 +27,15 @@
 
 <script>
 import PageTitle from '~/components/PageTitle.vue'
+import CardList from '~/components/cards/CardList.vue'
+import Card from '~/components/cards/Card.vue'
 
 export default {
   layout: 'default',
   components: {
-    PageTitle
+    PageTitle,
+    CardList,
+    Card
   },
   data () {
     return {
