@@ -21,9 +21,10 @@ export default {
 
 <style scoped>
 .app-footer {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
+  padding: 2px;
 }
 
 .app-footer, a, a:hover {
