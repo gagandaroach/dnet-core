@@ -3,7 +3,7 @@
     <footer class="app-footer">
       <b-row>
         <b-col class="left ml-1">
-          <span><a href="https://github.com/gagandaroach/daroachnet">Website Source Code</a></span>
+          <span><a v-b-tooltip.hover title="Complete full stack code examples for this website are available on Github. See the complete history of this website, one changed line at a time." href="https://github.com/gagandaroach/daroachnet">Website Source Code</a></span>
         </b-col>
         <b-col class="right mr-1">
           <span>Gagan Daroach &copy; 2019</span>
