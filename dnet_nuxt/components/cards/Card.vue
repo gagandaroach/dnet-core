@@ -2,10 +2,12 @@
   <div>
     <b-card
       :title="title"
-      :img-src="img_src"
-      :img-alt="img_alt"
+      :img-src="imgSrc"
+      :img-alt="imgAlt"
       img-top
       class="mb-2"
+      bg-variant="dark"
+      text-variant="light"
     >
       <b-card-text>
         {{ text }}
@@ -44,6 +46,10 @@ export default {
       type: String,
       default: 'image_alt_text'
     },
+    imgMaxHeight: {
+      type: String,
+      default: '100px'
+    },
     btnVariant: {
       type: String,
       default: 'primary'
@@ -55,11 +61,6 @@ export default {
     btnText: {
       type: String,
       default: 'Go somewhere'
-    }
-  },
-  data () {
-    return {
-      nothing: 0
     }
   }
 }
