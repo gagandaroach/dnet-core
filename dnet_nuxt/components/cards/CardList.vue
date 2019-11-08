@@ -2,18 +2,18 @@
   <div>
     <b-card
       no-body
+      :class="col"
     >
       <b-card-body>
-        <b-card-title>Card Title</b-card-title>
+        <b-card-title>{{ title }}</b-card-title>
         <b-card-sub-title class="mb-2">
-          Card Sub Title
+          {{ subtitle }}
         </b-card-sub-title>
         <b-card-text>
-          Some quick example text to build on the card title and make up the bulk of the card's
-          content.
+          {{ text }}
         </b-card-text>
       </b-card-body>
-      <b-list-group v-for="(item, index) in items" :key="index" flush>
+      <b-list-group v-for="(item, index) in items" :key="index">
         <b-list-group-item>{{ item }}</b-list-group-item>
       </b-list-group>
     </b-card>
@@ -22,13 +22,37 @@
 
 <script>
 export default {
+  props: {
+    items: {
+      type: Array,
+      default () {
+        return [
+          'List item 1',
+          'List item 2',
+          'List item 3'
+        ]
+      }
+    },
+    col: {
+      type: String,
+      default: 'col-12'
+    },
+    title: {
+      type: String,
+      default: 'card title'
+    },
+    subtitle: {
+      type: String,
+      default: 'card subtitle'
+    },
+    text: {
+      type: String,
+      default: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.'
+    }
+  },
   data () {
     return {
-      items: [
-        'List item one',
-        'List item two',
-        'List item three'
-      ]
+      nothing: 0
     }
   }
 }
