@@ -9,7 +9,7 @@
 
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav class="ml-auto">
-          <b-nav-item v-for="(item, index) in nav_items" :to="item.link" :key="index" active-class="active">
+          <b-nav-item v-for="(item, index) in nav_items" :key="index" :to="item.link" active-class="active">
             {{ item.text }}
           </b-nav-item>
         </b-navbar-nav>

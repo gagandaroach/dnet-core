@@ -1,41 +1,40 @@
 <template>
   <div id="body">
-    <div>
-      <PageTitle
-        :title="PageTitle"
-        :description="Description"
-        :padding-bottom="20"
-        background-color="#00000000"
-        text-color="#FFF"
-      />
-        <b-row>
-          <b-container class="">
-            <b-jumbotron bg-variant="primary" text-variant="white" border-variant="primary" class="text-center">
-              <template v-slot:lead>
-                {{ alert }}
-              </template>
-            </b-jumbotron>
-          </b-container>
-        </b-row>
+    <PageTitle
+      :title="PageTitle"
+      :description="Description"
+      :padding-bottom="20"
+      background-color="#00000000"
+      text-color="#FFF"
+    />
+    <div class="text-center text-white">
+      <b-row>
+        <b-container class="text-white">
+          <p>
+            {{ alert }}
+          </p>
+        </b-container>
+      </b-row>
       <b-container>
-        <b-row>
-          <b-col class="text-center text-white">
-          <h2>Pages on daroach.net</h2>
+        <b-row class="mt-4">
+          <b-col>
+            <h2>whats on daroach.net?</h2>
+            <p>I add a little bit to this website everyday. These are the pages to check out on the site.</p>
           </b-col>
         </b-row>
-        <b-row>
-          <b-col>
+        <b-row class="mt-2 justify-content-center">
+          <b-col md="6" lg="4">
             <Card
-              title="The Homelab"
+              title="About The Homelab"
               img-src="/imgs/daroachtech_servers.png"
               text="See the hardware that just served this webpage. Also read about the software stack used to build this page and send it to your screen."
               btn-text="View Page"
               btn-href="/about/me"
             />
           </b-col>
-          <b-col>
+          <b-col md="6" lg="4">
             <Card
-              title="About Me"
+              title="About The Hoster"
               img-src="/imgs/gagan_daroach_selfie.jpeg"
               text="Learn about who I am and what I do."
               btn-text="View Page"
@@ -44,6 +43,29 @@
           </b-col>
         </b-row>
         <CardList />
+      </b-container>
+      <b-container>
+        <b-row>
+          <b-col class="mt-4">
+            <h2>whats coming?</h2>
+            <p>I have a large vision for this website. Everyday a little more of that vision becomes real. Heres a rough idea of what I have in store for the future.</p>
+          </b-col>
+        </b-row>
+        <b-row>
+          <b-col class="">
+            <b-card no-body bg-variant="dark">
+              <b-list-group v-for="(item, index) in future" :key="index" flush>
+                <b-list-group-item class="bg-dark text-white">
+                  <b-form-checkbox
+                    v-model="item.done"
+                  >
+                    {{ item.text }}
+                  </b-form-checkbox>
+                </b-list-group-item>
+              </b-list-group>
+            </b-card>
+          </b-col>
+        </b-row>
       </b-container>
     </div>
   </div>
@@ -61,11 +83,19 @@ export default {
   },
   data () {
     return {
-      title: 'Welcome to daroach.net',
+      title: 'welcome to daroach.net',
       PageTitle: 'welcome to daroach.net',
       // Description: 'Thanks for connecting to my homelab!',
       Description: '',
-      alert: 'Hello. My name is Gagan Daroach, and you have used the power of the internet to connect to a box in my apartment. Thanks for coming through! I am growing this website to be both a reflection of myself and a share of my learnings and experiences. Do feel free to explore around, and poke on every button.'
+      alert: 'Hello. My name is Gagan Daroach, and you have used the power of the internet to connect to a box in my apartment. Thanks for coming through! I am growing this website to be both a reflection of myself and a share of my learnings and experiences. Do feel free to explore around, and poke on every button.',
+      future: [
+        { text: 'welcome page, base website framework', done: true },
+        { text: 'complete the about me page', done: false },
+        { text: 'a page my sharing my ai research projects', done: false },
+        { text: 'a fun analytics dashboard for site traffic', done: false },
+        { text: 'some sort of blog sharing the things i\'ve learned setting all this up', done: false },
+        { text: 'the wall - a place for anyone to leave a comment :)', done: false }
+      ]
     }
   },
   head () {
@@ -79,5 +109,6 @@ export default {
 <style>
 #body {
   background-color: var(--primary);
+  padding-bottom: 40px;
 }
 </style>

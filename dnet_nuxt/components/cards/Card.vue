@@ -4,15 +4,15 @@
       :title="title"
       :img-src="imgSrc"
       :img-alt="imgAlt"
+      bg-variant="dark"
       img-top
       class="mb-2"
-      bg-variant="dark"
-      text-variant="light"
     >
       <b-card-text>
         {{ text }}
       </b-card-text>
-      <b-button :to="btnHref" :variant="btnVariant">
+
+      <b-button :href="btnHref" variant="primary">
         {{ btnText }}
       </b-button>
     </b-card>
@@ -22,10 +22,6 @@
 <script>
 export default {
   props: {
-    col: {
-      type: String,
-      default: 'col-12'
-    },
     title: {
       type: String,
       default: 'card title'
@@ -47,8 +43,8 @@ export default {
       default: 'image_alt_text'
     },
     imgMaxHeight: {
-      type: String,
-      default: '100px'
+      type: Number,
+      default: 400
     },
     btnVariant: {
       type: String,
