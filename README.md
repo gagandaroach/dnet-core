@@ -5,19 +5,20 @@ I use nuxt js to serve the content, amazing tool. I am using the bootstrap vue f
 
 ## **FEEDBACK IS ENCOURAGED**
 
-please contact me through any means. i am always looking to improve both your skills and my own.
+please contact me through email or at my page https://daroach.net/about/me
 
 ## Deployment setup
 
-[docker-compose up](https://docs.docker.com/compose/reference/up/)
+execute [docker-compose up](https://docs.docker.com/compose/reference/up/)
 
-gets hit by jwilder's [nginx-proxy](https://github.com/jwilder/nginx-proxy) companion container. absolutely great stuff.
-
+gets hit by jwilder's [nginx-proxy](https://github.com/jwilder/nginx-proxy) companion container. this container leverages the power of docker to wrap all my web services with https. absolutely great stuff.
 
 ## Development setup
+
+Using node package manager. Execute below to run dev server.
+
 ```
-cd dnet_vuejs
+cd dnet_nuxt
 npm install
 npm run serve
-
 ```
