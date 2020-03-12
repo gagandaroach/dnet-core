@@ -59,7 +59,8 @@ services:
       - sql.env
     restart: "no"
     volumes:
-      - ${MOUNT_POINT}/mariadb:/var/lib/mysql
+      - /etc/localtime:/etc/localtime
+      - ${FLASK_MOUNT_POINT}/mariadb:/var/lib/mysql
     ports:
       - 3306:3306
     networks:
@@ -77,7 +78,7 @@ services:
       - flask_db
     restart: "no"
     volumes:
-      - ${MOUNT_POINT}/phpmyadmin:/www
+      - ${FLASK_MOUNT_POINT}/phpmyadmin:/www
     networks:
       - backend
 
@@ -98,8 +99,8 @@ services:
       context: ./nginx_proxy
       dockerfile: Dockerfile
     ports:
-      - "80:80"
-      - "443:443"
+      - 80:80
+      - 443:443
     volumes:
       - conf:/etc/nginx/conf.d
       - vhost:/etc/nginx/vhost.d
@@ -135,7 +136,7 @@ services:
     image: portainer/portainer
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - /srv/romans/portainer:/data
+      - ${PORTAINER_MOUNT_POINT}:/data
     environment:
       - VIRTUAL_HOST=portainer.daroach.net
       - VIRTUAL_PORT=80
