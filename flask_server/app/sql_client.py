@@ -52,7 +52,7 @@ class SqlClient:
         res = self.execute_post(sql, val)
         return res
 
-    def hit_count(self, page):
+    def hit_count(self, page=None):
         if page is None:
             page = 'NULL'
         res = self.execute_select(
