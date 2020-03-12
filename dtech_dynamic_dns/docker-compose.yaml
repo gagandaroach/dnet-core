@@ -1,0 +1,28 @@
+# Daroach Tech Engine Dynamic DNS Docker Compose File
+# Author: Gagan Daroach gagandaroach@gmail.com
+# Date: March 10 2019
+
+version: "3"
+
+networks:
+  daroachnetwork:
+    external: true
+
+services:
+  #dynamic dns with google domains for daroach.net
+  daroachnet_ddns:
+    build: ./daroachnet_ddns
+    restart: always
+    volumes:
+      - /etc/localtime:/etc/localtime
+    networks:
+      - daroachnetwork
+
+  #dynamic dns with google domains for msoe.dev
+  msoedev_ddns:
+    build: ./msoedev_ddns
+    restart: always
+    volumes:
+      - /etc/localtime:/etc/localtime
+    networks:
+      - daroachnetwork

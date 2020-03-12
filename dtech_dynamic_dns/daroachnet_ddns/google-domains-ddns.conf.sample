@@ -1,0 +1,10 @@
+# This is an username
+USERNAME='LOOOOOOOOOOOOOOOOOL'
+
+PASSWORD='abcdefghijklmnopqrstuvwxyz'
+
+# Your hostname
+HOSTNAME='daroach.net'
+
+# Examples: 5 m, 5 h, 5 d. Minimum is 5 minutes.
+INTERVAL='42m'

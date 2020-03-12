@@ -1,0 +1,10 @@
+# This is an username
+USERNAME='ZERGFORLIFE'
+
+PASSWORD='SECRETPASSWORD'
+
+# Your hostname
+HOSTNAME='msoe.dev'
+
+# Examples: 5 m, 5 h, 5 d. Minimum is 5 minutes.
+INTERVAL='42m'
