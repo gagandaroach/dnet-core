@@ -66,3 +66,20 @@ services:
       - redis
     networks:
       - backend
+
+  collabora:
+    image: collabora/code
+    expose:
+      - 9980
+    cap_add:
+      - MKNOD
+    environment:
+      - domain=cloud.daroach.net
+      - VIRTUAL_HOST=office.daroach.net
+      - VIRTUAL_NETWORK=daroachnetwork
+      - VIRTUAL_PORT=9980
+      - VIRTUAL_PROTO=https
+      - LETSENCRYPT_HOST=office.daroach.net
+      - LETSENCRYPT_EMAIL=gagandaroach@gmail.com
+    networks:
+      - daroachnetwork
