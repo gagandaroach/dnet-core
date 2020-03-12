@@ -9,7 +9,7 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
+      { hid: 'description', name: 'description', content: process.env.npm_package_description || 'daroach.net Gagan Daroach personally hosted web services. A passionate programmer and admirer of the internet.' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
@@ -55,21 +55,30 @@ export default {
     '@nuxtjs/pwa'
   ],
 
+  /*
+  ** Axios module configuration
+  ** See https://axios.nuxtjs.org/options
+  Why couldn't i get this to work? 2020-03-11 Gagan
+  */
+  axios: {
+    baseURL: 'https://api.daroach.net',
+    debug: false
+  },
+
   /**
    * to override default bootstrap stylings
    * i got this from: https://bootstrap-vue.js.org/docs/#nuxtjs-module
    */
   bootstrapVue: {
-    bootstrapCSS: false, // Or `css: false`
+    bootstrapCSS: false, //  Or `css: false`
     bootstrapVueCSS: false // Or `bvCSS: false`
   },
 
-  /*
-  ** Axios module configuration
-  ** See https://axios.nuxtjs.org/options
-  */
-  axios: {
+  // https://nuxtjs.org/guide/routing#middleware
+  router: {
+    middleware: 'stats'
   },
+
   /*
   ** Build configuration
   */
