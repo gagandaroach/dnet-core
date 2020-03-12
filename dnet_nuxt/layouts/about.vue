@@ -4,7 +4,9 @@
       <NavBar />
       <AboutTabs />
       <b-container>
-        <b-alert show variant="danger" dismissible>Heads Up! The about pages are incomplete. I know these pages like doodoo right now.</b-alert>
+        <b-alert show variant="danger" dismissible>
+          Heads Up! The about pages are incomplete. I know these pages like doodoo right now.
+        </b-alert>
       </b-container>
       <nuxt />
       <Footer />

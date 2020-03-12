@@ -20,5 +20,5 @@ Using node package manager. Execute below to run dev server.
 ```
 cd dnet_nuxt
 npm install
-npm run serve
+npm run dev
 ```

@@ -17,7 +17,7 @@ export default {
   props: {
     title: {
       type: String,
-      default: `Page-Title`
+      default: 'Page-Title'
     },
     description: {
       type: String,
@@ -25,7 +25,7 @@ export default {
     },
     textColor: {
       type: String,
-      default: `white`
+      default: 'white'
     },
     background: {
       type: String,
