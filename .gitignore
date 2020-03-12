@@ -20,11 +20,5 @@ yarn-error.log*
 *.sln
 *.sw?
 
-# old projs
-dnet_nuxtjs
-dnet_vuejs
-webroot
-dnet_nuxt_old
-
-## python
+# python
 __pycache__
