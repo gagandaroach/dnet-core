@@ -1,0 +1,5 @@
+flask
+flask-basicauth
+mysql-connector-python
+configparser
+datetime

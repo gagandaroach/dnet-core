@@ -1,0 +1,13 @@
+# Holds api secrets
+#
+# author: <gagandaroach@gmail.com>
+
+[sql]
+user = USERNAME_HERE
+pass = PASSWORD_HERE
+host = HOSTNAME_HERE
+port = 3306
+
+[REST]
+user = USERNAME_MAKE_IT_UP
+pass = PASSWORD_MAKE_IT_UP
