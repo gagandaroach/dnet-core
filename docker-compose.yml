@@ -1,27 +1,78 @@
 # Docker Compose File
+#
 # daroach.net environment nuxtjs server
+# runs a collection of services that handle api requests
+#
 # Author: Gagan Daroach gagandaroach@gmail.com
-# Date: April 21 2019
+# Web Client start Date:   April 21 2019
+# REST API start Date:     June 22 2019
 
 version: "3"
 
 # needed to attach to my servers network
 networks:
+  backend:
   daroachnetwork:
     external: true
 
 services:
-  nuxt_app_server:
-    build: ./dnet_nuxt
+  # WEBSITE SERVER - VueJS, NuxtJS
+  nuxt_server:
+    build: ./nuxt_server
     restart: always
-    ports: 
+    ports:
       - 3000:3000
     # if you want to use jwilder's nginx proxy container
-    env_file: 
-       - jwilder_nginx_proxy.env
+    env_file:
+      - jwilder_nginx_proxy.env
     # to attach to my servers network
     networks:
-       - daroachnetwork
-    command:
-      "npm run start"
-    
+      - daroachnetwork
+    command: "npm run start"
+
+  # INTERNET EXPOSED REST FLASK PYTHON
+  flask_server:
+    build:
+      context: ./flask_server
+      dockerfile: Dockerfile
+    depends_on:
+      - mariadb
+    networks:
+      - backend
+      - daroachnetwork
+    environment:
+      - VIRTUAL_HOST=api.daroach.net
+      - VIRTUAL_PORT=35353
+      - LETSENCRYPT_HOST=api.daroach.net
+      - LETSENCRYPT_EMAIL=gagandaroach@gmail.com
+    ports:
+      - 5000:5000
+
+  # SQL SERVER FOR REST API STORAGE
+  mariadb:
+    image: mariadb
+    env_file:
+      - sql.env
+    restart: "no"
+    volumes:
+      - ${MOUNT_POINT}/mariadb:/var/lib/mysql
+    ports:
+      - 3306:3306
+    networks:
+      - backend
+
+  # PHP MY ADMIN FOR WEB CONTROL OF DATABASE
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    env_file:
+      - phpmyadmin.env
+    ports:
+      - 1579:80
+    depends_on:
+      - mariadb
+    restart: "no"
+    volumes:
+      - ${MOUNT_POINT}/phpmyadmin:/www
+    networks:
+      - backend

@@ -6,8 +6,8 @@ export default function ({ $axios, route }) {
     withCredentials: true
   }, {
     auth: {
-      username: 'user',
-      password: 'pass'
+      username: 'deepakchopra',
+      password: 'abcdefghijklmnopqrstuvwxyz'
     }
   })
 }
