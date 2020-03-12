@@ -1,40 +1,41 @@
-# Docker Compose File
-#
-# daroach.net environment nuxtjs server
-# runs a collection of services that handle api requests
+# daroach.net
+# Docker containers running on my homelab.
 #
 # Author: Gagan Daroach gagandaroach@gmail.com
-# Web Client start Date:   April 21 2019
-# REST API start Date:     June 22 2019
+# Web Proxy Date:           March 10 2019
+# Web Client Date:          April 21 2019
+# REST API Date:            June 22 2019
+# MERGE Date:              March 11 2020
 
 version: "3"
 
-# needed to attach to my servers network
 networks:
   backend:
   daroachnetwork:
     external: true
 
 services:
-  # WEBSITE SERVER - VueJS, NuxtJS
+# WEBSITE SERVER - VueJS, NuxtJS
   nuxt_server:
     build: ./nuxt_server
-    restart: always
+    restart: unless-stopped
     ports:
       - 3000:3000
-    # if you want to use jwilder's nginx proxy container
-    env_file:
-      - jwilder_nginx_proxy.env
-    # to attach to my servers network
+    environment:
+      - VIRTUAL_HOST=daroach.net
+      - VIRTUAL_PORT=3000
+      - LETSENCRYPT_HOST=daroach.net
+      - LETSENCRYPT_EMAIL=gagandaroach@gmail.com
     networks:
       - daroachnetwork
     command: "npm run start"
 
-  # INTERNET EXPOSED REST FLASK PYTHON
+# INTERNET EXPOSED REST FLASK PYTHON
   flask_server:
     build:
       context: ./flask_server
       dockerfile: Dockerfile
+    restart: unless-stopped
     depends_on:
       - mariadb
     networks:
@@ -48,7 +49,7 @@ services:
     ports:
       - 5000:5000
 
-  # SQL SERVER FOR REST API STORAGE
+# SQL SERVER FOR REST API STORAGE
   mariadb:
     image: mariadb
     env_file:
@@ -61,7 +62,7 @@ services:
     networks:
       - backend
 
-  # PHP MY ADMIN FOR WEB CONTROL OF DATABASE
+# PHP MY ADMIN FOR WEB CONTROL OF DATABASE
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     container_name: phpmyadmin
@@ -76,3 +77,75 @@ services:
       - ${MOUNT_POINT}/phpmyadmin:/www
     networks:
       - backend
+
+# dynamic dns with google domains for daroach.net
+  daroachnet_ddns:
+    build: ./dynamic_dns
+    restart: always
+    volumes:
+      - /etc/localtime:/etc/localtime
+    networks:
+      - daroachnetwork
+
+# Daroach Tech Engine Docker Compose File
+# My use of Jwilder's nginx-proxy and Jrcs's Letsencrypt Companion
+# Author: Gagan Daroach gagandaroach@gmail.com
+  nginx-proxy:
+    build:
+      context: ./engine
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - conf:/etc/nginx/conf.d
+      - vhost:/etc/nginx/vhost.d
+      - html:/usr/share/nginx/html
+      - dhparam:/etc/nginx/dhparam
+      - certs:/etc/nginx/certs:ro
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+    restart: always
+    networks:
+      - daroachnetwork
+    labels:
+      - "com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy"
+
+  letsencrypt:
+    image: jrcs/letsencrypt-nginx-proxy-companion
+    depends_on:
+      - nginx-proxy
+    volumes:
+      - vhost:/etc/nginx/vhost.d
+      - html:/usr/share/nginx/html
+      - dhparam:/etc/nginx/dhparam:ro
+      - certs:/etc/nginx/certs
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    environment:
+      - NGINX_PROXY_CONTAINER=nginx-proxy
+    restart: always
+    networks:
+      - daroachnetwork
+
+  portainer:
+    restart: unless-stopped
+    image: portainer/portainer
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /srv/romans/portainer:/data
+    environment:
+      - VIRTUAL_HOST=portainer.daroach.net
+      - VIRTUAL_PORT=80
+      - LETSENCRYPT_HOST=portainer.daroach.net
+      - LETSENCRYPT_EMAIL=gagandaroach@gmail.com
+    command: -H unix:///var/run/docker.sock
+    networks:
+      - daroachnetwork
+    ports:
+      - 9000:9000
+
+volumes:
+  conf:
+  vhost:
+  html:
+  dhparam:
+  certs:
