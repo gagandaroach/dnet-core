@@ -2,7 +2,7 @@
 
 export default function ({ $axios, route }) {
   return $axios.post('hit', {
-    url: route.fullPath,
+    page: route.path,
     withCredentials: true
   }, {
     auth: {
