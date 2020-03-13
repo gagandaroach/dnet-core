@@ -63,7 +63,7 @@ export default {
   axios: {
     baseURL: 'https://api.daroach.net',
     debug: false,
-    headers: {'Authorization': 'Basic ZGVlcGFrY2hvcHJhOmFiY2RlZmdoaWprbG1ub3BxcnN0dXZ3eHl6'}
+    headers: { Authorization: 'Basic ZGVlcGFrY2hvcHJhOmFiY2RlZmdoaWprbG1ub3BxcnN0dXZ3eHl6' }
   },
 
   /**
