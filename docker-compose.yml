@@ -78,7 +78,6 @@ services:
 # PHP MY ADMIN FOR WEB CONTROL OF DATABASE
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
-    container_name: phpmyadmin
     env_file:
       - phpmyadmin.env
     ports:
@@ -167,8 +166,8 @@ services:
     volumes:
       - ${CLOUD_MOUNT_POINT}/mariadb:/var/lib/mysql
     env_file:
-      - cloud_server/db.env
-      - cloud_server/db-pass.env
+      - cloud_db.env
+      - cloud_db-pass.env
     networks:
       - cloud_internal
 
@@ -193,8 +192,8 @@ services:
       - MYSQL_HOST=cloud_db
       - REDIS_HOST=redis
     env_file:
-      - cloud_server/db.env
-      - cloud_server/cloud.env
+      - cloud_db.env
+      - cloud.env
     depends_on:
       - cloud_db
       - redis
@@ -215,20 +214,20 @@ services:
     networks:
       - cloud_internal
 
-  collabora:
-    image: collabora/code
-    expose:
-      - 9980
-    cap_add:
-      - MKNOD
-    environment:
-      - domain=cloud.daroach.net
-      - VIRTUAL_HOST=office.daroach.net
-      - VIRTUAL_NETWORK=daroachnetwork
-      - VIRTUAL_PORT=9980
-      - VIRTUAL_PROTO=https
-      - LETSENCRYPT_HOST=office.daroach.net
-      - LETSENCRYPT_EMAIL=gagandaroach@gmail.com
-    networks:
-      - daroachnetwork
+#  collabora:
+#    image: collabora/code
+#    expose:
+#      - 9980
+#    cap_add:
+#      - MKNOD
+#    environment:
+#      - domain=cloud.daroach.net
+#      - VIRTUAL_HOST=office.daroach.net
+#      - VIRTUAL_NETWORK=daroachnetwork
+#      - VIRTUAL_PORT=9980
+#      - VIRTUAL_PROTO=https
+#      - LETSENCRYPT_HOST=office.daroach.net
+#      - LETSENCRYPT_EMAIL=gagandaroach@gmail.com
+#    networks:
+#      - daroachnetwork
 
