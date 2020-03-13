@@ -2,12 +2,6 @@
 
 export default function ({ $axios, route }) {
   return $axios.post('hit', {
-    page: route.path,
-    withCredentials: true
-  }, {
-    auth: {
-      username: 'deepakchopra',
-      password: 'abcdefghijklmnopqrstuvwxyz'
-    }
-  })
+    page: route.path
+  }, { })
 }
