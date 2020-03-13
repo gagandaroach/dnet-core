@@ -5,6 +5,7 @@
 import configparser
 from flask import Flask, request, redirect, make_response, jsonify
 from flask_basicauth import BasicAuth
+from flask_cors import CORS
 from sql_client import SqlClient
 
 # GLOBALS
@@ -15,6 +16,7 @@ SERVER_URL = 'https://api.daroach.net/'
 
 # core flask app
 app = Flask(__name__)
+CORS(app)
 
 config = configparser.ConfigParser()
 config.read('sql_info.txt')
