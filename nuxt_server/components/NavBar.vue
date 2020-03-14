@@ -22,7 +22,7 @@
 export default {
   data () {
     return {
-      brand: 'daroach.net',
+      brand: 'daroach.net'.toUpperCase(),
       nav_items: [
         { text: 'Welcome', link: '/welcome' },
         { text: 'About', link: '/about/me' }
