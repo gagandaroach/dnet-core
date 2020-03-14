@@ -52,7 +52,9 @@ export default {
     'bootstrap-vue/nuxt',
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    // https://github.com/microcipcip/cookie-universal/
+    'cookie-universal-nuxt'
   ],
 
   /*
