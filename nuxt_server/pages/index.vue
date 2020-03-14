@@ -13,7 +13,7 @@
         Front Page Hits: {{ PageHits }}
       </p>
       <b-button block variant="outline-light" size="lg" to="/welcome" replace>
-        Welcome
+        Enter Site
       </b-button>
     </div>
   </div>
@@ -29,7 +29,7 @@ export default {
     Donuts
   },
   data () {
-    return { PageHits: 0 }
+    return { PageHits: '' }
   },
   mounted () {
     axios({
