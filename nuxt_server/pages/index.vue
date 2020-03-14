@@ -33,7 +33,7 @@ export default {
   },
   mounted () {
     axios
-      .get('https://api.daroach.net/hit',
+      .post('https://api.daroach.net/hit/count',
         { page: this.$router.path }
       )
       .then(response => (this.PageHits = response.data.count))

@@ -40,6 +40,7 @@ def hello_world():
 @app.route(f'/hit/count', methods=['POST'])
 def get_hits_daroachnet():
     info = request.json
+    print('info: ', info)
     count = -1
     if info is not None:
         count = client.hit_count(

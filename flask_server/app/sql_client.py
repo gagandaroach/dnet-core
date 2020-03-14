@@ -53,10 +53,13 @@ class SqlClient:
         return res
 
     def hit_count(self, page=None):
+        res = None
         if page is None:
-            page = 'NULL'
-        res = self.execute_select(
-            f'SELECT count(*) FROM {self.TABLE_HIT} WHERE page = "{page}"')
+            res = self.execute_select(
+                f'SELECT count(*) FROM {self.TABLE_HIT}')
+        else:
+            res = self.execute_select(
+                f'SELECT count(*) FROM {self.TABLE_HIT} WHERE page = "{page}"')
         return str(res[0][0])
 
     # wiring
