@@ -9,6 +9,9 @@
       </p>
       <Donuts />
       <br>
+      <p class="lead">
+        Front Page Hits: {{ PageHits }}
+      </p>
       <b-button block variant="outline-light" size="lg" to="/welcome" replace>
         Welcome
       </b-button>
@@ -17,12 +20,26 @@
 </template>
 
 <script>
+import axios from 'axios'
 import Donuts from '~/components/Donuts.vue'
 
 export default {
   layout: 'landing',
   components: {
     Donuts
+  },
+  data () {
+    return { PageHits: 0 }
+  },
+  mounted () {
+    axios({
+      method: 'post',
+      url: 'https://api.daroach.net/hit/count',
+      data: {
+        page: '/'
+      }
+    })
+      .then(response => (this.PageHits = response.data.count))
   }
 }
 </script>
