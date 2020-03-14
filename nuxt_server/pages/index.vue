@@ -32,10 +32,13 @@ export default {
     return { PageHits: 0 }
   },
   mounted () {
-    axios
-      .post('https://api.daroach.net/hit/count',
-        { page: this.$router.path }
-      )
+    axios({
+      method: 'post',
+      url: 'https://api.daroach.net/hit/count',
+      data: {
+        page: '/'
+      }
+    })
       .then(response => (this.PageHits = response.data.count))
   }
 }
