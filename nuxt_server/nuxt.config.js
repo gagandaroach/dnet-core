@@ -77,7 +77,7 @@ export default {
 
   // https://nuxtjs.org/guide/routing#middleware
   router: {
-    middleware: 'stats'
+    middleware: 'post_hit'
   },
 
   /*
