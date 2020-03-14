@@ -67,9 +67,9 @@ def post_hits_daroachnet():
     return jsonify({'id': hit_id}), 200
 
 
-# @app.route(f'/visitor/count', methods=['POST'])
-# def get_visitor_daroachnet():
-#     return jsonify({'count': client.visitor_count()}), 200
+@app.route(f'/visitor/count', methods=['GET'])
+def get_visitor_daroachnet():
+    return jsonify({'count': client.visitor_count()}), 200
 
 
 # @app.route(f'/visitor', methods=['POST'])
