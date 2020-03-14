@@ -29,39 +29,15 @@ basic_auth = BasicAuth(app)
 # sql client for daroach.net python object
 client = SqlClient()
 
-# API ROUTES
 
+# API ROUTES
 
 @app.route('/')
 def hello_world():
     # redirect to info page on main site
     return redirect("https://daroach.net/api")
 
-
-@app.route(f'/visitor', methods=['GET'])
-def get_visitor_daroachnet():
-    return jsonify({'count': client.visitor_count()}), 200
-
-
-@app.route(f'/visitor', methods=['POST'])
-@basic_auth.required
-def post_visitor_daroachnet():
-    info = request.json
-    visitor_id = -1
-    if info is not None:
-        visitor_id = client.add_visitor(
-            platform=info.get('platform', 'NULL'),
-            userAgent=info.get('userAgent', 'NULL'),
-            language=info.get('language', 'NULL'),
-            cookie_enabled=info.get('cookie_enabled', '0')
-        )
-    else:
-        visitor_id = client.add_visitor()
-    print('/visitor post request json: ', info)
-    return jsonify({'id': visitor_id}), 200
-
-
-@app.route(f'/hit', methods=['GET'])
+@app.route(f'/hit/count', methods=['POST'])
 def get_hits_daroachnet():
     info = request.json
     count = -1
@@ -90,11 +66,27 @@ def post_hits_daroachnet():
     return jsonify({'id': hit_id}), 200
 
 
-@app.route('/debug/tables')
-@basic_auth.required
-def test_server():
-    return str(client.list_tables())
+# @app.route(f'/visitor/count', methods=['POST'])
+# def get_visitor_daroachnet():
+#     return jsonify({'count': client.visitor_count()}), 200
 
+
+# @app.route(f'/visitor', methods=['POST'])
+# @basic_auth.required
+# def post_visitor_daroachnet():
+#     info = request.json
+#     visitor_id = -1
+#     if info is not None:
+#         visitor_id = client.add_visitor(
+#             platform=info.get('platform', 'NULL'),
+#             userAgent=info.get('userAgent', 'NULL'),
+#             language=info.get('language', 'NULL'),
+#             cookie_enabled=info.get('cookie_enabled', '0')
+#         )
+#     else:
+#         visitor_id = client.add_visitor()
+#     print('/visitor post request json: ', info)
+#     return jsonify({'id': visitor_id}), 200
 
 @app.route('/error/<string:phrase>/<int:code>')
 def error(phrase, code):

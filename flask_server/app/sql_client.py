@@ -56,7 +56,7 @@ class SqlClient:
         if page is None:
             page = 'NULL'
         res = self.execute_select(
-            f'Select count(*) from {self.TABLE_HIT} where page = "{page}";')
+            f'SELECT count(*) FROM {self.TABLE_HIT} WHERE page = "{page}"')
         return str(res[0][0])
 
     # wiring
