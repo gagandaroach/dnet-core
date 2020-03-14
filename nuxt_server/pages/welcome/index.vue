@@ -83,8 +83,8 @@ export default {
   },
   data () {
     return {
-      title: 'welcome to daroach.net',
-      PageTitle: 'welcome to daroach.net',
+      title: 'daroach.net'.toUpperCase(),
+      // PageTitle: 'Welcome Visitor ',
       // Description: 'Thanks for connecting to my homelab!',
       Description: '',
       alert: 'Hello. My name is Gagan Daroach, and you have used the power of the internet to connect to a box in my apartment. Thanks for coming through! I am growing this website to be both a reflection of myself and a share of my learnings and experiences. Do feel free to explore around, and poke on every button.',
@@ -96,6 +96,11 @@ export default {
         { text: 'some sort of blog sharing the things i\'ve learned setting all this up', done: false },
         { text: 'the wall - a place for anyone to leave a comment :)', done: false }
       ]
+    }
+  },
+  computed: {
+    PageTitle () {
+      return 'Welcome Visitor ' + this.$store.state.visitor.visitorID
     }
   },
   head () {
