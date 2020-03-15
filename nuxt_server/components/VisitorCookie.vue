@@ -10,6 +10,7 @@
           {{ text }}
           Would you like to join {{ VisitorCount }} other visitors of the page to assist with usage and feature development.
         </b-card-text>
+        <b-container fluid class="" />
         <b-button :href="btnHref" variant="primary">
           {{ btnText }}
         </b-button>
@@ -42,15 +43,10 @@ export default {
       default: 'I want the cookie!'
     }
   },
-  data () {
-    return {
-      VisitorCount: ''
+  computed: {
+    VisitorCount () {
+      return this.$store.state.visitor.visitorCount
     }
-  },
-  mounted () {
-    // this.$axios.get('https://api.daroach.net/visitor/count', { }, { })
-    //   .then(response => (this.VisitorCount = response.data.count))
-    this.VisitorCount = this.$store.state.visitor.visitorCount
   }
 }
 </script>

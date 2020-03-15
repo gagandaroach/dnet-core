@@ -19,6 +19,6 @@ export const getters = {
 export const actions = {
   async nuxtServerInit ({ dispatch, context }) {
     const response = await this.$axios.get('https://api.daroach.net/visitor/count')
-    dispatch('visitor/updateCount', response.data.count)
+    dispatch('visitor/updateCount', parseInt(response.data.count))
   }
 }

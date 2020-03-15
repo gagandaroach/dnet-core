@@ -8,18 +8,14 @@
       text-color="#FFF"
     />
     <div class="text-center text-white">
-      <b-row>
-        <b-container class="text-white">
+      <b-container class="text-white">
+        <b-row>
           <p>
             {{ alert }}
           </p>
-        </b-container>
-      </b-row>
-      <b-row>
-        <b-col>
-          <VisitorCookie />
-        </b-col>
-      </b-row>
+        </b-row>
+      </b-container>
+      <VisitorCookie />
       <b-container>
         <b-row class="mt-4">
           <b-col>
@@ -90,7 +86,6 @@ export default {
   data () {
     return {
       title: 'daroach.net'.toUpperCase(),
-      // PageTitle: 'Welcome Visitor ',
       // Description: 'Thanks for connecting to my homelab!',
       Description: '',
       alert: 'Hello. My name is Gagan Daroach, and you have used the power of the internet to connect to a box in my apartment. Thanks for coming through! I am growing this website to be both a reflection of myself and a share of my learnings and experiences. Do feel free to explore around, and poke on every button.',
