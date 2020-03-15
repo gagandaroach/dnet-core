@@ -15,6 +15,11 @@
           </p>
         </b-container>
       </b-row>
+      <b-row>
+        <b-col>
+          <VisitorCookie />
+        </b-col>
+      </b-row>
       <b-container>
         <b-row class="mt-4">
           <b-col>
@@ -42,7 +47,6 @@
             />
           </b-col>
         </b-row>
-        <CardList />
       </b-container>
       <b-container>
         <b-row>
@@ -74,12 +78,14 @@
 <script>
 import PageTitle from '~/components/PageTitle.vue'
 import Card from '~/components/cards/Card.vue'
+import VisitorCookie from '~/components/VisitorCookie.vue'
 
 export default {
   layout: 'default',
   components: {
     PageTitle,
-    Card
+    Card,
+    VisitorCookie
   },
   data () {
     return {
