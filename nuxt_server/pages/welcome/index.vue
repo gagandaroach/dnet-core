@@ -1,5 +1,6 @@
 <template>
   <div id="body">
+    <VisitorCookie />
     <PageTitle
       :title="PageTitle"
       :description="Description"
@@ -15,7 +16,6 @@
           </p>
         </b-row>
       </b-container>
-      <VisitorCookie />
       <b-container>
         <b-row class="mt-4">
           <b-col>
