@@ -30,19 +30,19 @@
         <b-row class="mt-2 justify-content-center">
           <b-col md="6" lg="4">
             <Card
-              title="About The Homelab"
+              title="The Homelab"
               img-src="/imgs/daroachtech_servers.png"
               text="See the hardware that just served this webpage. Also read about the software stack used to build this page and send it to your screen."
-              btn-text="View Page"
-              btn-href="/about/me"
+              btn-text="View About Page"
+              btn-href="/about/homelab"
             />
           </b-col>
           <b-col md="6" lg="4">
             <Card
-              title="About The Hoster"
+              title="The Hoster"
               img-src="/imgs/gagan_daroach_selfie.jpeg"
               text="Learn about who I am and what I do."
-              btn-text="View Page"
+              btn-text="View About Page"
               btn-href="/about/me"
             />
           </b-col>

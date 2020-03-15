@@ -44,12 +44,13 @@ export default {
   },
   data () {
     return {
-      VisitorCount: -1
+      VisitorCount: ''
     }
   },
   mounted () {
-    this.$axios.get('https://api.daroach.net/visitor/count', { }, { })
-      .then(response => (this.VisitorCount = response.data.count))
+    // this.$axios.get('https://api.daroach.net/visitor/count', { }, { })
+    //   .then(response => (this.VisitorCount = response.data.count))
+    this.VisitorCount = this.$store.state.visitor.visitorCount
   }
 }
 </script>

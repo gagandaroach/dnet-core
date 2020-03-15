@@ -1,3 +1,4 @@
+
 // const COOKE_NAME = 'daroachnet_visitor_id'.toUpperCase()
 
 export const state = () => ({
@@ -15,11 +16,11 @@ export const mutations = {
 }
 
 export const actions = {
-  setCount: ({ commit, state }, newValue) => {
+  updateCount: ({ commit, state }, newValue) => {
     commit('SET_COUNT', newValue)
     return state.visitorCount
   },
-  setVisitorID: ({ commit, state }, newValue) => {
+  updateID: ({ commit, state }, newValue) => {
     commit('SET_ID', newValue)
     return state.visitorID
   }
