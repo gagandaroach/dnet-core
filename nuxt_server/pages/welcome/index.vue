@@ -106,7 +106,8 @@ export default {
   },
   computed: {
     PageTitle () {
-      return 'Welcome Visitor ' + this.$store.state.visitor.visitorID
+      const text = this.$store.getters.welcome
+      return text
     }
   },
   head () {
