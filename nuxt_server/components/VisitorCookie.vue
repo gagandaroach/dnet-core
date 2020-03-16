@@ -7,7 +7,10 @@
       img-src="https://media1.tenor.com/images/104aa49aa731ad6e0205baf8bfa22c4c/tenor.gif?itemid=5832923"
       img-alt="Cookie GIF"
       :img-right="right"
+      img-height="350"
+      img-width="auto"
     >
+      <!-- https://tenor.com/view/cookie-hungry-gif-5832923 cookie img source -->
       <b-row no-gutters>
         <b-container class="align">
           <b-row align-v="center">
@@ -27,14 +30,14 @@
           </b-row>
           <b-row class="text-center mt-5" align-v="end">
             <b-col>
-              <b-button href="" class="" variant="primary">
+              <b-button class="" variant="primary" @click="createCookieForMe()">
                 {{ btnAcceptText }}
               </b-button>
             </b-col>
           </b-row>
           <b-row class="text-center mt-1" align-v="end">
             <b-col>
-              <b-button href="" class="text-white" size="sm" variant="link">
+              <b-button class="text-white" size="sm" variant="link" @click="hideAlert()">
                 {{ btnDenyText }}
               </b-button>
             </b-col>
@@ -72,12 +75,19 @@ export default {
     text () {
       return `In the source code for this website, I wrote functionality to collect statistics on site usage. This information can help me prioritize my areas of development focus. Would you like to join ${this.VisitorCount} other visitors in accepting I place a cookie in your browser? `
     }
+  },
+  methods: {
+    createCookieForMe () {
+      // const id = this.$cookies.set('DNET_VISITOR_ID', 100)
+      // return id
+    },
+    hideAlert () {
+      return this.$store.dispatch('visitor/hideAlert', true)
+    }
   }
 }
 </script>
 
-<style>
-.main_container {
-  max-height: 50vh;
-}
+<style lang="SCSS">
+/* @include media-breakpoint-up(md) { } */
 </style>

@@ -18,6 +18,10 @@ export const getters = {
 
 export const actions = {
   async nuxtServerInit ({ dispatch, context }) {
+    const cookieRes = this.$cookies.get('DNET_VISITOR_ID')
+    if (cookieRes === undefined) {
+      dispatch('visitor/hideAlert', false)
+    }
     const response = await this.$axios.get('https://api.daroach.net/visitor/count')
     dispatch('visitor/updateCount', parseInt(response.data.count))
   }

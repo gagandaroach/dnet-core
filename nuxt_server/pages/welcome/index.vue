@@ -1,6 +1,6 @@
 <template>
   <div id="body">
-    <VisitorCookie />
+    <VisitorCookie v-if="showCookie" />
     <PageTitle
       :title="PageTitle"
       :description="Description"
@@ -96,13 +96,18 @@ export default {
         { text: 'a fun analytics dashboard for site traffic', done: false },
         { text: 'some sort of blog sharing the things i\'ve learned setting all this up', done: false },
         { text: 'the wall - a place for anyone to leave a comment :)', done: false }
-      ]
+      ],
+      showAlert: true
     }
   },
   computed: {
     PageTitle () {
       const text = this.$store.getters.welcome
       return text
+    },
+    showCookie () {
+      const hideAlert = this.$store.state.visitor.hideAlert
+      return !hideAlert
     }
   },
   head () {

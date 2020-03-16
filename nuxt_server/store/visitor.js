@@ -3,7 +3,8 @@
 
 export const state = () => ({
   visitorCount: -22222,
-  visitorID: -1
+  visitorID: -1,
+  hideAlert: undefined
 })
 
 export const mutations = {
@@ -12,6 +13,9 @@ export const mutations = {
   },
   SET_COUNT (state, count) {
     state.visitorCount = count
+  },
+  HIDE_ALERT (state, value) {
+    state.hideAlert = value
   }
 }
 
@@ -23,5 +27,9 @@ export const actions = {
   updateID: ({ commit, state }, newValue) => {
     commit('SET_ID', newValue)
     return state.visitorID
+  },
+  hideAlert: ({ commit, state }, newValue) => {
+    commit('HIDE_ALERT', newValue)
+    return state.hideAlert
   }
 }
