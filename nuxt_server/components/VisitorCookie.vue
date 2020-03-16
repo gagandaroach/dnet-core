@@ -78,8 +78,9 @@ export default {
   },
   methods: {
     createCookieForMe () {
-      // const id = this.$cookies.set('DNET_VISITOR_ID', 100)
-      // return id
+      const id = this.$cookies.set('DNET_VISITOR_ID', 100)
+      alert('note from gagan - working on saving the cookie right now. 2020 March 15')
+      return id
     },
     hideAlert () {
       return this.$store.dispatch('visitor/hideAlert', true)
