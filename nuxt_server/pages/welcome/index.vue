@@ -12,7 +12,7 @@
       <b-container class="text-white">
         <b-row>
           <p>
-            {{ alert }}
+            {{ intro }}
           </p>
         </b-row>
       </b-container>
@@ -89,7 +89,7 @@ export default {
     return {
       title: 'daroach.net'.toUpperCase(),
       // Description: 'Thanks for connecting to my homelab!',
-      alert: 'Hello. My name is Gagan Daroach, and you have used the power of the internet to connect to a box in my apartment. Thanks for coming through! I am growing this website to be both a reflection of myself and a share of my learnings and experiences. Do feel free to explore around, and poke on every button.',
+      intro: 'Hello. My name is Gagan Daroach, and you have used the power of the internet to connect to a box in my apartment. Thanks for coming through! I am growing this website to be both a reflection of myself and a share of my learnings and experiences. Do feel free to explore around, and poke on every button.',
       future: [
         { text: 'welcome page, base website framework', done: true },
         { text: 'connect with api.daroach.net, start tracking each page hit (anonymous statistics)', done: true },
