@@ -9,7 +9,7 @@
       text-color="#FFF"
     />
     <div class="text-center text-white">
-      <b-container class="text-white">
+      <b-container class="text-white mb-2">
         <b-row>
           <p>
             {{ intro }}
@@ -17,9 +17,11 @@
         </b-row>
       </b-container>
 
+      <Wall />
+
       <b-container>
         <b-row>
-          <b-col class="mt-4">
+          <b-col>
             <h2>whats coming?</h2>
             <p>I have a large vision for this website. Everyday a little more of that vision becomes real. Heres a rough idea of what I have in store for the future. In order of priority. All the code changes are tracked on github at the source code link the footer.</p>
           </b-col>
@@ -75,6 +77,7 @@
 
 <script>
 import PageTitle from '~/components/PageTitle.vue'
+import Wall from '~/components/wall/Main.vue'
 import Card from '~/components/cards/Card.vue'
 import VisitorCookie from '~/components/VisitorCookie.vue'
 
@@ -83,7 +86,8 @@ export default {
   components: {
     PageTitle,
     Card,
-    VisitorCookie
+    VisitorCookie,
+    Wall
   },
   data () {
     return {
