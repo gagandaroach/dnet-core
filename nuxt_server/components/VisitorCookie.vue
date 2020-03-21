@@ -31,7 +31,7 @@
           <div v-if="getDisabled">
             <b-row class="text-center mt-5" align-v="end">
               <b-col>
-                Sure! I just started baking a cookie in the homelab... Please wait.
+                Sure! I just started baking a cookie in the homelab... hold on a sec.
               </b-col>
             </b-row>
           </div>
@@ -101,7 +101,7 @@ export default {
       const ns10Years = 60 * 60 * 24 * 365 * 10
       const id = this.$cookies.set('DNET_VISITOR_ID', res.data.id, {
         domain: 'daroach.net',
-        expires: ns10Years
+        maxAge: ns10Years
       })
       this.hideAlert()
       return id
