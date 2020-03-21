@@ -5,9 +5,14 @@
         <b-container>
           <h1>{{ header }}</h1>
         </b-container>
-        <div v-for="(post, index) in posts" :key="index">
-          <WallItem :content="post.content" :author="post.author" />
-        </div>
+        <b-card-group>
+          <WallItem
+            v-for="(post, index) in posts"
+            :key="index"
+            :content="post.content"
+            :author="post.author"
+          />
+        </b-card-group>
       </b-col>
     </b-row>
   </div>

@@ -1,18 +1,16 @@
 <template>
-  <div>
-    <b-row class="bg-primary text-light m-3">
-      <b-col>
-        <b-card
-          fluid
-          bg-variant="dark"
-          no-body
-        >
-          <b-card-text class="p-3 text-left">{{ content }}</b-card-text>
-          <b-card-footer class="text-right">{{ tagLine }}</b-card-footer>
-        </b-card>
-      </b-col>
-    </b-row>
-  </div>
+  <b-card
+    bg-variant="dark"
+    class="m-1"
+    no-body
+  >
+    <b-card-text class="text-left p-3">
+      {{ content }}
+    </b-card-text>
+    <b-card-footer class="text-right">
+      {{ tagLine }}
+    </b-card-footer>
+  </b-card>
 </template>
 
 <script>
