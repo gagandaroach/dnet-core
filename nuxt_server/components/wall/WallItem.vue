@@ -17,8 +17,8 @@
 export default {
   props: {
     author: {
-      type: Number,
-      default: -1
+      type: String,
+      default: 'anonymous'
     },
     content: {
       type: String,
@@ -27,7 +27,9 @@ export default {
   },
   computed: {
     tagLine () {
-      if (this.author === -1) {
+      if (isNaN(this.author)) {
+        return this.author
+      } else if (this.author === -1) {
         return 'anonymous'
       } else {
         return 'Visitor #' + this.author
