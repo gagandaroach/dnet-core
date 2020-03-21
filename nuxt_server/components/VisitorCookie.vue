@@ -28,20 +28,29 @@
               </b-card-text>
             </b-col>
           </b-row>
-          <b-row class="text-center mt-5" align-v="end">
-            <b-col>
-              <b-button class="" variant="primary" @click="createCookieForMe()">
-                {{ btnAcceptText }}
-              </b-button>
-            </b-col>
-          </b-row>
-          <b-row class="text-center mt-1" align-v="end">
-            <b-col>
-              <b-button class="text-white" size="sm" variant="link" @click="hideAlert()">
-                {{ btnDenyText }}
-              </b-button>
-            </b-col>
-          </b-row>
+          <div v-if="getDisabled">
+            <b-row class="text-center mt-5" align-v="end">
+              <b-col>
+                Sure! I just started baking a cookie in the homelab... Please wait.
+              </b-col>
+            </b-row>
+          </div>
+          <div v-else>
+            <b-row class="text-center mt-5" align-v="end">
+              <b-col>
+                <b-button class="" variant="primary" @click="createCookieForMe()">
+                  {{ btnAcceptText }}
+                </b-button>
+              </b-col>
+            </b-row>
+            <b-row class="text-center mt-1" align-v="end">
+              <b-col>
+                <b-button class="text-white" size="sm" variant="link" @click="hideAlert()">
+                  {{ btnDenyText }}
+                </b-button>
+              </b-col>
+            </b-row>
+          </div>
         </b-container>
       </b-row>
     </b-card>
@@ -68,18 +77,33 @@ export default {
       default: true
     }
   },
+  data () {
+    return {
+      getDisabled: false
+    }
+  },
   computed: {
     VisitorCount () {
       return this.$store.state.visitor.visitorCount
     },
     text () {
-      return `In the source code for this website, I wrote functionality to collect statistics on site usage. This information can help me prioritize my areas of development focus. Would you like to join ${this.VisitorCount} other visitors in accepting I place a cookie in your browser? `
+      return `In the source code for DAROACH.NET , I wrote functionality to collect statistics on site usage. For example, how often I serve different web pages to each client. This information can help me prioritize areas of development focus. Would you like to join ${this.VisitorCount} other visitors in accepting I place a cookie in your browser? `
     }
   },
   methods: {
-    createCookieForMe () {
-      const id = this.$cookies.set('DNET_VISITOR_ID', 100)
-      alert('note from gagan - working on saving the cookie right now. 2020 March 15')
+    async createCookieForMe () {
+      this.getDisabled = true
+      const res = await this.$axios.post('visitor/cookie', {
+        platform: navigator.platform,
+        language: navigator.language,
+        userAgent: navigator.userAgent
+      }, {})
+      const ns10Years = 60 * 60 * 24 * 365 * 10
+      const id = this.$cookies.set('DNET_VISITOR_ID', res.data.id, {
+        domain: 'daroach.net',
+        expires: ns10Years
+      })
+      this.hideAlert()
       return id
     },
     hideAlert () {

@@ -72,22 +72,21 @@ def get_visitor_daroachnet():
     return jsonify({'count': client.visitor_count()}), 200
 
 
-# @app.route(f'/visitor', methods=['POST'])
-# @basic_auth.required
-# def post_visitor_daroachnet():
-#     info = request.json
-#     visitor_id = -1
-#     if info is not None:
-#         visitor_id = client.add_visitor(
-#             platform=info.get('platform', 'NULL'),
-#             userAgent=info.get('userAgent', 'NULL'),
-#             language=info.get('language', 'NULL'),
-#             cookie_enabled=info.get('cookie_enabled', '0')
-#         )
-#     else:
-#         visitor_id = client.add_visitor()
-#     print('/visitor post request json: ', info)
-#     return jsonify({'id': visitor_id}), 200
+@app.route(f'/visitor/cookie', methods=['POST'])
+@basic_auth.required
+def post_visitor_daroachnet():
+    info = request.json
+    visitor_id = -1
+    if info is not None:
+        visitor_id = client.add_visitor(
+            platform=info.get('platform', 'NULL'),
+            userAgent=info.get('userAgent', 'NULL'),
+            language=info.get('language', 'NULL'),
+        )
+    else:
+        visitor_id = client.add_visitor()
+    print('/visitor/cookie post request json: ', info)
+    return jsonify({'id': visitor_id}), 200
 
 @app.route('/error/<string:phrase>/<int:code>')
 def error(phrase, code):

@@ -16,6 +16,31 @@
           </p>
         </b-row>
       </b-container>
+
+      <b-container>
+        <b-row>
+          <b-col class="mt-4">
+            <h2>whats coming?</h2>
+            <p>I have a large vision for this website. Everyday a little more of that vision becomes real. Heres a rough idea of what I have in store for the future. In order of priority. All the code changes are tracked on github at the source code link the footer.</p>
+          </b-col>
+        </b-row>
+        <b-row>
+          <b-col class="">
+            <b-card no-body bg-variant="dark">
+              <b-list-group v-for="(item, index) in future" :key="index" flush>
+                <b-list-group-item class="bg-dark text-white">
+                  <b-form-checkbox
+                    v-model="item.done"
+                  >
+                    {{ item.text }}
+                  </b-form-checkbox>
+                </b-list-group-item>
+              </b-list-group>
+            </b-card>
+          </b-col>
+        </b-row>
+      </b-container>
+
       <b-container>
         <b-row class="mt-4">
           <b-col>
@@ -44,29 +69,6 @@
           </b-col>
         </b-row>
       </b-container>
-      <b-container>
-        <b-row>
-          <b-col class="mt-4">
-            <h2>whats coming?</h2>
-            <p>I have a large vision for this website. Everyday a little more of that vision becomes real. Heres a rough idea of what I have in store for the future. In order of priority. All the code changes are tracked on github at the source code link the footer.</p>
-          </b-col>
-        </b-row>
-        <b-row>
-          <b-col class="">
-            <b-card no-body bg-variant="dark">
-              <b-list-group v-for="(item, index) in future" :key="index" flush>
-                <b-list-group-item class="bg-dark text-white">
-                  <b-form-checkbox
-                    v-model="item.done"
-                  >
-                    {{ item.text }}
-                  </b-form-checkbox>
-                </b-list-group-item>
-              </b-list-group>
-            </b-card>
-          </b-col>
-        </b-row>
-      </b-container>
     </div>
   </div>
 </template>
@@ -87,7 +89,6 @@ export default {
     return {
       title: 'daroach.net'.toUpperCase(),
       // Description: 'Thanks for connecting to my homelab!',
-      Description: '',
       alert: 'Hello. My name is Gagan Daroach, and you have used the power of the internet to connect to a box in my apartment. Thanks for coming through! I am growing this website to be both a reflection of myself and a share of my learnings and experiences. Do feel free to explore around, and poke on every button.',
       future: [
         { text: 'welcome page, base website framework', done: true },
@@ -106,6 +107,10 @@ export default {
   computed: {
     PageTitle () {
       const text = this.$store.getters.welcome
+      return text
+    },
+    Description () {
+      const text = this.$store.getters.description
       return text
     },
     showCookie () {
