@@ -1,15 +1,15 @@
 <template>
   <div>
-    <v-row class="bg-primary text-light">
-      <v-col>
-        <v-container>
+    <b-row class="bg-primary text-light justify-content-center">
+      <b-col>
+        <b-container>
           <h1>{{ header }}</h1>
-        </v-container>
+        </b-container>
         <div v-for="(post, index) in posts" :key="index">
           <WallItem :content="post.content" :author="post.author" />
         </div>
-      </v-col>
-    </v-row>
+      </b-col>
+    </b-row>
   </div>
 </template>
 
@@ -25,11 +25,11 @@ export default {
       header: 'The Wall',
       posts: [
         {
-          author: 'anonymous',
+          author: -1,
           content: 'this site is great!'
         },
         {
-          author: '#3',
+          author: 3,
           content: 'the start of something gr8'
         }
       ]

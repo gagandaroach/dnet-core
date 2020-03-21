@@ -1,5 +1,5 @@
 <template>
-  <div id="body">
+  <div class="bg-primary pb-5">
     <VisitorCookie v-if="showCookie" />
     <PageTitle
       :title="PageTitle"
@@ -131,8 +131,4 @@ export default {
 </script>
 
 <style>
-#body {
-  background-color: var(--primary);
-  padding-bottom: 40px;
-}
 </style>
