@@ -5,7 +5,7 @@
       <AboutTabs />
       <b-container>
         <b-alert show variant="danger" dismissible>
-          Heads Up! The about pages are incomplete. I know these pages like doodoo right now.
+          Note! The information on these pages is incomplete. I used the page during development as I set up site routing between pages. Updating this page will get done after I finish the frontpage and visitor cookie tracking.
         </b-alert>
       </b-container>
       <nuxt />

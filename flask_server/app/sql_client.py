@@ -34,10 +34,10 @@ class SqlClient:
             f'Select count(*) from {self.TABLE_VISITOR};')
         return str(res[0][0])
 
-    def add_visitor(self, platform='NULL', userAgent='NULL', language='NULL', cookie_enabled='0'):
-        sql = "INSERT INTO visitor (platform, userAgent, language, cookie_enabled, id, time) VALUES (%s, %s, %s, %s, %s, %s)"
+    def add_visitor(self, platform='NULL', userAgent='NULL', language='NULL'):
+        sql = "INSERT INTO visitor (platform, userAgent, language, id, time) VALUES (%s, %s, %s, %s, %s)"
         timestamp = datetime.datetime.now()
-        val = (platform, userAgent, language, cookie_enabled, 0, timestamp)
+        val = (platform, userAgent, language, 0, timestamp)
         res = self.execute_post(sql, val)
         return res
 

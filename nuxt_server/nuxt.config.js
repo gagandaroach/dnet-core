@@ -52,13 +52,14 @@ export default {
     'bootstrap-vue/nuxt',
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    // https://github.com/microcipcip/cookie-universal/
+    ['cookie-universal-nuxt', { }]
   ],
 
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
-  Why couldn't i get this to work? 2020-03-11 Gagan
   */
   axios: {
     baseURL: 'https://api.daroach.net',
@@ -77,7 +78,7 @@ export default {
 
   // https://nuxtjs.org/guide/routing#middleware
   router: {
-    middleware: 'stats'
+    middleware: ['post_hit']
   },
 
   /*
