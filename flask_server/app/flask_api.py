@@ -88,9 +88,28 @@ def post_visitor_daroachnet():
     print('/visitor/cookie post request json: ', info)
     return jsonify({'id': visitor_id}), 200
 
+@app.route(f'/wall/posts', methods=['GET'])
+def get_wall_posts():
+    posts = client.wall_posts()
+    return jsonify(posts), 200
+
+@app.route(f'/wall/post', methods=['POST'])
+def make_wall_post():
+    info = request.json
+    post_id = -1
+    if info is not None:
+        post_id = client.make_wall_posts(
+            author=info.get('author', 'anonymous'),
+            text=info.get('text', ''),
+            vid=info.get('vid', -1),
+        )
+    else:
+        error('Invalid Request to Make Wall Post', 500)
+    return jsonify({'post_id': post_id}), 200
+
 @app.route('/error/<string:phrase>/<int:code>')
 def error(phrase, code):
-    return make_response(f'API ERROR: {phrase} \nIf the problem persists, file a bug at the source code link below.', code)
+    return make_response(f'API ERROR: {phrase} \nIf the problem persists, file a bug at the github source code.', code)
 
 # MAIN - EXECUTE API SERVER
 
