@@ -7,10 +7,9 @@
         </b-container>
         <b-card-group>
           <WallItem
-            v-for="(post, index) in posts"
-            :key="index"
-            :content="post.content"
-            :author="post.author"
+            v-for="post in posts"
+            :key="post[0]"
+            :post="post"
           />
         </b-card-group>
       </b-col>
@@ -28,16 +27,17 @@ export default {
   data () {
     return {
       header: 'The Wall',
-      posts: [
-        {
-          author: -1,
-          content: 'this site is great!'
-        },
-        {
-          author: 3,
-          content: 'the start of something gr8'
-        }
-      ]
+      posts: []
+    }
+  },
+  mounted () {
+    this.getPosts()
+  },
+  methods: {
+    getPosts () {
+      const app = this
+      app.$axios.get('https://api.daroach.net/wall/posts')
+        .then(response => (app.posts = response.data))
     }
   }
 }

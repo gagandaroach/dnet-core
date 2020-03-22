@@ -18,7 +18,7 @@
           </b-row>
         </b-container>
 
-        <b-container>
+        <b-container class="mb-2">
           <Wall />
         </b-container>
 
@@ -81,7 +81,7 @@
 
 <script>
 import PageTitle from '~/components/PageTitle.vue'
-import Wall from '~/components/wall/Main.vue'
+import Wall from '~/components/wall/Wall.vue'
 import Card from '~/components/cards/Card.vue'
 import VisitorCookie from '~/components/VisitorCookie.vue'
 

@@ -5,7 +5,7 @@
     no-body
   >
     <b-card-text class="text-left p-3">
-      {{ content }}
+      {{ text }}
     </b-card-text>
     <b-card-footer class="text-right">
       {{ tagLine }}
@@ -16,16 +16,18 @@
 <script>
 export default {
   props: {
-    author: {
-      type: String,
-      default: 'anonymous'
-    },
-    content: {
-      type: String,
-      default: 'default content - lorem orem leopetn dipsim blah blah'
+    post: {
+      type: Array,
+      default: () => []
     }
   },
   computed: {
+    author () {
+      return this.post[1]
+    },
+    text () {
+      return this.post[2]
+    },
     tagLine () {
       if (isNaN(this.author)) {
         return this.author
