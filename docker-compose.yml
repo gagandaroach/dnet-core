@@ -24,7 +24,7 @@ volumes:
   certs:
 
 services:
-# daroach.net | WEBSITE SERVER - VueJS, NuxtJS
+  # daroach.net | WEBSITE SERVER - VueJS, NuxtJS
   nuxt_server:
     build: ./nuxt_server
     restart: unless-stopped
@@ -38,10 +38,10 @@ services:
     networks:
       - daroachnetwork
     command: "npm run start"
-    depends_on: 
+    depends_on:
       - nginx-proxy
 
-# api.daroach.net | INTERNET EXPOSED REST FLASK PYTHON
+  # api.daroach.net | INTERNET EXPOSED REST FLASK PYTHON
   flask_server:
     build:
       context: ./flask_server
@@ -61,7 +61,7 @@ services:
     ports:
       - 5000:5000
 
-# SQL SERVER FOR REST API STORAGE
+  # SQL SERVER FOR REST API STORAGE
   flask_db:
     image: mariadb
     env_file:
@@ -75,7 +75,7 @@ services:
     networks:
       - backend
 
-# PHP MY ADMIN FOR WEB CONTROL OF DATABASE
+  # PHP MY ADMIN FOR WEB CONTROL OF DATABASE
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     env_file:
@@ -90,7 +90,7 @@ services:
     networks:
       - backend
 
-# dynamic dns with google domains for daroach.net
+  # dynamic dns with google domains for daroach.net
   daroachnet_ddns:
     build: ./dynamic_dns
     restart: always
@@ -99,9 +99,9 @@ services:
     networks:
       - daroachnetwork
 
-# Daroach Tech Engine Docker Compose File
-# My use of Jwilder's nginx-proxy and Jrcs's Letsencrypt Companion
-# Author: Gagan Daroach gagandaroach@gmail.com
+  # Daroach Tech Engine Docker Compose File
+  # My use of Jwilder's nginx-proxy and Jrcs's Letsencrypt Companion
+  # Author: Gagan Daroach gagandaroach@gmail.com
   nginx-proxy:
     build:
       context: ./nginx_proxy
@@ -138,7 +138,7 @@ services:
     networks:
       - daroachnetwork
 
-# portainer.daroach.net | admin for docker containers
+  # portainer.daroach.net | admin for docker containers
   portainer:
     restart: unless-stopped
     image: portainer/portainer
@@ -155,10 +155,10 @@ services:
       - daroachnetwork
     ports:
       - 9000:9000
-    depends_on: 
+    depends_on:
       - nginx-proxy
 
-  #next cloud maria db sql server 
+  #next cloud maria db sql server
   cloud_db:
     image: mariadb
     command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW
@@ -215,10 +215,9 @@ services:
     networks:
       - cloud_internal
 
- collabora:
-   image: collabora/code
-   env_file: 
-     - collabora.env
-   networks:
-     - daroachnetwork
-
+  collabora:
+    image: collabora/code
+    env_file:
+      - collabora.env
+    networks:
+      - daroachnetwork
