@@ -12,7 +12,7 @@ export const getters = {
   welcome: (state) => {
     const id = state.visitor.visitorID
     const NO_ID_SET_VALUE = -1 // value of a unset visitor id
-    if (id === NO_ID_SET_VALUE) { return 'Welcome to Daroach.net' } else { return 'Welcome back #' + id }
+    if (id === NO_ID_SET_VALUE) { return 'Welcome to DAROACH.NET' } else { return 'Welcome back #' + id }
   },
   description: (state) => {
     const id = state.visitor.visitorID

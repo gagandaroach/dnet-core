@@ -7,6 +7,7 @@ import configparser
 import mysql.connector as mysql
 import datetime
 
+
 class SqlClient:
 
     def __init__(self):
@@ -22,6 +23,7 @@ class SqlClient:
         del config
         self.TABLE_VISITOR = 'visitor'
         self.TABLE_HIT = 'hit'
+        self.TABLE_WALL = 'wallpost'
 
     # SQL Calls
 
@@ -45,7 +47,7 @@ class SqlClient:
         if page is None:
             page = 'NULL'
         if visitor_id is None:
-            visitor_id='-1'
+            visitor_id = '-1'
         sql = "INSERT INTO hit (id, page, visitor_id, timestamp) VALUES (%s, %s, %s, %s)"
         timestamp = datetime.datetime.now()
         val = (0, page, visitor_id, timestamp)
@@ -61,6 +63,23 @@ class SqlClient:
             res = self.execute_select(
                 f'SELECT count(*) FROM {self.TABLE_HIT} WHERE page = "{page}"')
         return str(res[0][0])
+
+    def wall_posts(self, vid=None):
+        res = self.execute_select(
+            f'SELECT * FROM {self.TABLE_WALL}')
+        return res
+    # insert into wallpost (id, author, text, vid) values (0, 'testauth', 'test_text', -1)
+    def make_wall_posts(self, author, text, vid):
+        sql = "INSERT INTO wallpost (id, author, text, vid) VALUES (%s, %s, %s, %s)"
+        val = (0, author, text, vid)
+        res = self.execute_post(sql, val)
+        return res
+
+    def flag_post(self, post_id):
+        pass
+
+    def like_post(self, post_id):
+        pass
 
     # wiring
 
@@ -84,6 +103,7 @@ class SqlClient:
         mariadb_connection.close()
         return res
 
+
 def run_tests(client):
     print('CALLING LIST TABLES ON TABLE')
     print(sql.list_tables())
@@ -105,6 +125,7 @@ def run_tests(client):
 
     print('CALLING HIT_COUNT AFTER AN INSERT')
     print(sql.hit_count())
+
 
 if __name__ == "__main__":
     print('EXECUTING SQL CLIENT TESTS\n')

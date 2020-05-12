@@ -2,10 +2,11 @@
 # Docker containers running on my homelab.
 #
 # Author: Gagan Daroach gagandaroach@gmail.com
-# Web Proxy Date:           March 10 2019
-# Web Client Date:          April 21 2019
-# REST API Date:            June 22 2019
-# MERGE Date:              March 11 2020
+# Web Proxy Date:            March 10 2019
+# Web Client Date:           April 21 2019
+# REST API Date:              June 22 2019
+# MERGE Date:                March 11 2020
+# CHAT Date:		       May 12 2020	
 
 version: "3"
 
