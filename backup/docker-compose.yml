@@ -1,0 +1,28 @@
+version: '2'
+
+networks:
+  daroachnetwork:
+    external: true
+
+services:
+  duplicati:
+    image: linuxserver/duplicati
+    restart: unless-stopped
+    volumes:
+      - /Chand/duplicati/config:/config	
+      - /Chand/duplicati/backups:/backups
+      - /Chand/duplicati/source:/source
+    ports:
+      - 8200:8200	
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Chicago
+      - PUID=1000
+#      - VIRTUAL_HOST=salmon.daroach.net
+#      - VIRTUAL_PORT=3000
+#      - LETSENCRYPT_HOST=salmon.daroach.net
+#      - LETSENCRYPT_EMAIL=gagandaroach@gmail.com
+#    networks:
+#      - daroachnetwork
+
