@@ -9,7 +9,6 @@ networks:
   daroachnetwork:
     external: true
   backend:
-    internal: true
 
 services:
   plex:
@@ -36,27 +35,29 @@ services:
       - daroachnetwork
       - backend
 
-  # transmission:
-  #   image: linuxserver/transmission
-  #   environment:
-  #     - PUID=1000
-  #     - PGID=1000
-  #     - TZ=America/Chicago
-  #     - TRANSMISSION_WEB_HOME=/combustion-release/
-  #   volumes:
-  #     - ${ROOT_MOUNTPOINT}/transmission:/config
-  #     - ${ROOT_MOUNTPOINT}/transmission/downloads:/downloads
-  #     - ${ROOT_MOUNTPOINT}/transmission/watch:/watch
-  #   ports:
-  #     # web ui
-  #     - 9091:9091
-  #     # torrent port tcp
-  #     - 51413:51413
-  #     # torrent port udp
-  #     - 51413:51413/udp
-  #   restart: "no"
-  #   networks:
-  #     - backend
+  transmission:
+    image: linuxserver/transmission
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Chicago
+      - TRANSMISSION_WEB_HOME=/combustion-release/
+      - USER=${TRANS_USER}
+      - PASS=${TRANS_PASS}
+    volumes:
+      - ${TRANS_CONFIG}:/config
+      - ${TRANS_DOWNLOADS}:/downloads
+      - ${TRANS_WATCH}:/watch
+    ports:
+      # web ui
+      - 9091:9091
+      # torrent port tcp
+      - 51413:51413
+      # torrent port udp
+      - 51413:51413/udp
+    restart: "always"
+    networks:
+      - backend
 
   # radarr:
   #   image: linuxserver/radarr
