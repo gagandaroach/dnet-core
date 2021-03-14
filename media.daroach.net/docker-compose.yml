@@ -14,17 +14,9 @@ networks:
 services:
   plex:
     image: plexinc/pms-docker
-    restart: "no"
+    restart: "always"
     ports:
       - 32400:32400/tcp
-      - 3005:3005/tcp
-      - 8324:8324/tcp
-      - 32469:32469/tcp
-      - 1900:1900/udp
-      - 32410:32410/udp
-      - 32412:32412/udp
-      - 32413:32413/udp
-      - 32414:32414/udp
     environment:
       - VIRTUAL_HOST=media.daroach.net
       - VIRTUAL_PORT=32400
@@ -33,51 +25,51 @@ services:
       - TZ=America/Chicago
       - PUID=1000
       - PGID=1000
-      - ADVERTISE_IP=https://media.daroach.net/
-      # - PLEX_CLAIM=claim-QQ_Rt-gCXt6JrTRK4T_g
-      # - ADVERTISE_IP=http://localhost:32400/
+      - ADVERTISE_IP=https://media.daroach.net/,http://dt49.daroach.lan,https://daroach.net:32400
+      - ALLOWED_NETWORKS=10.4.0.0/16
+      - PLEX_CLAIM=claim-U3gvTkxaTZz_j5TsFZwv
     volumes:
-      - ${PLEX_MOUNTPOINT}/config:/config
-      - ${PLEX_MOUNTPOINT}/temp:/transcode
-      - ${PLEX_MOUNTPOINT}/data:/data
+      - ${PLEX_CONFIG}:/config
+      - ${TRANSCODE_CACHE}/:/transcode
+      - ${DATA_DIR}:/data
     networks:
       - daroachnetwork
       - backend
 
-  transmission:
-    image: linuxserver/transmission
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=America/Chicago
-      - TRANSMISSION_WEB_HOME=/combustion-release/
-    volumes:
-      - ${ROOT_MOUNTPOINT}/transmission:/config
-      - ${ROOT_MOUNTPOINT}/transmission/downloads:/downloads
-      - ${ROOT_MOUNTPOINT}/transmission/watch:/watch
-    ports:
-      # web ui
-      - 9091:9091
-      # torrent port tcp
-      - 51413:51413
-      # torrent port udp
-      - 51413:51413/udp
-    restart: "no"
-    networks:
-      - backend
+  # transmission:
+  #   image: linuxserver/transmission
+  #   environment:
+  #     - PUID=1000
+  #     - PGID=1000
+  #     - TZ=America/Chicago
+  #     - TRANSMISSION_WEB_HOME=/combustion-release/
+  #   volumes:
+  #     - ${ROOT_MOUNTPOINT}/transmission:/config
+  #     - ${ROOT_MOUNTPOINT}/transmission/downloads:/downloads
+  #     - ${ROOT_MOUNTPOINT}/transmission/watch:/watch
+  #   ports:
+  #     # web ui
+  #     - 9091:9091
+  #     # torrent port tcp
+  #     - 51413:51413
+  #     # torrent port udp
+  #     - 51413:51413/udp
+  #   restart: "no"
+  #   networks:
+  #     - backend
 
-  radarr:
-    image: linuxserver/radarr
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=America/Chicago
-    volumes:
-      - ${ROOT_MOUNTPOINT}/radarr:/config
-      - ${MOVIES_DIR}:/movies
-      - ${DOWNLOADS_DIR}:/downloads
-    ports:
-      - 7878:7878
-    restart: "no"
-    networks:
-      - backend
+  # radarr:
+  #   image: linuxserver/radarr
+  #   environment:
+  #     - PUID=1000
+  #     - PGID=1000
+  #     - TZ=America/Chicago
+  #   volumes:
+  #     - ${ROOT_MOUNTPOINT}/radarr:/config
+  #     - ${MOVIES_DIR}:/movies
+  #     - ${DOWNLOADS_DIR}:/downloads
+  #   ports:
+  #     - 7878:7878
+  #   restart: "no"
+  #   networks:
+  #     - backend
