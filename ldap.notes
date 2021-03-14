@@ -1,0 +1,14 @@
+ldapmodify -x -D 'cn=Directory Manager' -W
+Enter LDAP Password:
+dn: uid=dtldap,cn=sysaccounts,cn=etc,dc=daroach,dc=lan
+changetype: add
+objectclass: account
+objectclass: simplesecurityobject
+uid: dtldap
+userPassword: deepakdaroachbless
+nsIdleTimeout: 0
+
+passwordExperationTime: 20380119031407Z
+adding new entry "uid=dtldap,cn=sysaccounts,dc=daroach,dc=lan"
+ldap_add: No such object (32)
+        matched DN: dc=daroach,dc=lan
