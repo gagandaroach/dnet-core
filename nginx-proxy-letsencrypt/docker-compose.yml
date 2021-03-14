@@ -1,0 +1,45 @@
+# daroach.net
+# Web Proxy Core
+
+version: "3"
+
+networks:
+  daroachnetwork:
+    external: true
+
+services:
+  nginx-proxy:
+    build:
+      context: .
+      dockerfile: NginxProxy.Dockerfile
+    ports:
+      - ${HOST_EXTERNAL_IP}:80:80
+      - ${HOST_EXTERNAL_IP}:443:443
+    volumes:
+      - ${SSL_DATA_DIR}/conf:/etc/nginx/conf.d
+      - ${SSL_DATA_DIR}/vhost:/etc/nginx/vhost.d
+      - ${SSL_DATA_DIR}/html:/usr/share/nginx/html
+      - ${SSL_DATA_DIR}/dhparam:/etc/nginx/dhparam
+      - ${SSL_DATA_DIR}/certs:/etc/nginx/certs:ro
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+    restart: ${RESTART}
+    networks:
+      - daroachnetwork
+    labels:
+      - "com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy"
+
+  letsencrypt:
+    image: jrcs/letsencrypt-nginx-proxy-companion
+    depends_on:
+      - nginx-proxy
+    volumes:
+      - ${SSL_DATA_DIR}/vhost:/etc/nginx/vhost.d
+      - ${SSL_DATA_DIR}/html:/usr/share/nginx/html
+      - ${SSL_DATA_DIR}/dhparam:/etc/nginx/dhparam:ro
+      - ${SSL_DATA_DIR}/certs:/etc/nginx/certs
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    environment:
+      - NGINX_PROXY_CONTAINER=nginx-proxy
+    restart: ${RESTART}
+    networks:
+      - daroachnetwork
