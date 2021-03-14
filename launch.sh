@@ -4,19 +4,16 @@
 
 # echo "Usage:\n\
 #     ./launch.sh <noargs> | Start each service.\n\
-#     ./launch.sh build | Call build --pull before starting each service.\n\
+#     ./launch.sh build | Call build --pull before starting each service.\n\ #TODO
 # "
 
-services=(daroach.net portainer.daroach.net cloud.daroach.net)
+services=(nginx-proxy-letsencrypt portainer.daroach.net)
 
 for service in ${services[@]}; do
     if [ -d "$service" ]; then
         echo Service: "$service" found. Entering dir.
         cd "$service" || exit
-        if [ $1 -eq "build"]; then
-            echo "### Building service.."
-            docker-compose build --pull  
-        fi
+        docker-compose build --pull  
         docker-compose up -d
         echo Done. Returning to parent dir.
         cd .. || exit
