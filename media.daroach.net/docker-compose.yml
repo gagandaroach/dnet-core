@@ -13,7 +13,7 @@ networks:
 services:
   plex:
     image: plexinc/pms-docker
-    restart: "always"
+    restart: "unless-stopped"
     ports:
       - 32400:32400/tcp
     environment:
@@ -21,56 +21,49 @@ services:
       - VIRTUAL_PORT=32400
       - LETSENCRYPT_HOST=media.daroach.net
       - LETSENCRYPT_EMAIL=gagandaroach@gmail.com
-      - TZ=America/Chicago
-      - PUID=1000
-      - PGID=1000
+      - TZ=${TZ}
+      - PUID=${MEDIA_PUID}
+      - PGID=${MEDIA_PGID}
       - ADVERTISE_IP=https://media.daroach.net/,http://dt49.daroach.lan,https://daroach.net:32400
       - ALLOWED_NETWORKS=10.4.0.0/16
       - PLEX_CLAIM=claim-U3gvTkxaTZz_j5TsFZwv
     volumes:
-      - ${PLEX_CONFIG}:/config
+      - ${CONFIG_DIR}/plex:/config
       - ${TRANSCODE_CACHE}/:/transcode
       - ${DATA_DIR}:/data
     networks:
       - daroachnetwork
       - backend
-
-  transmission:
-    image: linuxserver/transmission
+  
+  deluge:
+    image: linuxserver/deluge:latest
+    restart: "unless-stopped"
     environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=America/Chicago
-      - TRANSMISSION_WEB_HOME=/combustion-release/
-      - USER=${TRANS_USER}
-      - PASS=${TRANS_PASS}
+      - PUID=${MEDIA_PUID}
+      - PGID=${MEDIA_PGID}
+      - TZ=${TZ}
     volumes:
-      - ${TRANS_CONFIG}:/config
-      - ${TRANS_DOWNLOADS}:/downloads
-      - ${TRANS_WATCH}:/watch
+      - ${CONFIG_DIR}/deluge:/config
+      - ${TOR_DOWNLOADS}:/downloads
+      - ${TOR_WATCH}:/watch
     ports:
-      # web ui
-      - 9091:9091
-      # torrent port tcp
-      - 51413:51413
-      # torrent port udp
-      - 51413:51413/udp
-    restart: "always"
+      - 8112:8112 # web ui
     networks:
       - backend
 
-  # radarr:
-  #   image: linuxserver/radarr
-  #   environment:
-  #     - PUID=1000
-  #     - PGID=1000
-  #     - TZ=America/Chicago
-  #   volumes:
-  #     - ${ROOT_MOUNTPOINT}/radarr:/config
-  #     - ${MOVIES_DIR}:/movies
-  #     - ${DOWNLOADS_DIR}:/downloads
-  #   ports:
-  #     - 7878:7878
-  #   restart: "no"
-  #   networks:
-  #     - backend
+  jackett:
+    image: linuxserver/jackett:latest
+    restart: "unless-stopped"
+    networks:
+      - backend
+    ports:
+      - 9117:9117 # web ui
+    environment:
+      - PUID=${MEDIA_PUID}
+      - PGID=${MEDIA_PGID}
+      - TZ=${TZ}
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ${TOR_WATCH}:/downloads
+      - ${CONFIG_DIR}/jackett:/config
+
