@@ -1,5 +1,8 @@
 FROM nextcloud:21-apache
 
+COPY ldap_tls.crt /etc/ldap/ca.crt
+COPY ldap.conf /etc/ldap/ldap.conf
+
 RUN set -ex; \
     \
     apt-get update; \

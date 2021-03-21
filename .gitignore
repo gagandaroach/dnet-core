@@ -3,6 +3,9 @@ portainer/
 ssl/
 *.notes
 
+# cloud.daroach.net
+ldap_tls.crt
+
 # Docker
 *.env
 
