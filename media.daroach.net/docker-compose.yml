@@ -30,7 +30,8 @@ services:
     volumes:
       - ${CONFIG_DIR}/plex:/config
       - ${TRANSCODE_CACHE}/:/transcode
-      - ${DATA_DIR}:/data
+      - ${TV_DIR}:/data/TV
+      - ${MOVIES_DIR}:/data/Movies
     networks:
       - daroachnetwork
       - backend
@@ -44,8 +45,8 @@ services:
       - TZ=${TZ}
     volumes:
       - ${CONFIG_DIR}/deluge:/config
-      - ${TOR_DOWNLOADS}:/downloads
-      - ${TOR_WATCH}:/watch
+      - ${DOWNLOADS}:/downloads
+      - ${WATCH}:/watch
     ports:
       - 8112:8112 # web ui
     networks:
@@ -64,6 +65,29 @@ services:
       - TZ=${TZ}
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - ${TOR_WATCH}:/downloads
+      - ${WATCH}:/downloads
       - ${CONFIG_DIR}/jackett:/config
 
+  radarr:
+    image: linuxserver/radarr
+    environment:
+      - VIRTUAL_HOST=mov.daroach.net
+      - VIRTUAL_PORT=7878
+      - LETSENCRYPT_HOST=mov.daroach.net
+      - LETSENCRYPT_EMAIL=gagandaroach@gmail.com
+      - PUID=${MEDIA_PUID}
+      - PGID=${MEDIA_PGID}
+      - TZ=${TZ}
+    volumes:
+      - ${CONFIG_DIR}/radarr:/config
+      - ${MOVIES_DIR}:/movies
+      - ${DOWNLOADS}/complete:/downloads/complete
+    ports:
+      - 7878:7878 # web ui
+    restart: "unless-stopped"
+    depends_on:
+      - jackett
+      - deluge
+    networks:
+      - daroachnetwork
+      - backend
