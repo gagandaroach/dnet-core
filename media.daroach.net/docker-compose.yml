@@ -48,7 +48,7 @@ services:
       - ${DOWNLOADS}:/downloads
       - ${WATCH}:/watch
     ports:
-      - 8112:8112 # web ui
+      - 8112:8112
     networks:
       - backend
 
@@ -58,7 +58,7 @@ services:
     networks:
       - backend
     ports:
-      - 9117:9117 # web ui
+      - 9117:9117
     environment:
       - PUID=${MEDIA_PUID}
       - PGID=${MEDIA_PGID}
@@ -83,7 +83,7 @@ services:
       - ${MOVIES_DIR}:/movies
       - ${DOWNLOADS}/complete:/downloads/complete
     ports:
-      - 7878:7878 # web ui
+      - 7878:7878
     restart: "unless-stopped"
     depends_on:
       - jackett
@@ -91,3 +91,28 @@ services:
     networks:
       - daroachnetwork
       - backend
+
+  sonarr:
+    image: linuxserver/sonarr:latest
+    restart: "unless-stopped"
+    depends_on:
+      - jackett
+      - deluge
+    networks:
+      - daroachnetwork
+      - backend
+    ports:
+      - 8989:8989
+    environment:
+      - VIRTUAL_HOST=tv.daroach.net
+      - VIRTUAL_PORT=8989
+      - LETSENCRYPT_HOST=tv.daroach.net
+      - LETSENCRYPT_EMAIL=gagandaroach@gmail.com
+      - PUID=${MEDIA_PUID}
+      - PGID=${MEDIA_PGID}
+      - TZ=${TZ}
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ${CONFIG_DIR}/sonarr:/config
+      - ${TV_DIR}:/tv
+      - ${DOWNLOADS}/complete:/downloads
