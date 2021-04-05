@@ -32,8 +32,13 @@ app.use('/dnet', function(req, res, next){
     next();
   });
 
-app.get('/hits', (req, res) => {
-    var text = 'hits dummy'
+app.get('/dnet/hit', (req, res) => {
+    var text = '{"hits": 3}'
+    res.send(text)
+})
+
+app.post('/dnet/hit', (req, res) => {
+    var text = '{"hit": 1}'
     res.send(text)
 })
 
