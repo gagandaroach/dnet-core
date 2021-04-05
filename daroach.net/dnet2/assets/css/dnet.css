@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+
+@layer components {
+  .dnet-button {
+    @apply w-52 bg-black rounded-lg px-4 py-2 text-white hover:bg-white hover:border-red-900 hover:text-red-900;
+  }
+}

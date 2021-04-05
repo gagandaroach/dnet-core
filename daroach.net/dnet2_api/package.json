@@ -1,0 +1,15 @@
+{
+  "name": "dnet_api",
+  "version": "0.0.1",
+  "description": "api.daroach.net",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gagan Daroach",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nano": "^9.0.3"
+  }
+}
