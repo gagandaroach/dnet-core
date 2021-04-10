@@ -3,6 +3,7 @@ const express = require('express')
 const app = module.exports = express();
 const port = 3001
 
+const { MongoClient } = require('mongodb');
 var nano = require('nano')('http://admin:password@dt49:5984')
 var hits = nano.db.use('hits')
 
@@ -27,7 +28,7 @@ app.get('/', (req, res) => {
 })
 
 app.use('/dnet', function (req, res, next) {
-    var key = req.query['api_key'];
+    var key = req.query['api-key'];
 
     if (!key) return next(error(400, 'api key required'));
 
@@ -39,6 +40,17 @@ app.use('/dnet', function (req, res, next) {
 
 app.get('/dnet/hits', (req, res) => {
     var text = 'hits dummy'
+    MongoClient.connect(dburi, (err, db) => {
+        if (err) return console.error(err)
+        console.log('Connected to Database');
+    })
+    res.send(text)
+})
+
+app.post('/dnet/hits', (req, res) => {
+    var text = 'hits dummy'
+    //connect db
+    //add hit to page
     res.send(text)
 })
 
