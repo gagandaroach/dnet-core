@@ -22,7 +22,7 @@ router.post('/hits', async (req, res) => {
         route: req.body.route
     });
     try {
-        hit.save();
+        await hit.save();
         res.status(200).send(hit);
     } catch (err) {
         console.log(err);
