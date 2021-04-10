@@ -1,17 +1,16 @@
 {
-  "name": "dnet_api",
+  "name": "api.daroach.net",
   "version": "0.0.1",
-  "description": "api.daroach.net",
+  "description": "daroach.net webservices",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon app.js"
   },
   "author": "Gagan Daroach",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "mongodb": "^3.6.6",
+    "mongoose": "^5.12.3",
     "nano": "^9.0.3"
   },
   "devDependencies": {
