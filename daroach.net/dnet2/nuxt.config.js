@@ -69,6 +69,11 @@ export default {
   build: {
   },
 
+  // https://nuxtjs.org/docs/2.x/directory-structure/middleware/
+  router: {
+    middleware: ['post_hit']
+  },
+
   // Server https://nuxtjs.org/docs/2.x/features/configuration#edit-host-and-port
   server: {
     port: 3000,
