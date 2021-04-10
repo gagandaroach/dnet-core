@@ -1,11 +1,9 @@
 const fs = require('fs');
+const path = require('path');
 const express = require('express')
 const app = module.exports = express();
-const port = 3001
-
-const { MongoClient } = require('mongodb');
-var nano = require('nano')('http://admin:password@dt49:5984')
-var hits = nano.db.use('hits')
+const listen_port = 3001
+const routesDaroachnet = require('./routes/dnet')
 
 var apiKeys = [];
 
@@ -23,8 +21,7 @@ function error(status, msg) {
 }
 
 app.get('/', (req, res) => {
-    var text = "Hello";
-    res.send(text)
+    res.sendFile(path.join(__dirname + '/index.html'));
 })
 
 app.use('/dnet', function (req, res, next) {
@@ -38,29 +35,15 @@ app.use('/dnet', function (req, res, next) {
     next();
 });
 
-app.get('/dnet/hits', (req, res) => {
-    var text = 'hits dummy'
-    MongoClient.connect(dburi, (err, db) => {
-        if (err) return console.error(err)
-        console.log('Connected to Database');
-    })
-    res.send(text)
-})
-
-app.post('/dnet/hits', (req, res) => {
-    var text = 'hits dummy'
-    //connect db
-    //add hit to page
-    res.send(text)
-})
+app.use('/dnet', routesDaroachnet)
 
 app.get('/dnet', (req, res) => {
     var text = `usage: <>`
     res.send(text)
 })
 
-app.listen(port, () => {
+app.listen(listen_port, () => {
     console.log('dnet2_api')
     console.log("Loaded " + apiKeys.length + " api keys from text file.");
-    console.log(`listening at http://localhost:${port}`)
+    console.log(`listening at http://localhost:${listen_port}`)
 })
