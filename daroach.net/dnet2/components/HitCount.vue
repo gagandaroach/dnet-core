@@ -1,5 +1,8 @@
 <template>
-  <div class="text-3xl text-black font-bold">Hit Count: {{ hits }}</div>
+<div>
+  <div class="text-3xl text-black font-bold">Hit Count: {{ hits.length }}</div>
+  <div class="text-base text-black">Hit Dump: {{ hits }}</div>
+</div>
 </template>
 
 <script lang="ts">
