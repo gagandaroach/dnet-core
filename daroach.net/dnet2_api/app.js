@@ -1,12 +1,14 @@
 const express = require('express')
+const cors = require('cors')
 const fs = require('fs');
 const path = require('path');
-const app = module.exports = express();
+const { urlencoded } = require('body-parser');
 
 const listen_port = 3001
 const routesDaroachnet = require('./routes/hits');
 
-const { urlencoded } = require('body-parser');
+const app = module.exports = express();
+app.use(cors())
 app.use(express.json());
 app.use(urlencoded());
 
