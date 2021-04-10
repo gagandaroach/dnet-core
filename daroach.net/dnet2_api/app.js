@@ -1,3 +1,4 @@
+const fs = require('fs');
 const express = require('express')
 const app = module.exports = express();
 const port = 3001
@@ -5,7 +6,14 @@ const port = 3001
 var nano = require('nano')('http://admin:password@dt49:5984')
 var hits = nano.db.use('hits')
 
-var apiKeys = ['dnetKey', 's'];
+var apiKeys = [];
+
+// Load keys from text file apikeys.txt
+fs_data = fs.readFileSync("apikeys.txt");
+fs_data.toString().split("\n").forEach(function (line, index, arr) {
+    if (index === arr.length - 1 && line === "") { return; }
+    apiKeys.push(line.trim());
+});
 
 function error(status, msg) {
     var err = new Error(msg);
@@ -18,30 +26,29 @@ app.get('/', (req, res) => {
     res.send(text)
 })
 
-app.use('/dnet', function(req, res, next){
-    var key = req.query['api-key'];
-  
-    // key isn't present
+app.use('/dnet', function (req, res, next) {
+    var key = req.query['api_key'];
+
     if (!key) return next(error(400, 'api key required'));
-  
-    // key is invalid
+
     if (!~apiKeys.indexOf(key)) return next(error(401, 'invalid api key'));
-  
-    // all good, store req.key for route access
+
     req.key = key;
     next();
-  });
+});
 
-app.get('/dnet/hit', (req, res) => {
-    var text = '{"hits": 3}'
+app.get('/dnet/hits', (req, res) => {
+    var text = 'hits dummy'
     res.send(text)
 })
 
-app.post('/dnet/hit', (req, res) => {
-    var text = '{"hit": 1}'
+app.get('/dnet', (req, res) => {
+    var text = `usage: <>`
     res.send(text)
 })
 
 app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`)
+    console.log('dnet2_api')
+    console.log("Loaded " + apiKeys.length + " api keys from text file.");
+    console.log(`listening at http://localhost:${port}`)
 })
