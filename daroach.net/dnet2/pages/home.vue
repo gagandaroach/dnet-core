@@ -1,12 +1,10 @@
 <template>
-  <div class="flex">
-    <div
-      class="dnet-card"
-    >
-      <h1 class="text-xl">DAROACHNET HOME PAGE</h1>
-      <NuxtLink to="/" class="dnet-button"> Back to Landing </NuxtLink>
+  <div class="flex-col space-y-5 select-none">
+    <div class="text-5xl text-gray-900 font-bold text-center m-10">Welcome to daroach.net</div>
+    <div class="">
+      <WebStatistics />
     </div>
-    <div>
+    <div class="">
       <AboutGagan />
     </div>
   </div>

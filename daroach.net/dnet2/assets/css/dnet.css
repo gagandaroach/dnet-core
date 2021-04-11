@@ -10,16 +10,20 @@
 
   .dnet-card-color {
     @apply bg-black rounded-xl shadow-2xl;
-    @apply text-center text-white select-none;
+  }
+
+  .dnet-card-text {
+    @apply text-center text-gray-100 select-none;
   }
 
   .dnet-card {
     @apply flex m-auto p-4;
-    @apply dnet-card-color;
+    @apply dnet-card-color dnet-card-text;
   }
 
   .dnet-fullscreen {
-    @apply dnet-card-color m-auto p-4;
+    @apply m-auto p-4;
+    @apply dnet-card-color dnet-card-text;
   }
 
   .dnet-bg {

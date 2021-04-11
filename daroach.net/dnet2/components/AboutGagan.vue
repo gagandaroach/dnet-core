@@ -1,81 +1,71 @@
 <template>
-  <div>
-    <div class="dnet-card container rounded-md">
+  <div class="container dnet-card">
+    <div class="">
       <div class="">
         <h1>Daroach.net Maintainer and Host</h1>
+        <p>Gagandeep Bishamber Daroach</p>
+        <hr class="my-2" />
+        <p>
+          I am an aspiring Software Engineer, hoping to
+          <a href="https://youtu.be/J-GVd_HLlps?t=32"
+            >make the world a better place</a
+          >. With this website, I hope to create a place for people to share
+          stories, knowledge, information, and data. Right now, this website is
+          running on
+          <a
+            href="https://www.instagram.com/p/BtSgNa8ni0i/?utm_source=ig_web_options_share_sheet"
+            >a server</a
+          >
+          in my apartment.
+        </p>
+
+        <p>Follow Me on Social Media</p>
+        <hr class="my-2" />
+        <div class="p-2 mx-auto">
+          <a
+            id="github"
+            target="_blank"
+            class="dnet-button social-button"
+            href="https://github.com/gagandaroach"
+          >
+            Github
+          </a>
+          <a
+            id="linkedin"
+            target="_blank"
+            class="dnet-button social-button"
+            href="https://www.linkedin.com/in/gdaroach/"
+          >
+            LinkedIn
+          </a>
+          <a
+            id="twitter"
+            target="_blank"
+            class="dnet-button social-button"
+            href="https://twitter.com/gagany1"
+          >
+            Twitter
+          </a>
+          <a
+            id="instagram"
+            target="_blank"
+            class="dnet-button social-button"
+            href="https://www.instagram.com/galapagosislands/"
+          >
+            Instagram
+          </a>
+          <a
+            id="facebook"
+            target="_blank"
+            class="dnet-button social-button"
+            href="https://www.facebook.com/gagany6"
+          >
+            Facebook
+          </a>
+        </div>
       </div>
-
       <div class="">
-        <div class="">
-          <p>Gagandeep Bishamber Daroach</p>
-          <hr class="my-2" />
-          <p>
-            I am an aspiring Software Engineer, hoping to
-            <a href="https://youtu.be/J-GVd_HLlps?t=32"
-              >make the world a better place</a
-            >. With this website, I hope to create a place for people to share
-            stories, knowledge, information, and data. Right now, this website
-            is running on
-            <a
-              href="https://www.instagram.com/p/BtSgNa8ni0i/?utm_source=ig_web_options_share_sheet"
-              >a server</a
-            >
-            in my apartment.
-          </p>
-
-          <p>Follow Me on Social Media</p>
-          <hr class="my-2" />
-          <div class="p-2 mx-auto">
-            <a
-              id="github"
-              type="button"
-              target="_blank"
-              class="social-button"
-              href="https://github.com/gagandaroach"
-            >
-              Github
-            </a>
-            <a
-              id="linkedin"
-              type="button"
-              target="_blank"
-              class="social-button"
-              href="https://www.linkedin.com/in/gdaroach/"
-            >
-              LinkedIn
-            </a>
-            <a
-              id="twitter"
-              type="button"
-              target="_blank"
-              class="social-button"
-              href="https://twitter.com/gagany1"
-            >
-              Twitter
-            </a>
-            <a
-              id="instagram"
-              type="button"
-              target="_blank"
-              class="social-button"
-              href="https://www.instagram.com/galapagosislands/"
-            >
-              Instagram
-            </a>
-            <a
-              id="facebook"
-              type="button"
-              target="_blank"
-              class="social-button"
-              href="https://www.facebook.com/gagany6"
-            >
-              Facebook
-            </a>
-          </div>
-        </div>
-        <div class="">
-          <img class="object-scale-down" src="/outside_tree_home.jpg" />
-        </div>
+        <img class="object-scale-down" src="/outside_tree_home.jpg" />
       </div>
     </div>
   </div>
@@ -86,7 +76,7 @@ import Vue from "vue";
 export default Vue.extend({});
 </script>
 
-<style scoped>
+<style>
 #instagram {
   background-color: #405de6;
 }
