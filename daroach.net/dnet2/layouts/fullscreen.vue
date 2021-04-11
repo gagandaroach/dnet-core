@@ -1,5 +1,5 @@
 <template>
-  <div class="flex h-screen dnet-bg">
+  <div class="h-full min-h-screen flex dnet-bg">
     <div class="dnet-card">
       <Nuxt />
     </div>

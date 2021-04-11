@@ -1,7 +1,7 @@
 <template>
-  <div class="container mx-auto">
+  <div class="dnet-card">
     <div class="mb-5">
-      <h1>HTTP Error Code: {{ error.statusCode }}</h1>
+      <h1>HTTP Error {{ error.statusCode }}</h1>
       <p>Looks like something went wrong.</p>
     </div>
     <NuxtLink
