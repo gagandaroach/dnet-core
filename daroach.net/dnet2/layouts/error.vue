@@ -1,6 +1,6 @@
 <template>
-  <div class="dnet-card">
-    <div class="mb-5">
+  <div class="px-10 py-5">
+    <div class="mb-10">
       <h1>HTTP Error {{ error.statusCode }}</h1>
       <p>Looks like something went wrong.</p>
     </div>

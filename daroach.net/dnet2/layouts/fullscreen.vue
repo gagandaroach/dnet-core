@@ -1,6 +1,6 @@
 <template>
   <div class="h-full min-h-screen flex dnet-bg">
-    <div class="dnet-card">
+    <div class="dnet-fullscreen">
       <Nuxt />
     </div>
   </div>
