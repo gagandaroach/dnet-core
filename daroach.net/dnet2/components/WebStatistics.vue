@@ -17,7 +17,7 @@ export default Vue.extend({
   },
   mounted() {
     this.$axios
-      .$get(`/hits/${encodeURIComponent(window.location.host)}}?api-key=apikey`)
+      .$get(`/hits/${encodeURIComponent(window.location.host)}?api-key=apikey`)
       .then((res) => (this.hits = res));
   },
 });

@@ -20,7 +20,6 @@ router.get('/hits/:host', async (req, res) => {
         await Hit.find({
             host: req.params.host
         }, function (err, docs) {
-            console.log(docs);
             res.json(docs);
         })
     } catch (err) {
