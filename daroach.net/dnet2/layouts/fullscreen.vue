@@ -3,7 +3,7 @@
     <div class="p-10 m-auto max-w-md bg-gray-200 rounded-xl shadow-md text-center">
       <Nuxt />
     </div>
-    <div class="flex m-auto text-center">
+    <div class="flex m-auto text-center text-3xl text-black font-bold">
       <HitCount />
     </div>
   </div>

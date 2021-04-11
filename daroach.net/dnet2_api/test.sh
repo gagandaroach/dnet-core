@@ -4,7 +4,7 @@ ADDRESS="localhost:3001"
 API_KEY="apikey"
 CURL_OPTS="-s"
 
-TEST_JSON='{"site":"test","route":"bash.sh"}'
+TEST_JSON='{"host":"test.bash.sh","route":"/"}'
 echo $TEST_JSON
 
 echo POST to hits
@@ -32,4 +32,7 @@ curl $CURL_OPTS -X GET $ADDRESS/dnet/hits?api-key=$API_KEY
 echo 
 echo
 
-
+echo GET /dnet/hits/test.bash.sh
+curl $CURL_OPTS -X GET $ADDRESS/dnet/hits/test.bash.sh?api-key=$API_KEY
+echo 
+echo

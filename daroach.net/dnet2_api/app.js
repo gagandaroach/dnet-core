@@ -59,9 +59,9 @@ app.use('/dnet', function (req, res, next) {
 });
 
 app.use('/dnet', function (req, res, next) {
-    console.log(req.hostname + " " + req.method);
+    console.log(req.method + " " + req.url);
     if ( req.method == 'POST' ) { console.log(req.body); }
-    if ( req.method.toUpperCase() == 'GET' ) { console.log(req.params); }
+    // if ( req.method.toUpperCase() == 'GET' ) { console.log(); }
     next();
 })
 

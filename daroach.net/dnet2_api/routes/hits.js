@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get('/hits', async (req, res) => {
     try {
-        Hit.find({}, function (err, docs) {
+        await Hit.find({}, function (err, docs) {
             res.json(docs);
         })
     } catch (err) {
@@ -14,12 +14,12 @@ router.get('/hits', async (req, res) => {
 })
 
 router.get('/hits/:host', async (req, res) => {
-    console.log("/hits/:host")
     console.log(req.params.host)
     try {
-        Hit.find({
-            site: req.params.host
+        await Hit.find({
+            host: req.params.host
         }, function (err, docs) {
+            console.log(docs);
             res.json(docs);
         })
     } catch (err) {
@@ -28,11 +28,12 @@ router.get('/hits/:host', async (req, res) => {
 })
 
 router.get('/hits/:host/:route', async (req, res) => {
+    const filter = {
+        host: req.params.host,
+        route: req.params.route
+    }
     try {
-        Hit.find({
-            site: req.params.host,
-            route: req.params.route
-        }, function (err, docs) {
+        await Hit.find(filter, function (err, docs) {
             res.json(docs);
         })
     } catch (err) {
