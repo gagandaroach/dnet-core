@@ -1,6 +1,6 @@
 <template>
   <div>
-    <footer class="h-auto bg-gray-200">
+    <footer class="dnet-footer h-auto bg-gray-200">
       <div class="flex flex-row">
         <div class="flex flex-col ml-1 mr-auto">
           <span

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="container my-2 mx-auto p-6 bg-gray-200 rounded-md">
+    <div class="dnet-card container rounded-md">
       <div class="">
         <h1>Daroach.net Maintainer and Host</h1>
       </div>

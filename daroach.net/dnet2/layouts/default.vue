@@ -1,21 +1,9 @@
 <template>
-  <div class="h-screen bg-red-900">
-    <div class="h-10">
+  <div class="h-full min-h-screen dnet-bg">
       <Navbar />
-    </div>
-    <div class="m-auto">
       <Nuxt />
-    </div>
-    <div class="dnet-footer">
       <Footer />
-    </div>
   </div>
 </template>
 
-<style>
-.dnet-footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-}
-</style>
+<style></style>

@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div class="flex">
     <div
-      class="p-10 m-auto max-w-lg bg-gray-200 rounded-xl shadow-md text-center"
+      class="dnet-card"
     >
-      <h1 class="text-xl">DAROACHNET HOME PAGE</h1>
+      <h1 class="text-xl m-5">DAROACHNET HOME PAGE</h1>
       <NuxtLink to="/" class="dnet-button"> Back to Landing </NuxtLink>
     </div>
     <div>

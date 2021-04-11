@@ -16,5 +16,13 @@
     @apply bg-red-900;
   }
 
-  
+  .dnet-navbar {
+    @apply bg-black text-white p-2;
+  }
+
+  .dnet-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
 }
