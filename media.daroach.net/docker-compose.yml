@@ -115,4 +115,4 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - ${CONFIG_DIR}/sonarr:/config
       - ${TV_DIR}:/tv
-      - ${DOWNLOADS}/complete:/downloads
+      - ${DOWNLOADS}/complete:/downloads/complete 
