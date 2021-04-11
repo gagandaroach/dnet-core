@@ -48,17 +48,21 @@ app.get('/', async (req, res) => {
     res.sendFile(path.join(__dirname + '/index.html'));
 })
 
-
 app.use('/dnet', function (req, res, next) {
     var key = req.query['api-key'];
 
     if (!key) return next(error(400, 'api key required'));
 
     if (!~apiKeys.indexOf(key)) return next(error(401, 'invalid api key'));
-
     req.key = key;
     next();
 });
+
+app.use('/dnet', function (req, res, next) {
+    console.log(req.hostname + " " + req.method);
+    console.log(req.body);
+    next();
+})
 
 app.use('/dnet', routesDaroachnet)
 
