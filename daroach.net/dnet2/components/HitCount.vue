@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div>
+    <div v-if="hits.length>0">
       {{ prefix }} {{ hits.length }}
     </div>
     <div v-if="debug" class="text-base text-black">Hit Dump: {{ hits }}</div>
