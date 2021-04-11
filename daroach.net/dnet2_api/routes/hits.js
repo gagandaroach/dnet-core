@@ -3,6 +3,7 @@ const Hit = require('../models/Hit');
 
 const router = express.Router();
 
+// Get all hits
 router.get('/hits', async (req, res) => {
     try {
         await Hit.find({}, function (err, docs) {
@@ -13,8 +14,8 @@ router.get('/hits', async (req, res) => {
     }
 })
 
+// Get all hits for a host
 router.get('/hits/:host', async (req, res) => {
-    console.log(req.params.host)
     try {
         await Hit.find({
             host: req.params.host
@@ -27,6 +28,7 @@ router.get('/hits/:host', async (req, res) => {
     }
 })
 
+// Get all hits for a host at a route
 router.get('/hits/:host/:route', async (req, res) => {
     const filter = {
         host: req.params.host,
@@ -41,6 +43,8 @@ router.get('/hits/:host/:route', async (req, res) => {
     }
 })
 
+// Register a new hit at a host & route
+// Payload: { "host": "", "route": "" }
 router.post('/hits', async (req, res) => {
     const hit = new Hit({
         host: req.body.host,

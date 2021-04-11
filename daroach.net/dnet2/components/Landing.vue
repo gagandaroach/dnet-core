@@ -1,10 +1,10 @@
 <template>
-  <div class="">
+  <div class="select-none">
+    <h1 class="pb-2">Welcome</h1>
     <div>
       <img class="object-scale-down" src="/donuts.gif" />
     </div>
     <div class="my-4">
-      <h1 class="">daroach.net</h1>
       <p class="">
         You have used the power of the internet to connect to Gagan's personal
         server.
@@ -15,7 +15,7 @@
         to="/home"
         class="dnet-button"
       >
-        Enter Site
+        Enter daroach.net
       </NuxtLink>
     </div>
   </div>

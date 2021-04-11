@@ -1,9 +1,9 @@
 <template>
   <div>
     <div>
-      {{ hits.length }}
+      {{ prefix }} {{ hits.length }}
     </div>
-    <!-- <div class="text-base text-black">Hit Dump: {{ hits }}</div> -->
+    <div v-if="debug" class="text-base text-black">Hit Dump: {{ hits }}</div>
   </div>
 </template>
 
@@ -14,6 +14,7 @@ export default Vue.extend({
   data() {
     return { hits: "" };
   },
+  props: ['prefix', 'debug'],
   mounted() {
     this.$axios
       .$get(`/hits/${encodeURIComponent(window.location.host)}/${encodeURIComponent(this.$route.path)}?api-key=apikey`)
