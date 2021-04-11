@@ -13,6 +13,33 @@ router.get('/hits', async (req, res) => {
     }
 })
 
+router.get('/hits/:host', async (req, res) => {
+    console.log("/hits/:host")
+    console.log(req.params.host)
+    try {
+        Hit.find({
+            site: req.params.host
+        }, function (err, docs) {
+            res.json(docs);
+        })
+    } catch (err) {
+        res.json({ message: err });
+    }
+})
+
+router.get('/hits/:host/:route', async (req, res) => {
+    try {
+        Hit.find({
+            site: req.params.host,
+            route: req.params.route
+        }, function (err, docs) {
+            res.json(docs);
+        })
+    } catch (err) {
+        res.json({ message: err });
+    }
+})
+
 router.post('/hits', async (req, res) => {
     const hit = new Hit({
         host: req.body.host,
