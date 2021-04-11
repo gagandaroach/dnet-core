@@ -1,5 +1,9 @@
-export const state = () => ({})
+export const state = () => ({});
 
-export const mutations = {}
+export const mutations = {};
 
-export const actions = {}
+export const actions = {
+  async nuxtServerInit() {
+    console.log("index.js::nuxtServerInit()");
+  }
+};

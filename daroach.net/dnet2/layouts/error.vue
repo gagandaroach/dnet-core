@@ -17,7 +17,7 @@
   </div>
 </template>
 
-<script lang='ts'>
+<script>
 export default {
   props: ["error"],
   layout: "fullscreen", // you can set a custom layout for the error page
