@@ -18,7 +18,7 @@ router.post('/hits', async (req, res) => {
     console.log("/dnet2/hits POST");
     console.log("Body: ", req.body)
     const hit = new Hit({
-        site: req.body.site,
+        host: req.body.host,
         route: req.body.route
     });
     try {

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const HitSchema = mongoose.Schema({
-    site: {
+    host: {
         type: String,
         required: true
     },
