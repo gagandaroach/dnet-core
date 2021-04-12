@@ -1,10 +1,10 @@
 export const state = () => ({
-  hits: []
+  list: []
 });
 
 export const mutations = {
   SET_HITS(state, value) {
-    state.hits = value;
+    state.list = value;
   }
 };
 
@@ -17,13 +17,16 @@ export const actions = {
   },
   setHits: async ({ commit, state }, newValue) => {
     await commit("SET_HITS", newValue);
-    return state.hits;
+    return state.list;
   }
 };
 
 export const getters = {
-  getPageCount: (state) => (route) => {
-    return state.hits.filter((hit) => hit.route == route);
+  getRouteHits: (state) => (route) => {
+    return state.list.filter((hit) => hit.route == route);
+  },
+  getPageCount: (state, getters, rootState) => (route) => {
+    return getters.getRouteHits(route).length
   }
 };
 

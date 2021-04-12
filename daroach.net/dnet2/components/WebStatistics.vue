@@ -6,16 +6,19 @@
         <BarChart :data="data" :options="chartOptions" />
       </client-only>
     </div>
-    <div class="text-sm">{{this.$store.state}}</div>
   </div>
 </template>
 
 <script>
 import Vue from "vue";
 export default Vue.extend({
+  computed: {
+    hits() {
+      return this.$store.state.hits.list;
+    },
+  },
   data() {
     return {
-      hits: [],
       chartOptions: {
         scales: {
           y: {

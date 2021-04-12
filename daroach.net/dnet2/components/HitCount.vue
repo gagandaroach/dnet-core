@@ -1,9 +1,6 @@
 <template>
   <div>
-    <div v-if="hits.length>0">
-      {{ prefix }} {{ hits.length }}
-    </div>
-    <div v-if="debug" class="text-base text-black">Hit Dump: {{ hits }}</div>
+    <div v-if="show">{{ prefix }} {{ hits }} {{ suffix }}</div>
   </div>
 </template>
 
@@ -11,15 +8,15 @@
 import Vue from "vue";
 
 export default Vue.extend({
-  data() {
-    return { hits: "" };
+  computed: {
+    hits() {
+      return this.$store.getters["hits/getPageCount"](this.$route.path);
+    },
+    show() {
+      return this.hits != undefined && this.hits > 0;
+    }
   },
-  props: ['prefix', 'debug'],
-  mounted() {
-    this.$axios
-      .$get(`/hits/${encodeURIComponent(window.location.host)}/${encodeURIComponent(this.$route.path)}?api-key=apikey`)
-      .then((res) => (this.hits = res));
-  },
+  props: ["prefix", "suffix"]
 });
 </script>
 
