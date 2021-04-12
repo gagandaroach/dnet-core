@@ -22,17 +22,21 @@ export const actions = {
 };
 
 export const getters = {
+  getRoutes: (state) => {
+    return [...new Set(state.list.map(hit => hit.route))]
+  },
   getRouteHits: (state) => (route) => {
     return state.list.filter((hit) => hit.route == route);
   },
   getPageCount: (state, getters, rootState) => (route) => {
     return getters.getRouteHits(route).length
   },
-  getPageCounts: (state, getters, rootState) => (routes) => {
-    return routes.map(route => getters.getPageCount(route))
-  },
-  getRoutes: (state) => {
-    return [...new Set(state.list.map(hit => hit.route))]
+  getPageCounts: (state, getters, rootState) => (routes, incOther = false) => {
+    console.log('hits.js::getPageCounts()')
+    if (!incOther) return routes.map(route => getters.getPageCount(route));
+    let allRoutes = getters.getRoutes;
+    let allCounts = allRoutes.map((route) => getters.getPageCount(route));
+    return allCounts;
   }
 };
 

@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import { Bar, Doughnut, Line, Pie } from 'vue-chartjs'
+import { Bar, Doughnut, Line, Pie, PolarArea } from 'vue-chartjs'
 
 const registerComponent = function(name, originalComponent) {
     Vue.component(
@@ -18,3 +18,4 @@ registerComponent('BarChart', Bar);
 registerComponent('DoughnutChart', Doughnut);
 registerComponent('LineChart', Line);
 registerComponent('PieChart', Pie);
+registerComponent('PolarAreaChart', PolarArea);
