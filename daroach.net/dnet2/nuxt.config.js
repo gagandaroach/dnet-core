@@ -1,4 +1,5 @@
-const API_ADDRESS = 'http://localhost:3001/dnet'
+const API_ADDRESS = 'https://api.daroach.net/dnet'
+// const API_ADDRESS = 'http://localhost:3001/dnet'
 
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -17,6 +18,18 @@ export default {
           'https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Condensed|Ubuntu+Mono|Roboto+Slab'
       }
     ]
+  },
+
+  // Axios module configuration: https://go.nuxtjs.dev/config-axios
+  axios: {
+    baseURL: API_ADDRESS,
+    https: false,
+  },
+
+  // Server https://nuxtjs.org/docs/2.x/features/configuration#edit-host-and-port
+  server: {
+    port: process.env.VIRTUAL_PORT || 3000,
+    host: '0.0.0.0'
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -48,11 +61,6 @@ export default {
     '@nuxt/content',
   ],
 
-  // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {
-    baseURL: API_ADDRESS,
-    https: false,
-  },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
@@ -71,11 +79,5 @@ export default {
   // https://nuxtjs.org/docs/2.x/directory-structure/middleware/
   router: {
     middleware: ['post_hit']
-  },
-
-  // Server https://nuxtjs.org/docs/2.x/features/configuration#edit-host-and-port
-  server: {
-    port: 3000,
-    host: '0.0.0.0'
   }
 }
