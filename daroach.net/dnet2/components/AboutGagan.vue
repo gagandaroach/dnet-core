@@ -1,98 +1,89 @@
 <template>
   <div class="container dnet-card">
-    <div class="">
+    <div class="flex flex-col space-y-2">
+      <p class="">Daroach.net Maintainer and Host</p>
+      <p>Gagandeep Bishamber Daroach</p>
+      <hr class="my-2" />
+      <p>
+        I am an aspiring Software Engineer, hoping to
+        <a href="https://youtu.be/J-GVd_HLlps?t=32">
+          make the world a better place.
+        </a>
+        With this website, I hope to create a place for people to share stories,
+        knowledge, information, and data. This website runs on
+        <a
+          href="https://www.instagram.com/p/BtSgNa8ni0i/?utm_source=ig_web_options_share_sheet"
+        >
+          a computer server
+        </a>
+        in my apartment.
+      </p>
       <div class="">
-        <h1>Daroach.net Maintainer and Host</h1>
-        <p>Gagandeep Bishamber Daroach</p>
-        <hr class="my-2" />
-        <p>
-          I am an aspiring Software Engineer, hoping to
-          <a href="https://youtu.be/J-GVd_HLlps?t=32"
-            >make the world a better place</a
-          >. With this website, I hope to create a place for people to share
-          stories, knowledge, information, and data. Right now, this website is
-          running on
+        <p class="">My Social Media</p>
+        <div class="my-2 justfiy-around">
           <a
-            href="https://www.instagram.com/p/BtSgNa8ni0i/?utm_source=ig_web_options_share_sheet"
-            >a server</a
-          >
-          in my apartment.
-        </p>
-
-        <p class="mt-2">Follow Me on Social Media</p>
-        <hr class="my-2" />
-        <div class="p-2 mx-auto">
-          <a
-            id="github"
-            target="_blank"
+            v-for="social in this.socials"
+            :key="social.name"
             class="dnet-button social-button"
-            href="https://github.com/gagandaroach"
-          >
-            Github
-          </a>
-          <a
-            id="linkedin"
+            :style="'background-color: ' + social.color"
             target="_blank"
-            class="dnet-button social-button"
-            href="https://www.linkedin.com/in/gdaroach/"
+            :id="social.id"
+            :href="social.href"
           >
-            LinkedIn
-          </a>
-          <a
-            id="twitter"
-            target="_blank"
-            class="dnet-button social-button"
-            href="https://twitter.com/gagany1"
-          >
-            Twitter
-          </a>
-          <a
-            id="instagram"
-            target="_blank"
-            class="dnet-button social-button"
-            href="https://www.instagram.com/galapagosislands/"
-          >
-            Instagram
-          </a>
-          <a
-            id="facebook"
-            target="_blank"
-            class="dnet-button social-button"
-            href="https://www.facebook.com/gagany6"
-          >
-            Facebook
+            {{ social.name }}
           </a>
         </div>
       </div>
-      <div class="">
-        <img class="object-scale-down" src="/outside_tree_home.jpg" />
-      </div>
+    </div>
+    <div class="flex flex-auto">
+      <img
+        class="object-scale-down clear-none md:clear-left bottom-full"
+        src="/outside_tree_home.jpg"
+      />
     </div>
   </div>
 </template>
 
 <script>
 import Vue from "vue";
-export default Vue.extend({});
+export default Vue.extend({
+  data() {
+    return {
+      socials: [
+        {
+          color: "#4078c0",
+          href: "https://github.com/gagandaroach",
+          name: "Github",
+        },
+        {
+          color: "#0077b5",
+          href: "https://www.linkedin.com/in/gdaroach/",
+          name: "LinkedIn",
+        },
+        {
+          color: "#1da1f2",
+          href: "https://twitter.com/gagany1",
+          name: "Twitter",
+        },
+        {
+          color: "#405de6",
+          href: "https://www.instagram.com/galapagosislands/",
+          name: "Instagram",
+        },
+        {
+          color: "#3b5998",
+          href: "https://www.facebook.com/gagany6",
+          name: "Facebook",
+        },
+      ],
+    };
+  },
+});
 </script>
 
 <style>
-#instagram {
-  background-color: #405de6;
-}
-#linkedin {
-  background-color: #0077b5;
-}
-#facebook {
-  background-color: #3b5998;
-}
-#github {
-  background-color: #4078c0;
-}
-#twitter {
-  background-color: #1da1f2;
-}
 .social-button {
-  @apply w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 m-1 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm;
+  @apply inline-flex;
+  @apply px-4 py-2 m-1 sm:ml-3 sm:w-auto;
 }
 </style>
