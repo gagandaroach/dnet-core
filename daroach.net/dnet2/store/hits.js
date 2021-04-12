@@ -13,16 +13,16 @@ export const actions = {
     console.log("hits.js::nuxtServerInit()");
     const uri = `/hits/${req.headers.host}?api-key=apikey`;
     const hits = (await this.$axios.get(uri)).data;
-    await dispatch("hits/setHits", hits);
+    return await dispatch("setHits", hits);
   },
-  setHits: ({ commit, state }, newValue) => {
-    commit("SET_HITS", newValue);
+  setHits: async ({ commit, state }, newValue) => {
+    await commit("SET_HITS", newValue);
     return state.hits;
   }
 };
 
 export const getters = {
-  getPageCount: state => route => {
+  getPageCount: (state) => (route) => {
     return state.hits.filter((hit) => hit.route == route);
   }
 };
