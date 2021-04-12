@@ -4,7 +4,7 @@
     <div class="flex">
       <client-only>
         <PieChart :data="chartData" :options="chartOptions" />
-        <PieChart :data="chartData2" :options="chartOptions" />
+        <!-- <PieChart :data="chartData2" :options="chartOptions" /> -->
       </client-only>
     </div>
   </div>
@@ -23,7 +23,7 @@ export default Vue.extend({
         datasets: [
           {
             label: "Page Hits",
-            data: Object.values(this.pageCounts),
+            data: this.chartLabels.map((label) => this.pageCounts[label]),
             backgroundColor: this.chartBgColor,
             borderColor: this.chartBorderColor,
             borderWidth: this.chartBorderWidth,
@@ -48,7 +48,7 @@ export default Vue.extend({
   },
   data() {
     return {
-      chartLabels: ["/", "/home", "misc"],
+      chartLabels: ["/", "/home", "other"],
       chartRoutes: ["/", "/home"],
       chartOptions: {
         scales: {

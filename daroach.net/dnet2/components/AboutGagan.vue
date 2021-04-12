@@ -19,7 +19,7 @@
           in my apartment.
         </p>
 
-        <p>Follow Me on Social Media</p>
+        <p class="mt-2">Follow Me on Social Media</p>
         <hr class="my-2" />
         <div class="p-2 mx-auto">
           <a

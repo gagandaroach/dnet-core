@@ -1,5 +1,5 @@
 <template>
-  <div class="h-full min-h-screen dnet-bg">
+  <div class="h-full min-h-screen dnet-bg m-auto">
       <Navbar />
       <Nuxt />
       <Footer />
