@@ -3,9 +3,10 @@ const cors = require('cors')
 const fs = require('fs');
 const path = require('path');
 const { urlencoded } = require('body-parser');
-
-const listen_port = 3001
 const routesDaroachnet = require('./routes/hits');
+
+const listen_host = "0.0.0.0"
+const listen_port = process.env.VIRTUAL_PORT || 3001
 
 const app = module.exports = express();
 app.use(cors())
@@ -72,9 +73,9 @@ app.get('/dnet', (req, res) => {
     res.send(text)
 })
 
-app.listen(listen_port, async () => {
+app.listen(listen_port, listen_host, async () => {
     console.log('dnet2_api')
     console.log("Loaded " + apiKeys.length + " api keys from text file.");
     init_mongoose();
-    console.log(`listening at http://localhost:${listen_port}`)
+    console.log(`listening at http://${listen_host}:${listen_port}`)
 })

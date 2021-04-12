@@ -1,0 +1,72 @@
+# daroach.net
+# Docker containers running on my homelab.
+#
+# portainer.daroach.net | admin for docker containers
+# Author: Gagan Daroach gagandaroach@gmail.com
+version: "3"
+
+networks:
+  daroachnetwork:
+    external: true
+
+services:
+  dnet_db:
+    image: mariadb
+    env_file:
+      - sql.env
+    restart: "no"
+    volumes:
+      - /etc/localtime:/etc/localtime
+      - ${FLASK_MOUNT_POINT}/mariadb:/var/lib/mysql
+    ports:
+      - 3306:3306
+    networks:
+      - backend
+
+# PHP MY ADMIN FOR WEB CONTROL OF DATABASE
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    env_file:
+      - phpmyadmin.env
+    ports:
+      - 1579:80
+    depends_on:
+      - dnet_db
+    restart: "no"
+    volumes:
+      - ${FLASK_MOUNT_POINT}/phpmyadmin:/www
+    networks:
+      - backend
+
+  nuxt_server:
+    build: ./nuxt_server
+    restart: unless-stopped
+    ports:
+      - 3000:3000
+    environment:
+      - VIRTUAL_HOST=daroach.net
+      - VIRTUAL_PORT=3000
+      - LETSENCRYPT_HOST=daroach.net
+      - LETSENCRYPT_EMAIL=gagandaroach@gmail.com
+    networks:
+      - daroachnetwork
+    command: "npm run start"
+
+# api.daroach.net | INTERNET EXPOSED REST FLASK PYTHON
+  flask_server:
+    build:
+      context: ./flask_server
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    depends_on:
+      - dnet_db
+    networks:
+      - backend
+      - daroachnetwork
+    environment:
+      - VIRTUAL_HOST=api.daroach.net
+      - VIRTUAL_PORT=35353
+      - LETSENCRYPT_HOST=api.daroach.net
+      - LETSENCRYPT_EMAIL=gagandaroach@gmail.com
+    ports:
+      - 5000:5000
