@@ -1,17 +1,12 @@
 <template>
-  <div class="flex-col space-y-10 select-none pb-72">
-    <div class="text-5xl text-gray-900 font-bold text-center m-10">
-      Welcome to daroach.net
-    </div>
-    <div class="">
-      <AboutGagan />
-    </div>
-    <div class="">
-      <WebStatistics />
-    </div>
-    <div>
-      <nuxt-content :document="page" class="dnet-content"></nuxt-content>
-    </div>
+  <div class="flex flex-col select-none pb-72">
+    <h1 class="home-header-1">Welcome to Daroach.net</h1>
+    <AboutGagan />
+    <h1 class="home-header-1">WebServer Traffic</h1>
+    <WebStatistics />
+    <h1 class="home-header-1">Open Source Projects</h1>
+    <nuxt-content :document="page" class="dnet-content"></nuxt-content>
+    <Content />
   </div>
 </template>
 
@@ -28,4 +23,7 @@ export default {
 </script>
 
 <style>
+.home-header-1 {
+  @apply text-5xl text-gray-200 font-bold text-center m-10;
+}
 </style>

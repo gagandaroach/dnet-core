@@ -4,7 +4,8 @@
 @layer components {
 
   .dnet-button {
-    @apply bg-red-900 rounded-lg px-4 py-2 text-white uppercase;
+    @apply bg-red-900 rounded-lg px-4 py-2 ;
+    @apply text-white uppercase;
     @apply border-2 border-red-900 hover:border-white;
   }
 
@@ -31,13 +32,12 @@
   }
 
   .dnet-navbar {
+    @apply top-0 w-full;
     @apply bg-black text-white p-2;
   }
 
   .dnet-footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    @apply fixed bottom-0 w-full;
   }
 
   .dnet-content {

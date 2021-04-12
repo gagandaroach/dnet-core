@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <div v-if="show">{{ prefix }} {{ hits }} {{ suffix }}</div>
-  </div>
+  <div v-if="show">{{ prefix }} {{ hits }} {{ suffix }}</div>
 </template>
 
 <script>
@@ -14,9 +12,9 @@ export default Vue.extend({
     },
     show() {
       return this.hits != undefined && this.hits > 0;
-    }
+    },
   },
-  props: ["prefix", "suffix"]
+  props: ["prefix", "suffix"],
 });
 </script>
 
