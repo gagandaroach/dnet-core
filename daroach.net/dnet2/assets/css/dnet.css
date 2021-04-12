@@ -18,7 +18,7 @@
   }
 
   .dnet-card {
-    @apply flex m-auto p-4;
+    @apply m-auto p-4;
     @apply dnet-card-color dnet-card-text;
   }
 
