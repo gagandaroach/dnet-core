@@ -27,6 +27,12 @@ export const getters = {
   },
   getPageCount: (state, getters, rootState) => (route) => {
     return getters.getRouteHits(route).length
+  },
+  getPageCounts: (state, getters, rootState) => (routes) => {
+    return routes.map(route => getters.getPageCount(route))
+  },
+  getRoutes: (state) => {
+    return [...new Set(state.list.map(hit => hit.route))]
   }
 };
 
