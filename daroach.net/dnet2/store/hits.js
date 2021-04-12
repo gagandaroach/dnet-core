@@ -21,6 +21,8 @@ export const actions = {
   }
 };
 
+const other_keyword = "other";
+
 export const getters = {
   getRoutes: (state) => {
     return [...new Set(state.list.map(hit => hit.route))]
@@ -34,9 +36,17 @@ export const getters = {
   getPageCounts: (state, getters, rootState) => (routes, incOther = false) => {
     console.log('hits.js::getPageCounts()')
     if (!incOther) return routes.map(route => getters.getPageCount(route));
-    let allRoutes = getters.getRoutes;
-    let allCounts = allRoutes.map((route) => getters.getPageCount(route));
-    return allCounts;
+    return state.list.reduce((acc, item) => {
+      if (routes.includes(item.route)) {
+        if (acc[item.route] == undefined) acc[item.route] = 0;
+        acc[item.route] = acc[item.route] + 1;
+      }
+      else if (incOther) {
+        if (acc[other_keyword] == undefined) acc[other_keyword] = 0
+        acc[other_keyword] = acc[other_keyword] + 1;
+      }
+      return acc;
+    }, {});
   }
 };
 

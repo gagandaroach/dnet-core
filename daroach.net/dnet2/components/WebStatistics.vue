@@ -14,58 +14,33 @@
 import Vue from "vue";
 export default Vue.extend({
   computed: {
+    pageCounts() {
+      return this.$store.getters["hits/getPageCounts"]( this.chartRoutes, true )
+    },
     chartData() {
       return {
-        labels: this.chartRoutes,
+        labels: this.chartLabels,
         datasets: [
           {
             label: "Page Hits",
-            data: this.$store.getters["hits/getPageCounts"](this.chartRoutes),
-            backgroundColor: [
-              "rgba(255, 99, 132, 0.2)",
-              "rgba(54, 162, 235, 0.2)",
-              // "rgba(255, 206, 86, 0.2)",
-              // "rgba(75, 192, 192, 0.2)",
-              // "rgba(153, 102, 255, 0.2)",
-              // "rgba(255, 159, 64, 0.2)",
-            ],
-            borderColor: [
-              "rgba(255, 99, 132, 1)",
-              "rgba(54, 162, 235, 1)",
-              // "rgba(255, 206, 86, 1)",
-              // "rgba(75, 192, 192, 1)",
-              // "rgba(153, 102, 255, 1)",
-              // "rgba(255, 159, 64, 1)",
-            ],
-            borderWidth: 1,
+            data: Object.values(this.pageCounts),
+            backgroundColor: this.chartBgColor,
+            borderColor: this.chartBorderColor,
+            borderWidth: this.chartBorderWidth,
           },
         ],
       };
     },
     chartData2() {
       return {
-        labels: this.$store.getters["hits/getRoutes"],
+        labels: this.chartLabels,
         datasets: [
           {
             label: "Page Hits",
-            data: this.$store.getters["hits/getPageCounts"](this.chartRoutes, true),
-            backgroundColor: [
-              "rgba(255, 99, 132, 0.2)",
-              "rgba(54, 162, 235, 0.2)",
-              // "rgba(255, 206, 86, 0.2)",
-              // "rgba(75, 192, 192, 0.2)",
-              // "rgba(153, 102, 255, 0.2)",
-              // "rgba(255, 159, 64, 0.2)",
-            ],
-            borderColor: [
-              "rgba(255, 99, 132, 1)",
-              "rgba(54, 162, 235, 1)",
-              // "rgba(255, 206, 86, 1)",
-              // "rgba(75, 192, 192, 1)",
-              // "rgba(153, 102, 255, 1)",
-              // "rgba(255, 159, 64, 1)",
-            ],
-            borderWidth: 1,
+            data: this.$store.getters["hits/getPageCounts"]( this.chartRoutes, true ),
+            backgroundColor: this.chartBgColor,
+            borderColor: this.chartBorderColor,
+            borderWidth: this.chartBorderWidth,
           },
         ],
       };
@@ -73,6 +48,8 @@ export default Vue.extend({
   },
   data() {
     return {
+      chartLabels: ["/", "/home", "misc"],
+      chartRoutes: ["/", "/home"],
       chartOptions: {
         scales: {
           yAxes: [
@@ -84,8 +61,23 @@ export default Vue.extend({
           ],
         },
       },
-      // chartRoutes: this.$store.getters['hits/getRoutes'],
-      chartRoutes: ["/", "/home"],
+      chartBgColor: [
+        "rgba(255, 99, 132, 0.2)",
+        "rgba(54, 162, 235, 0.2)",
+        "rgba(255, 206, 86, 0.2)",
+        "rgba(75, 192, 192, 0.2)",
+        "rgba(153, 102, 255, 0.2)",
+        "rgba(255, 159, 64, 0.2)",
+      ],
+      chartBorderColor: [
+        "rgba(255, 99, 132, 1)",
+        "rgba(54, 162, 235, 1)",
+        "rgba(255, 206, 86, 1)",
+        "rgba(75, 192, 192, 1)",
+        "rgba(153, 102, 255, 1)",
+        "rgba(255, 159, 64, 1)",
+      ],
+      chartBorderWidth: 1,
     };
   },
 });

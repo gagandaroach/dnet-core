@@ -27,7 +27,7 @@
   }
 
   .dnet-bg {
-    @apply bg-red-900;
+    @apply bg-green-900;
   }
 
   .dnet-navbar {
