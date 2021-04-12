@@ -1,5 +1,5 @@
 ---
-title: [Daroach.net](https://daroach.net) Source Code
+title: Daroach.net Source Code
 description: The virtual machine configuration for launching daroach.net, and the underlying source code for the microservices and applications.
 ---
 
