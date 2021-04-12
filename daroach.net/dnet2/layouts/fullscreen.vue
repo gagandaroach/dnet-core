@@ -8,7 +8,9 @@
 
 <script>
 import Vue from "vue";
-export default Vue.extend({});
+export default Vue.extend({
+  name: "layout-fullscreen"
+});
 </script>
 
 <style></style>
