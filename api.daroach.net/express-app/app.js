@@ -76,6 +76,7 @@ app.get('/dnet', (req, res) => {
 app.listen(listen_port, listen_host, async () => {
     console.log('dnet2_api')
     console.log("Loaded " + apiKeys.length + " api keys from text file.");
+    console.log("NODE_ENV: " + process.env.NODE_ENV)
     init_mongoose();
     console.log(`listening at http://${listen_host}:${listen_port}`)
 })
