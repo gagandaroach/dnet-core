@@ -1,12 +1,15 @@
 <template>
   <div class="flex flex-col dnet-card">
     <client-only class="contents">
-      <h1 class="text-xl">Total Page Hits</h1>
-      <LineChart
-        :data="chartData"
-        :options="chartOptions"
-        class=""
-      />
+      <h1 class="text-xl">Timely Page Hits</h1>
+      <LineChart :data="chartData" :options="chartOptions" class="" />
+      <select v-model="timePeriod" class="dnet-card">
+        <option disabled value=""></option>
+        <option>Days</option>
+        <option>Weeks</option>
+        <option>Months</option>
+      </select>
+      <span>Selected: {{ timePeriod }}</span>
     </client-only>
   </div>
 </template>
@@ -20,18 +23,24 @@ export default Vue.extend({
     },
     chartData() {
       return {
-        labels: this.chartRoutes,
-        datasets: []
+        labels: this.chartLabels,
+        datasets: this.$store.getters["hits/getRoutes"].map((route) => ({
+          label: route,
+          data: this.$store.getters["hits/getRouteHits"](route).map(
+            (hit) => (hit._id, hit.date)
+          ),
+          borderColor: "#FFFFFF",
+          backgroundColor: "#000000",
+        })),
       };
     },
   },
   data() {
     return {
-      chartLabels: ["daroach.net", "/home", "other"],
-      chartRoutes: ["/", "/home", "other"],
-      chartOptions: {
-        scales: {},
-      },
+      timePeriod: "Days",
+      chartLabels: this.$store.getters["hits/getRoutes"],
+      chartRoutes: this.$store.getters["hits/getRoutes"],
+      chartOptions: {},
       chartBgColor: [
         "rgba(255, 99, 132, 0.2)",
         "rgba(54, 162, 235, 0.2)",
