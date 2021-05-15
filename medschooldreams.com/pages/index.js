@@ -4,58 +4,58 @@ export default function Home() {
   return (
     <div className="container">
       <Head>
-        <title>Create Next App</title>
+        <title>medschooldreams</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
         <h1 className="title">
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          Welcome to <a href="https://www.instagram.com/medschooldreams/">@medschooldreams</a>
         </h1>
 
         <p className="description">
-          Get started by editing <code>pages/index.js</code>
+          Get started by checking out our online community on Facebook or following us on Instagram.
         </p>
 
         <div className="grid">
-          <a href="https://nextjs.org/docs" className="card">
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
+          <a href="https://www.facebook.com/groups/813456532393642" className="card">
+            <h3>Medical School Admissions: From Application to Acceptance</h3>
+            <p>Join 3,000 other pre-medicine and medical students in our Facebook Community.</p>
           </a>
 
-          <a href="https://nextjs.org/learn" className="card">
-            <h3>Learn &rarr;</h3>
+          <a href="https://www.skillshare.com/site/join?teacherRef=413596490&via=teacher-referral&utm_campaign=teacher-referral&utm_source=ShortUrl&utm_medium=teacher-referral&t=Medical-School-Admissions-From-Application-to-Acceptance&sku=1248826481" className="card">
+            <h3>SkillShare Course on Medical School Admissions</h3>
             <p>Learn about Next.js in an interactive course with quizzes!</p>
           </a>
 
           <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
+            href="https://www.fiverr.com/keljack2012/give-a-mock-medical-school-interview-penn-med-student?utm_campaign=gigs_show&utm_medium=shared&utm_source=copy_link&utm_term=k2l8ow"
             className="card"
           >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
+            <h3>Fiver Mock Interviews</h3>
+            <p>The medical school interview is one of the key determinants of an applicant's success in the application cycle.</p>
           </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="card"
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
+        </div>
+          <h1 className="description">Founders</h1>
+        <div className="grid" >
+          <a href="https://www.instagram.com/eljack101/" className="card">
+            <h3>Khalid Eljack</h3>
+            <p>MS1 Perelman SOM</p>
+          </a>
+          <a href="https://www.instagram.com/deepakdaroach/" className="card">
+            <h3>Deepak Daroach</h3>
+            <p>A bad ass motherfucker.</p>
           </a>
         </div>
       </main>
 
       <footer>
         <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+          href="https://daroach.net"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className="logo" />
+          Powered by{' '}daroach.net
         </a>
       </footer>
 
