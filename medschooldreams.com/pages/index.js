@@ -10,14 +10,15 @@ export default function Home() {
       </Head>
 
       <main className="flex flex-col min-h-screen">
-        <div className="flex-grow bg-gradient-to-b from-purple-400 via-pink-500 to-red-500 pb-40">
+        {/* <div className="flex-grow bg-gradient-to-b from-purple-400 via-pink-500 to-red-500 pb-40"> */}
+        <div className="flex-grow pb-40" style={{background: "#002244"}}>
           <div className="flex-col text-center text-white pt-10">
 
             <div className="py-10">
 
               <img class="object-scale-down mx-auto" src="/logo_transparent.png"></img>
 
-              <h1 className="text-3xl"> Welcome to <a className="hover:text-blue-600" href="https://www.instagram.com/medschooldreams/">@medschooldreams</a>  </h1>
+              <h1 className="text-3xl"> Welcome to <a className="hover:text-yellow-300" href="https://www.instagram.com/medschooldreams/">@medschooldreams</a>  </h1>
 
               <p className="text-base"> Get started by checking out our online community on Facebook or following us on Instagram. </p>
 
