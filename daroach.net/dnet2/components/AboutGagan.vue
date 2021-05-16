@@ -1,8 +1,8 @@
 <template>
   <div class="container dnet-card">
     <div class="flex flex-col space-y-2">
-      <p class="">Daroach.net Maintainer and Host</p>
-      <p>Gagandeep Bishamber Daroach</p>
+      <h1>Gagandeep Bishamber Daroach</h1>
+      <h2>Daroach.net Maintainer and Host</h2>
       <hr class="my-2" />
       <p>
         I am an aspiring Software Engineer, hoping to
@@ -18,8 +18,14 @@
         </a>
         in my apartment.
       </p>
+      <div class="flex flex-shrink-0">
+        <img
+          class="object-scale-down h-auto w-auto"
+          src="/outside_tree_home.jpg"
+        />
+      </div>
       <div class="">
-        <p class="">My Social Media</p>
+        <!-- <p class="">My Social Media</p> -->
         <div class="my-2 justfiy-around">
           <a
             v-for="social in this.socials"
@@ -34,12 +40,6 @@
           </a>
         </div>
       </div>
-    </div>
-    <div class="flex flex-auto">
-      <img
-        class="object-scale-down clear-none md:clear-left bottom-full"
-        src="/outside_tree_home.jpg"
-      />
     </div>
   </div>
 </template>
@@ -75,7 +75,7 @@ export default Vue.extend({
           href: "https://www.facebook.com/gagany6",
           name: "Facebook",
         },
-      ],
+      ]
     };
   },
 });

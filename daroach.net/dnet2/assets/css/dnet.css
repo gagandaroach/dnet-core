@@ -18,7 +18,7 @@
   }
 
   .dnet-card {
-    @apply m-auto p-4;
+    @apply m-auto p-6;
     @apply dnet-card-color dnet-card-text;
   }
 
@@ -28,7 +28,8 @@
   }
 
   .dnet-bg {
-    @apply bg-gradient-to-b from-black via-red-500 to-red-600 animate-gradient-y;
+    /* @apply bg-gradient-to-b from-green-800 via-blue-900 to-white animate-gradient-y; */
+    @apply bg-green-800;
   }
 
   .dnet-navbar {
