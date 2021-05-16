@@ -28,7 +28,7 @@
   }
 
   .dnet-bg {
-    @apply bg-green-900;
+    @apply bg-gradient-to-b from-black via-red-500 to-red-600 animate-gradient-y;
   }
 
   .dnet-navbar {
