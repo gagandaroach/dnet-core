@@ -3,11 +3,11 @@
     <client-only class="contents">
       <h1 class="text-xl">Timely Page Hits</h1>
       <LineChart :data="chartData" :options="chartOptions" class="" />
-      <select v-model="timePeriod" class="dnet-card">
-        <option disabled value=""></option>
-        <option>Days</option>
-        <option>Weeks</option>
-        <option>Months</option>
+      <select v-model="timePeriod" class="dnet-card-color">
+        <option value="day">Days</option>
+        <option value="week">Weeks</option>
+        <option value="month">Months</option>
+        <option value="year">Years</option>
       </select>
       <span>Selected: {{ timePeriod }}</span>
     </client-only>
@@ -27,7 +27,8 @@ export default Vue.extend({
         datasets: this.$store.getters["hits/getRoutes"].map((route) => ({
           label: route,
           data: this.$store.getters["hits/getRouteHits"](route).map(
-            (hit) => (hit._id, hit.date)
+            // (hit) => (hit.date)
+            (hit) => ({ x: hit.date, y: 1 })
           ),
           borderColor: "#FFFFFF",
           backgroundColor: "#000000",
@@ -38,9 +39,20 @@ export default Vue.extend({
   data() {
     return {
       timePeriod: "Days",
-      chartLabels: this.$store.getters["hits/getRoutes"],
       chartRoutes: this.$store.getters["hits/getRoutes"],
-      chartOptions: {},
+      chartOptions: {
+        scales: {
+          xAxes: [
+            {
+              type: "time",
+              distribution: "linear",
+            },
+          ],
+          title: {
+            display: false,
+          },
+        },
+      },
       chartBgColor: [
         "rgba(255, 99, 132, 0.2)",
         "rgba(54, 162, 235, 0.2)",
