@@ -10,13 +10,7 @@
           make the world a better place.
         </a>
         With this website, I hope to create a place for people to share stories,
-        knowledge, information, and data. This website runs on
-        <a
-          href="https://www.instagram.com/p/BtSgNa8ni0i/?utm_source=ig_web_options_share_sheet"
-        >
-          a computer server
-        </a>
-        in my apartment.
+        knowledge, information, and data.
       </p>
       <div class="flex flex-shrink-0">
         <img
