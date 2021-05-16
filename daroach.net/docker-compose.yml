@@ -11,7 +11,7 @@ networks:
 
 services:
   webserver:
-    build: ./dnet2
+    build: ./nuxt_webserver
     restart: unless-stopped
     ports:
       - 3000:3000
