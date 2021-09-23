@@ -13,8 +13,8 @@ services:
       context: .
       dockerfile: NginxProxy.Dockerfile
     ports:
-      - ${HOST_EXTERNAL_IP}:80:80
-      - ${HOST_EXTERNAL_IP}:443:443
+      - ${HOST_EXTERNAL_IP}:20080:80
+      - ${HOST_EXTERNAL_IP}:20443:443
     volumes:
       - ${SSL_DATA_DIR}/conf:/etc/nginx/conf.d
       - ${SSL_DATA_DIR}/vhost:/etc/nginx/vhost.d

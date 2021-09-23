@@ -33,8 +33,6 @@ services:
   node-api:
     build: ./express-app
     restart: unless-stopped
-    ports:
-      - 3001:3001
     environment:
       NODE_ENV: production
       VIRTUAL_HOST: api.daroach.net
@@ -46,3 +44,5 @@ services:
     depends_on:
       - mongo
     command: "npm run start"
+    #ports:
+    #  - 3001:3001

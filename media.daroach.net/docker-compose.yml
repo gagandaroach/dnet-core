@@ -13,9 +13,20 @@ networks:
 services:
   plex:
     image: plexinc/pms-docker
+    runtime: nvidia
     restart: "unless-stopped"
     ports:
       - 32400:32400/tcp
+    volumes:
+      - ${CONFIG_DIR}/plex:/config
+      - ${TRANSCODE_CACHE}/:/transcode
+      - ${TV_DIR}:/data/TV
+      - ${MOVIES_DIR}:/data/Movies
+      - NVIDIA_VISIBLE_DEVICES=0
+      - NVIDIA_DRIVER_CAPABILITIES=compute,video,utility
+    networks:
+      - daroachnetwork
+      - backend
     environment:
       - VIRTUAL_HOST=media.daroach.net
       - VIRTUAL_PORT=32400
@@ -24,95 +35,92 @@ services:
       - TZ=${TZ}
       - PUID=${MEDIA_PUID}
       - PGID=${MEDIA_PGID}
-      - ADVERTISE_IP=https://media.daroach.net/,http://dt49.daroach.lan,https://daroach.net:32400
+      - ADVERTISE_IP=https://media.daroach.net/,http://blackbox.daroach.lan,https://daroach.net:32400
       - ALLOWED_NETWORKS=10.4.0.0/16
-      - PLEX_CLAIM=claim-U3gvTkxaTZz_j5TsFZwv
-    volumes:
-      - ${CONFIG_DIR}/plex:/config
-      - ${TRANSCODE_CACHE}/:/transcode
-      - ${TV_DIR}:/data/TV
-      - ${MOVIES_DIR}:/data/Movies
-    networks:
-      - daroachnetwork
-      - backend
+      # - PLEX_CLAIM=claim-p2zhpwE2WtUX6wspFUxF
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - capabilities: [gpu,video]
   
-  deluge:
-    image: linuxserver/deluge:latest
-    restart: "unless-stopped"
-    environment:
-      - PUID=${MEDIA_PUID}
-      - PGID=${MEDIA_PGID}
-      - TZ=${TZ}
-    volumes:
-      - ${CONFIG_DIR}/deluge:/config
-      - ${DOWNLOADS}:/downloads
-      - ${WATCH}:/watch
-    ports:
-      - 8112:8112
-    networks:
-      - backend
+  # deluge:
+  #   image: linuxserver/deluge:latest
+  #   restart: "unless-stopped"
+  #   environment:
+  #     - PUID=${MEDIA_PUID}
+  #     - PGID=${MEDIA_PGID}
+  #     - TZ=${TZ}
+  #   volumes:
+  #     - ${CONFIG_DIR}/deluge:/config
+  #     - ${DOWNLOADS}:/downloads
+  #     - ${WATCH}:/watch
+  #   ports:
+  #     - 8112:8112
+  #   networks:
+  #     - backend
 
-  jackett:
-    image: linuxserver/jackett:latest
-    restart: "unless-stopped"
-    networks:
-      - backend
-    ports:
-      - 9117:9117
-    environment:
-      - PUID=${MEDIA_PUID}
-      - PGID=${MEDIA_PGID}
-      - TZ=${TZ}
-    volumes:
-      - /etc/localtime:/etc/localtime:ro
-      - ${WATCH}:/downloads
-      - ${CONFIG_DIR}/jackett:/config
+  # jackett:
+  #   image: linuxserver/jackett:latest
+  #   restart: "unless-stopped"
+  #   networks:
+  #     - backend
+  #   ports:
+  #     - 9117:9117
+  #   environment:
+  #     - PUID=${MEDIA_PUID}
+  #     - PGID=${MEDIA_PGID}
+  #     - TZ=${TZ}
+  #   volumes:
+  #     - /etc/localtime:/etc/localtime:ro
+  #     - ${WATCH}:/downloads
+  #     - ${CONFIG_DIR}/jackett:/config
 
-  radarr:
-    image: linuxserver/radarr
-    environment:
-      - VIRTUAL_HOST=mov.daroach.net
-      - VIRTUAL_PORT=7878
-      - LETSENCRYPT_HOST=mov.daroach.net
-      - LETSENCRYPT_EMAIL=gagandaroach@gmail.com
-      - PUID=${MEDIA_PUID}
-      - PGID=${MEDIA_PGID}
-      - TZ=${TZ}
-    volumes:
-      - ${CONFIG_DIR}/radarr:/config
-      - ${MOVIES_DIR}:/movies
-      - ${DOWNLOADS}/complete:/downloads/complete
-    ports:
-      - 7878:7878
-    restart: "unless-stopped"
-    depends_on:
-      - jackett
-      - deluge
-    networks:
-      - daroachnetwork
-      - backend
+  # radarr:
+  #   image: linuxserver/radarr
+  #   environment:
+  #     - VIRTUAL_HOST=mov.daroach.net
+  #     - VIRTUAL_PORT=7878
+  #     - LETSENCRYPT_HOST=mov.daroach.net
+  #     - LETSENCRYPT_EMAIL=gagandaroach@gmail.com
+  #     - PUID=${MEDIA_PUID}
+  #     - PGID=${MEDIA_PGID}
+  #     - TZ=${TZ}
+  #   networks:
+  #     - backend
+  #     - daroachnetwork
+  #   volumes:
+  #     - ${CONFIG_DIR}/radarr:/config
+  #     - ${MOVIES_DIR}:/movies
+  #     - ${DOWNLOADS}/complete:/downloads/complete
+  #   ports:
+  #     - 7878:7878
+  #   restart: "unless-stopped"
+  #   depends_on:
+  #     - jackett
+  #     - deluge
 
-  sonarr:
-    image: linuxserver/sonarr:latest
-    restart: "unless-stopped"
-    depends_on:
-      - jackett
-      - deluge
-    networks:
-      - daroachnetwork
-      - backend
-    ports:
-      - 8989:8989
-    environment:
-      - VIRTUAL_HOST=tv.daroach.net
-      - VIRTUAL_PORT=8989
-      - LETSENCRYPT_HOST=tv.daroach.net
-      - LETSENCRYPT_EMAIL=gagandaroach@gmail.com
-      - PUID=${MEDIA_PUID}
-      - PGID=${MEDIA_PGID}
-      - TZ=${TZ}
-    volumes:
-      - /etc/localtime:/etc/localtime:ro
-      - ${CONFIG_DIR}/sonarr:/config
-      - ${TV_DIR}:/tv
-      - ${DOWNLOADS}/complete:/downloads/complete 
+  # sonarr:
+  #   image: linuxserver/sonarr:latest
+  #   restart: "unless-stopped"
+  #   depends_on:
+  #     - jackett
+  #     - deluge
+  #   networks:
+  #     - backend
+  #     - daroachnetwork
+  #   ports:
+  #     - 8989:8989
+  #   environment:
+  #     - VIRTUAL_HOST=tv.daroach.net
+  #     - VIRTUAL_PORT=8989
+  #     - LETSENCRYPT_HOST=tv.daroach.net
+  #     - LETSENCRYPT_EMAIL=gagandaroach@gmail.com
+  #     - PUID=${MEDIA_PUID}
+  #     - PGID=${MEDIA_PGID}
+  #     - TZ=${TZ}
+  #   volumes:
+  #     - /etc/localtime:/etc/localtime:ro
+  #     - ${CONFIG_DIR}/sonarr:/config
+  #     - ${TV_DIR}:/tv
+  #     - ${DOWNLOADS}/complete:/downloads/complete 

@@ -13,6 +13,8 @@ services:
   portainer:
     restart: ${RESTART}
     image: portainer/portainer-ce
+    ports:
+      - "20000:9000"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ${PORTAINER_MOUNT_POINT}:/data

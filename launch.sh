@@ -7,7 +7,7 @@
 #     ./launch.sh build | Call build --pull before starting each service.\n\ #TODO
 # "
 
-services=(nginx-proxy-letsencrypt portainer.daroach.net media.daroach.net)
+services=(nginx-proxy-letsencrypt portainer.daroach.net media.daroach.net medschooldreams.com)
 
 for service in ${services[@]}; do
     if [ -d "$service" ]; then
