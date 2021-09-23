@@ -12,18 +12,10 @@ networks:
 
 services:
   plex:
-    image: plexinc/pms-docker
+    image: ghcr.io/linuxserver/plex
+    container_name: plex
+    restart: unless-stopped
     runtime: nvidia
-    restart: "unless-stopped"
-    ports:
-      - 32400:32400/tcp
-    volumes:
-      - ${CONFIG_DIR}/plex:/config
-      - ${TRANSCODE_CACHE}/:/transcode
-      - ${TV_DIR}:/data/TV
-      - ${MOVIES_DIR}:/data/Movies
-      - NVIDIA_VISIBLE_DEVICES=0
-      - NVIDIA_DRIVER_CAPABILITIES=compute,video,utility
     networks:
       - daroachnetwork
       - backend
@@ -35,14 +27,13 @@ services:
       - TZ=${TZ}
       - PUID=${MEDIA_PUID}
       - PGID=${MEDIA_PGID}
-      - ADVERTISE_IP=https://media.daroach.net/,http://blackbox.daroach.lan,https://daroach.net:32400
-      - ALLOWED_NETWORKS=10.4.0.0/16
-      # - PLEX_CLAIM=claim-p2zhpwE2WtUX6wspFUxF
-    # deploy:
-    #   resources:
-    #     reservations:
-    #       devices:
-    #         - capabilities: [gpu,video]
+      - VERSION=docker
+      - NVIDIA_VISIBLE_DEVICES=GPU-9ff54a75-3c2b-936f-db89-4c1db3fb218d
+      - PLEX_CLAIM=claim-JGGk4Az6GF1FXJGGKzjP
+    volumes:
+      - ${CONFIG_DIR}/plex:/config
+      - ${TV_DIR}:/tv
+      - ${MOVIES_DIR}:/movies
   
   # deluge:
   #   image: linuxserver/deluge:latest
