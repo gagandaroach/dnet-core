@@ -7,6 +7,7 @@ const routesDaroachnet = require('./routes/hits');
 
 const listen_host = "0.0.0.0"
 const listen_port = process.env.VIRTUAL_PORT || 3001
+const verbose = true;
 
 const app = module.exports = express();
 app.use(cors())
@@ -26,7 +27,7 @@ function load_file(filename) {
 const mongoose = require('mongoose');
 async function init_mongoose() {
     const uri = load_file('dburi.txt')[0];
-    console.log(uri)
+    if (verbose) console.log("MongoDB URI: " + uri);
     await mongoose.connect(uri, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
@@ -36,8 +37,7 @@ async function init_mongoose() {
     });
 }
 
-
-var apiKeys = load_file("apikeys.txt");
+const apiKeys = load_file("apikeys.txt");
 
 function error(status, msg) {
     var err = new Error(msg);

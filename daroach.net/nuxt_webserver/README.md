@@ -1,6 +1,12 @@
 # DAROACHNET
 
-## Build Setup
+My (Gagan Daroach) personal website source code. Uses VueJS, Nuxt, & Bootstrap.
+
+Feel free to reference or clone to launch your own site. Happy coding!
+
+Please ask any questions via a pull request or direct message.
+
+## Using Nuxt Webserver
 
 ```bash
 # install dependencies
@@ -17,4 +23,4 @@ $ yarn start
 $ yarn generate
 ```
 
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+For detailed explanation on how Nuxt things work, check out [Nuxt.js docs](https://nuxtjs.org).
