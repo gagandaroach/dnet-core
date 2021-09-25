@@ -1,11 +1,11 @@
 #!/bin/bash
 # Author: Gagan Daroach <gagandaroach@gmail.com>
-# Iterate through folders and launch docker services.
+# Iterate through folders and launch docker services via docker-compose up.
 
-# echo "Usage:\n\
-#     ./launch.sh <noargs> | Start each service.\n\
-#     ./launch.sh build | Call build --pull before starting each service.\n\ #TODO
-# "
+echo "Usage:"
+echo " ./up.sh --- Start each service."
+echo " ./up.sh build --- Rebuild each service before starting."
+echo
 
 service_file="active_services.txt"
 cat $service_file | while read service; do
@@ -13,10 +13,10 @@ cat $service_file | while read service; do
         echo ">>>>> $service found. <<<<<"
         cd "$service" || exit
         if [ "$1" == "build" ]; then
-            echo ">>>>> dc build --pull <<<<<"
+            echo ">> dc build --pull <<"
             docker-compose build --pull
         fi
-        echo ">>>>> dc up -d <<<<<"
+        echo ">> dc up -d <<"
         docker-compose up -d
         echo ">>>>> $service done. <<<<<"
         cd .. || exit

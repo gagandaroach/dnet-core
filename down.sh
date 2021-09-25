@@ -1,11 +1,8 @@
 #!/bin/bash
 # Author: Gagan Daroach <gagandaroach@gmail.com>
-# Iterate through folders and launch docker services.
 
-# echo "Usage:\n\
-#     ./launch.sh <noargs> | Start each service.\n\
-#     ./launch.sh build | Call build --pull before starting each service.\n\ #TODO
-# "
+echo "Usage:"
+echo " ./down.sh --- Stop each service."
 
 service_file="active_services.txt"
 cat $service_file | while read service; do

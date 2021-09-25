@@ -14,7 +14,7 @@ services:
   plex:
     image: ghcr.io/linuxserver/plex:latest
     container_name: plex
-    restart: unless-stopped
+    restart: "unless-stopped"
     runtime: nvidia
     networks:
       - daroachnetwork
@@ -89,6 +89,7 @@ services:
     restart: "unless-stopped"
     depends_on:
       - jackett
+      - plex
       - deluge
     networks:
       - backend
@@ -99,6 +100,7 @@ services:
     restart: "unless-stopped"
     depends_on:
       - jackett
+      - plex
       - deluge
     ports:
       - 20013:8989
@@ -147,6 +149,7 @@ services:
     depends_on:
       - jackett
       - deluge
+      - plex
     ports:
       - 20015:8686
     environment:
