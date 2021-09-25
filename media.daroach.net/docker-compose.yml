@@ -12,7 +12,7 @@ networks:
 
 services:
   plex:
-    image: ghcr.io/linuxserver/plex
+    image: ghcr.io/linuxserver/plex:latest
     container_name: plex
     restart: unless-stopped
     runtime: nvidia
@@ -34,9 +34,10 @@ services:
       - ${CONFIG_DIR}/plex:/config
       - ${TV_DIR}:/tv
       - ${MOVIES_DIR}:/movies
+      - ${MUSIC_DIR}:/music
   
   deluge:
-    image: linuxserver/deluge:latest
+    image: ghcr.io/linuxserver/deluge:latest
     restart: "unless-stopped"
     environment:
       - PUID=${MEDIA_PUID}
@@ -53,7 +54,7 @@ services:
       - backend
 
   jackett:
-    image: linuxserver/jackett:latest
+    image: ghcr.io/linuxserver/jackett:latest
     restart: "unless-stopped"
     networks:
       - backend
@@ -69,7 +70,7 @@ services:
       - ${CONFIG_DIR}/jackett:/config
 
   radarr:
-    image: linuxserver/radarr
+    image: ghcr.io/linuxserver/radarr:latest
     environment:
       - VIRTUAL_HOST=mov.daroach.net
       - VIRTUAL_PORT=7878
@@ -94,7 +95,7 @@ services:
       # - daroachnetwork
 
   sonarr:
-    image: linuxserver/sonarr:latest
+    image: ghcr.io/linuxserver/sonarr:latest
     restart: "unless-stopped"
     depends_on:
       - jackett
@@ -119,7 +120,7 @@ services:
       # - daroachnetwork
 
   bazarr:
-    image: linuxserver/bazarr:latest
+    image: ghcr.io/linuxserver/bazarr:latest
     restart: "unless-stopped"
     depends_on:
       - jackett
@@ -137,5 +138,25 @@ services:
       - ${CONFIG_DIR}/bazarr:/config
       - ${TV_DIR}:/tv
       - ${MOVIES_DIR}:/movies
+    networks:
+      - backend
+
+  lidarr:
+    image: ghcr.io/linuxserver/lidarr:latest
+    restart: "unless-stopped"
+    depends_on:
+      - jackett
+      - deluge
+    ports:
+      - 20015:8686
+    environment:
+      - PUID=${MEDIA_PUID}
+      - PGID=${MEDIA_PGID}
+      - TZ=${TZ}
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ${CONFIG_DIR}/lidarr:/config
+      - ${MUSIC_DIR}:/music
+      - ${DOWNLOADS}/complete:/downloads/complete 
     networks:
       - backend
