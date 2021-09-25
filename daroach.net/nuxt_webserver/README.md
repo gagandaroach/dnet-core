@@ -24,3 +24,8 @@ $ yarn generate
 ```
 
 For detailed explanation on how Nuxt things work, check out [Nuxt.js docs](https://nuxtjs.org).
+
+```
+$ docker build . -t dnet_nuxt:dev
+$ docker run -u "$(id -u):$(id -g)" -it -v "$(pwd):/usr/src/nuxt-webserver" -p 3000:3000 dnet_nuxt:dev /bin/sh
+```

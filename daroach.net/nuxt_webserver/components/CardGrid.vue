@@ -8,7 +8,8 @@
       class="dnet-card hover:bg-white hover:text-black"
     >
       <a :href="item.link" target="_blank" rel="noopener noreferrer" class="">
-        <p class="text-2xl p-5">{{ item.title }}</p>
+        <p class="text-2xl px-5">{{ item.title }}</p>
+        <p class="text-lg px-5">{{ item.subtitle }}</p>
         <img class="object-scale-down mx-auto p-5" :src="item.image" />
         <p class="text-justify">{{ item.description }}</p>
       </a>
