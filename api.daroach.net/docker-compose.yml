@@ -7,9 +7,9 @@ networks:
 services:
   mongo:
     image: mongo
-    restart: always
+    restart: "unless-stopped"
     ports: 
-      - 27017:27017
+      - 20003:27017
     environment:
       MONGO_INITDB_ROOT_USERNAME: ${DB_USER}
       MONGO_INITDB_ROOT_PASSWORD: ${DB_PASS}
@@ -18,9 +18,9 @@ services:
 
   mongo-express:
     image: mongo-express
-    restart: always
+    restart: "unless-stopped"
     ports:
-      - 42001:8081
+      - 20004:8081
     environment:
       ME_CONFIG_MONGODB_ADMINUSERNAME: ${DB_USER}
       ME_CONFIG_MONGODB_ADMINPASSWORD: ${DB_PASS}
@@ -44,5 +44,5 @@ services:
     depends_on:
       - mongo
     command: "npm run start"
-    #ports:
-    #  - 3001:3001
+    ports:
+     - 20002:3001

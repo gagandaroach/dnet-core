@@ -14,7 +14,7 @@ services:
     build: ./nuxt_webserver
     restart: unless-stopped
     ports:
-      - 3000:3000
+      - 20000:3000
     environment:
       - VIRTUAL_HOST=daroach.net
       - VIRTUAL_PORT=3000
