@@ -7,17 +7,20 @@
 #     ./launch.sh build | Call build --pull before starting each service.\n\ #TODO
 # "
 
-services=(nginx-proxy-letsencrypt portainer.daroach.net media.daroach.net medschooldreams.com)
-
-for service in ${services[@]}; do
+service_file="active_services.txt"
+cat $service_file | while read service; do
     if [ -d "$service" ]; then
-        echo Service: "$service" found. Entering dir.
+        echo ">>>>> $service found. <<<<<"
         cd "$service" || exit
-        docker-compose build --pull  
+        if [ "$1" == "build" ]; then
+            echo ">>>>> dc build --pull <<<<<"
+            docker-compose build --pull
+        fi
+        echo ">>>>> dc up -d <<<<<"
         docker-compose up -d
-        echo Done. Returning to parent dir.
+        echo ">>>>> $service done. <<<<<"
         cd .. || exit
     else
-        echo Service: "$service" not found.
+        echo ">>>>> $service not found. <<<<<"
     fi
 done

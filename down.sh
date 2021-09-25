@@ -9,7 +9,6 @@
 
 service_file="active_services.txt"
 cat $service_file | while read service; do
-    # do something with $line here
     if [ -d "$service" ]; then
         echo Service: "$service" found. Entering dir.
         cd "$service" || exit
