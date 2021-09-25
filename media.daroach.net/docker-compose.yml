@@ -35,83 +35,107 @@ services:
       - ${TV_DIR}:/tv
       - ${MOVIES_DIR}:/movies
   
-  # deluge:
-  #   image: linuxserver/deluge:latest
-  #   restart: "unless-stopped"
-  #   environment:
-  #     - PUID=${MEDIA_PUID}
-  #     - PGID=${MEDIA_PGID}
-  #     - TZ=${TZ}
-  #   volumes:
-  #     - ${CONFIG_DIR}/deluge:/config
-  #     - ${DOWNLOADS}:/downloads
-  #     - ${WATCH}:/watch
-  #   ports:
-  #     - 20010:8112
-  #   networks:
-  #     - backend
+  deluge:
+    image: linuxserver/deluge:latest
+    restart: "unless-stopped"
+    environment:
+      - PUID=${MEDIA_PUID}
+      - PGID=${MEDIA_PGID}
+      - TZ=${TZ}
+    volumes:
+      - ${CONFIG_DIR}/deluge:/config
+      - ${DOWNLOADS}/complete:/downloads/complete
+      - ${DOWNLOADS}/incomplete:/downloads/incomplete
+      - ${WATCH}:/watch
+    ports:
+      - 20010:8112
+    networks:
+      - backend
 
-  # jackett:
-  #   image: linuxserver/jackett:latest
-  #   restart: "unless-stopped"
-  #   networks:
-  #     - backend
-  #   ports:
-  #     - 20011:9117
-  #   environment:
-  #     - PUID=${MEDIA_PUID}
-  #     - PGID=${MEDIA_PGID}
-  #     - TZ=${TZ}
-  #   volumes:
-  #     - /etc/localtime:/etc/localtime:ro
-  #     - ${WATCH}:/downloads
-  #     - ${CONFIG_DIR}/jackett:/config
+  jackett:
+    image: linuxserver/jackett:latest
+    restart: "unless-stopped"
+    networks:
+      - backend
+    ports:
+      - 20011:9117
+    environment:
+      - PUID=${MEDIA_PUID}
+      - PGID=${MEDIA_PGID}
+      - TZ=${TZ}
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ${WATCH}:/downloads
+      - ${CONFIG_DIR}/jackett:/config
 
-  # radarr:
-  #   image: linuxserver/radarr
-  #   environment:
-  #     - VIRTUAL_HOST=mov.daroach.net
-  #     - VIRTUAL_PORT=7878
-  #     - LETSENCRYPT_HOST=mov.daroach.net
-  #     - LETSENCRYPT_EMAIL=gagandaroach@gmail.com
-  #     - PUID=${MEDIA_PUID}
-  #     - PGID=${MEDIA_PGID}
-  #     - TZ=${TZ}
-  #   networks:
-  #     - backend
-  #     - daroachnetwork
-  #   volumes:
-  #     - ${CONFIG_DIR}/radarr:/config
-  #     - ${MOVIES_DIR}:/movies
-  #     - ${DOWNLOADS}/complete:/downloads/complete
-  #   ports:
-  #     - 20012:7878
-  #   restart: "unless-stopped"
-  #   depends_on:
-  #     - jackett
-  #     - deluge
+  radarr:
+    image: linuxserver/radarr
+    environment:
+      - VIRTUAL_HOST=mov.daroach.net
+      - VIRTUAL_PORT=7878
+      - LETSENCRYPT_HOST=mov.daroach.net
+      - LETSENCRYPT_EMAIL=gagandaroach@gmail.com
+      - PUID=${MEDIA_PUID}
+      - PGID=${MEDIA_PGID}
+      - TZ=${TZ}
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ${CONFIG_DIR}/radarr:/config
+      - ${MOVIES_DIR}:/movies
+      - ${DOWNLOADS}/complete:/downloads/complete
+    ports:
+      - 20012:7878
+    restart: "unless-stopped"
+    depends_on:
+      - jackett
+      - deluge
+    networks:
+      - backend
+      # - daroachnetwork
 
-  # sonarr:
-  #   image: linuxserver/sonarr:latest
-  #   restart: "unless-stopped"
-  #   depends_on:
-  #     - jackett
-  #     - deluge
-  #   networks:
-  #     - backend
-  #     - daroachnetwork
-  #   ports:
-  #     - 20013:8989
-  #   environment:
-  #     - VIRTUAL_HOST=tv.daroach.net
-  #     - VIRTUAL_PORT=8989
-  #     - LETSENCRYPT_HOST=tv.daroach.net
-  #     - LETSENCRYPT_EMAIL=gagandaroach@gmail.com
-  #     - PUID=${MEDIA_PUID}
-  #     - PGID=${MEDIA_PGID}
-  #     - TZ=${TZ}
-  #   volumes:
-  #     - /etc/localtime:/etc/localtime:ro
-  #     - ${CONFIG_DIR}/sonarr:/config
-  #     - ${TV_DIR}:/tv
-  #     - ${DOWNLOADS}/complete:/downloads/complete 
+  sonarr:
+    image: linuxserver/sonarr:latest
+    restart: "unless-stopped"
+    depends_on:
+      - jackett
+      - deluge
+    ports:
+      - 20013:8989
+    environment:
+      - VIRTUAL_HOST=tv.daroach.net
+      - VIRTUAL_PORT=8989
+      - LETSENCRYPT_HOST=tv.daroach.net
+      - LETSENCRYPT_EMAIL=gagandaroach@gmail.com
+      - PUID=${MEDIA_PUID}
+      - PGID=${MEDIA_PGID}
+      - TZ=${TZ}
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ${CONFIG_DIR}/sonarr:/config
+      - ${TV_DIR}:/tv
+      - ${DOWNLOADS}/complete:/downloads/complete 
+    networks:
+      - backend
+      # - daroachnetwork
+
+  bazarr:
+    image: linuxserver/bazarr:latest
+    restart: "unless-stopped"
+    depends_on:
+      - jackett
+      - deluge
+      - sonarr
+      - radarr
+    ports:
+      - 20014:6767
+    environment:
+      - PUID=${MEDIA_PUID}
+      - PGID=${MEDIA_PGID}
+      - TZ=${TZ}
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ${CONFIG_DIR}/bazarr:/config
+      - ${TV_DIR}:/tv
+      - ${MOVIES_DIR}:/movies
+    networks:
+      - backend

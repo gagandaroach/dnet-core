@@ -35,6 +35,7 @@ I have port forwarding set up from my router to the nginx-proxy-letsencrypt dock
 | media.daroach.net       | jackett       | 20011        | 9117            |
 | media.daroach.net       | radarr        | 20012        | 7878            |
 | media.daroach.net       | sonarr        | 20013        | 8989            |
+| media.daroach.net       | bazarr        | 20014        | 6767            |
 | dekho.daroach.net       | node          | ~            | 80              |
 | tracking.daroach.net    | nextjs        | ~            | 3000            |
 | medschooldreams.com     | nextjs        | ~            | 3000            |
