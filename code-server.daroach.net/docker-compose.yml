@@ -1,0 +1,31 @@
+# Code Server DockerCompose example
+# Author: Gagan Daroach gagandaroach@gmail.com
+version: "3"
+
+networks:
+  daroachnetwork:
+    external: true
+
+services:
+  code-server:
+    image: ghcr.io/linuxserver/code-server
+    restart: "unless-stopped"
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TZ}
+      - PASSWORD=${USER_PASS}
+      - SUDO_PASSWORD=${SUDO_PASS}
+      # - PROXY_DOMAIN=code-server.daroach.net
+      # - VIRTUAL_HOST=server.daroach.net
+      # - VIRTUAL_PORT=8443
+      # - LETSENCRYPT_HOST=server.daroach.net
+      # - LETSENCRYPT_EMAIL=gagandaroach@gmail.com
+    volumes:
+      - ${CONFIG_DIR}:/config
+      - ${DATA_DIR}:/blackbox/srv
+      - ${HOME_DIR}:/blackbox/gagan
+    ports:
+      - 20009:8443
+    networks:
+      - daroachnetwork

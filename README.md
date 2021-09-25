@@ -28,6 +28,7 @@ I have port forwarding set up from my router to the nginx-proxy-letsencrypt dock
 | api.daroach.net         | node api      | 20002        | 3001            |
 | api.daroach.net         | mongodb       | 20003        | 27017           |
 | api.daroach.net         | mongo express | 20004        | 8081            |
+| code-server.daroach.net | code-server   | 20009        | 8443            |
 | salmon.daroach.net      | rocketchat    | ~            | 3000            |
 | cloud.daroach.net       | nextcloud     | ~            | 80              |
 | media.daroach.net       | plex          | ~            | 32400           |
