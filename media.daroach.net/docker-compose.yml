@@ -29,7 +29,7 @@ services:
       - PGID=${MEDIA_PGID}
       - VERSION=docker
       - NVIDIA_VISIBLE_DEVICES=GPU-9ff54a75-3c2b-936f-db89-4c1db3fb218d
-      - PLEX_CLAIM=claim-JGGk4Az6GF1FXJGGKzjP
+      - PLEX_CLAIM=
     volumes:
       - ${CONFIG_DIR}/plex:/config
       - ${TV_DIR}:/tv
@@ -72,13 +72,13 @@ services:
   radarr:
     image: ghcr.io/linuxserver/radarr:latest
     environment:
-      - VIRTUAL_HOST=mov.daroach.net
-      - VIRTUAL_PORT=7878
-      - LETSENCRYPT_HOST=mov.daroach.net
-      - LETSENCRYPT_EMAIL=gagandaroach@gmail.com
+      - TZ=${TZ}
       - PUID=${MEDIA_PUID}
       - PGID=${MEDIA_PGID}
-      - TZ=${TZ}
+      # - VIRTUAL_HOST=mov.daroach.net
+      # - VIRTUAL_PORT=7878
+      # - LETSENCRYPT_HOST=mov.daroach.net
+      # - LETSENCRYPT_EMAIL=gagandaroach@gmail.com
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ${CONFIG_DIR}/radarr:/config
@@ -105,13 +105,13 @@ services:
     ports:
       - 20013:8989
     environment:
-      - VIRTUAL_HOST=tv.daroach.net
-      - VIRTUAL_PORT=8989
-      - LETSENCRYPT_HOST=tv.daroach.net
-      - LETSENCRYPT_EMAIL=gagandaroach@gmail.com
+      - TZ=${TZ}
       - PUID=${MEDIA_PUID}
       - PGID=${MEDIA_PGID}
-      - TZ=${TZ}
+      # - VIRTUAL_HOST=tv.daroach.net
+      # - VIRTUAL_PORT=8989
+      # - LETSENCRYPT_HOST=tv.daroach.net
+      # - LETSENCRYPT_EMAIL=gagandaroach@gmail.com
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ${CONFIG_DIR}/sonarr:/config
