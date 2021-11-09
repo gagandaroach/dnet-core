@@ -32,7 +32,7 @@ I have port forwarding set up from my router to the nginx-proxy-letsencrypt dock
 | salmon.daroach.net      | rocketchat    | ~            | 3000            |
 | cloud.daroach.net       | nextcloud     | ~            | 80              |
 | media.daroach.net       | plex          | ~            | 32400           |
-| media.daroach.net       | deluge        | 20010        | 8112            |
+| media.daroach.net       | transmission  | 20010        | 8080            |
 | media.daroach.net       | jackett       | 20011        | 9117            |
 | media.daroach.net       | radarr        | 20012        | 7878            |
 | media.daroach.net       | sonarr        | 20013        | 8989            |

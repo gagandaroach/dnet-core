@@ -3,55 +3,81 @@
 #Author: Gagan Daroach
 #Date: May 25 2019
 
-version: "3"
+version: "2.3"
 
 networks:
-  daroachnetwork:
-    external: true
   backend:
 
 services:
   plex:
     image: ghcr.io/linuxserver/plex:latest
-    container_name: plex
     restart: "unless-stopped"
     runtime: nvidia
+    ports:
+      - 32400:32400
     networks:
-      - daroachnetwork
       - backend
     environment:
-      - VIRTUAL_HOST=media.daroach.net
-      - VIRTUAL_PORT=32400
-      - LETSENCRYPT_HOST=media.daroach.net
-      - LETSENCRYPT_EMAIL=gagandaroach@gmail.com
       - TZ=${TZ}
       - PUID=${MEDIA_PUID}
       - PGID=${MEDIA_PGID}
-      - VERSION=docker
+      - VERSION=docker 
       - NVIDIA_VISIBLE_DEVICES=GPU-9ff54a75-3c2b-936f-db89-4c1db3fb218d
-      - PLEX_CLAIM=
+        #      - PLEX_CLAIM=
     volumes:
       - ${CONFIG_DIR}/plex:/config
       - ${TV_DIR}:/tv
       - ${MOVIES_DIR}:/movies
       - ${MUSIC_DIR}:/music
-  
-  deluge:
-    image: ghcr.io/linuxserver/deluge:latest
-    restart: "unless-stopped"
-    environment:
-      - PUID=${MEDIA_PUID}
-      - PGID=${MEDIA_PGID}
-      - TZ=${TZ}
+
+  transmission:
+    image: haugene/transmission-openvpn
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun
+    restart: always
+    networks:
+      - backend
     volumes:
-      - ${CONFIG_DIR}/deluge:/config
+      - /etc/localtime:/etc/localtime:ro
+      - ${CONFIG_DIR}/transmission:/data
       - ${DOWNLOADS}/complete:/downloads/complete
       - ${DOWNLOADS}/incomplete:/downloads/incomplete
       - ${WATCH}:/watch
+    env_file:
+      - vpn.env
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
+
+  proxy:
+    image: haugene/transmission-openvpn-proxy
+    depends_on:
+      - transmission
     ports:
-      - 20010:8112
+      - 20010:8080
+    volumes:
+      - /etc/localtime:/etc/localtime:ro    
     networks:
       - backend
+
+  # deluge:
+  #   image: ghcr.io/linuxserver/deluge:latest
+  #   restart: "unless-stopped"
+  #   environment:
+  #     - PUID=${MEDIA_PUID}
+  #     - PGID=${MEDIA_PGID}
+  #     - TZ=${TZ}
+  #   volumes:
+  #     - ${CONFIG_DIR}/deluge:/config
+  #     - ${DOWNLOADS}/complete:/downloads/complete
+  #     - ${DOWNLOADS}/incomplete:/downloads/incomplete
+  #     - ${WATCH}:/watch
+  #   ports:
+  #     - 20010:8112
+  #   networks:
+  #     - backend
 
   jackett:
     image: ghcr.io/linuxserver/jackett:latest
@@ -75,10 +101,6 @@ services:
       - TZ=${TZ}
       - PUID=${MEDIA_PUID}
       - PGID=${MEDIA_PGID}
-      # - VIRTUAL_HOST=mov.daroach.net
-      # - VIRTUAL_PORT=7878
-      # - LETSENCRYPT_HOST=mov.daroach.net
-      # - LETSENCRYPT_EMAIL=gagandaroach@gmail.com
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ${CONFIG_DIR}/radarr:/config
@@ -90,10 +112,9 @@ services:
     depends_on:
       - jackett
       - plex
-      - deluge
+      - proxy
     networks:
       - backend
-      # - daroachnetwork
 
   sonarr:
     image: ghcr.io/linuxserver/sonarr:latest
@@ -101,17 +122,13 @@ services:
     depends_on:
       - jackett
       - plex
-      - deluge
+      - proxy
     ports:
       - 20013:8989
     environment:
       - TZ=${TZ}
       - PUID=${MEDIA_PUID}
       - PGID=${MEDIA_PGID}
-      # - VIRTUAL_HOST=tv.daroach.net
-      # - VIRTUAL_PORT=8989
-      # - LETSENCRYPT_HOST=tv.daroach.net
-      # - LETSENCRYPT_EMAIL=gagandaroach@gmail.com
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ${CONFIG_DIR}/sonarr:/config
@@ -119,14 +136,13 @@ services:
       - ${DOWNLOADS}/complete:/downloads/complete 
     networks:
       - backend
-      # - daroachnetwork
 
   bazarr:
     image: ghcr.io/linuxserver/bazarr:latest
     restart: "unless-stopped"
     depends_on:
       - jackett
-      - deluge
+      - proxy
       - sonarr
       - radarr
     ports:
@@ -148,7 +164,7 @@ services:
     restart: "unless-stopped"
     depends_on:
       - jackett
-      - deluge
+      - proxy
       - plex
     ports:
       - 20015:8686
