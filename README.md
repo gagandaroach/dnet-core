@@ -22,7 +22,9 @@ I have port forwarding set up from my router to the nginx-proxy-letsencrypt dock
 
 | Stack                   | Service       | Host Port(s) | Virtual Port(s) |
 |-------------------------|---------------|--------------|-----------------|
-| nginx-proxy-letsencrypt | nginx         | 20080,20443  | 80,443          |
+| nginx-proxy-letsencrypt | nginx         | 22000,22001  | 80,443          |
+| plex                    | plex          | 22002        | 32400           |
+| plex                    | tautulli      | 22002        | 8181            |
 | daroach.net             | nuxt server   | 20000        | 3000            |
 | portainer.daroach.net   | portainer     | 20001        | 9000            |
 | api.daroach.net         | node api      | 20002        | 3001            |
@@ -31,13 +33,13 @@ I have port forwarding set up from my router to the nginx-proxy-letsencrypt dock
 | code-server.daroach.net | code-server   | 20009        | 8443            |
 | salmon.daroach.net      | rocketchat    | ~            | 3000            |
 | cloud.daroach.net       | nextcloud     | ~            | 80              |
-| media.daroach.net       | plex          | ~            | 32400           |
 | media.daroach.net       | transmission  | 20010        | 8080            |
 | media.daroach.net       | jackett       | 20011        | 9117            |
 | media.daroach.net       | radarr        | 20012        | 7878            |
 | media.daroach.net       | sonarr        | 20013        | 8989            |
 | media.daroach.net       | bazarr        | 20014        | 6767            |
 | media.daroach.net       | lidarr        | 20015        | 8686            |
+| media.daroach.net       | readarr       | 20016        | 8787            |
 | dekho.daroach.net       | node          | ~            | 80              |
 | tracking.daroach.net    | nextjs        | ~            | 3000            |
 | medschooldreams.com     | nextjs        | ~            | 3000            |

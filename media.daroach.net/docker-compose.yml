@@ -9,27 +9,6 @@ networks:
   backend:
 
 services:
-  plex:
-    image: ghcr.io/linuxserver/plex:latest
-    restart: "unless-stopped"
-    runtime: nvidia
-    ports:
-      - 32400:32400
-    networks:
-      - backend
-    environment:
-      - TZ=${TZ}
-      - PUID=${MEDIA_PUID}
-      - PGID=${MEDIA_PGID}
-      - VERSION=docker 
-      - NVIDIA_VISIBLE_DEVICES=GPU-9ff54a75-3c2b-936f-db89-4c1db3fb218d
-        #      - PLEX_CLAIM=
-    volumes:
-      - ${CONFIG_DIR}/plex:/config
-      - ${TV_DIR}:/tv
-      - ${MOVIES_DIR}:/movies
-      - ${MUSIC_DIR}:/music
-
   transmission:
     image: haugene/transmission-openvpn
     cap_add:
@@ -53,6 +32,7 @@ services:
 
   proxy:
     image: haugene/transmission-openvpn-proxy
+    restart: always
     depends_on:
       - transmission
     ports:
@@ -61,23 +41,6 @@ services:
       - /etc/localtime:/etc/localtime:ro    
     networks:
       - backend
-
-  # deluge:
-  #   image: ghcr.io/linuxserver/deluge:latest
-  #   restart: "unless-stopped"
-  #   environment:
-  #     - PUID=${MEDIA_PUID}
-  #     - PGID=${MEDIA_PGID}
-  #     - TZ=${TZ}
-  #   volumes:
-  #     - ${CONFIG_DIR}/deluge:/config
-  #     - ${DOWNLOADS}/complete:/downloads/complete
-  #     - ${DOWNLOADS}/incomplete:/downloads/incomplete
-  #     - ${WATCH}:/watch
-  #   ports:
-  #     - 20010:8112
-  #   networks:
-  #     - backend
 
   jackett:
     image: ghcr.io/linuxserver/jackett:latest
@@ -111,7 +74,6 @@ services:
     restart: "unless-stopped"
     depends_on:
       - jackett
-      - plex
       - proxy
     networks:
       - backend
@@ -121,7 +83,6 @@ services:
     restart: "unless-stopped"
     depends_on:
       - jackett
-      - plex
       - proxy
     ports:
       - 20013:8989
@@ -165,7 +126,6 @@ services:
     depends_on:
       - jackett
       - proxy
-      - plex
     ports:
       - 20015:8686
     environment:
