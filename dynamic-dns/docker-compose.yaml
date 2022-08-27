@@ -1,0 +1,32 @@
+version: "3"
+
+networks:
+  daroachnetwork:
+    external: true
+
+services:
+
+  ddns-daroachnet:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      args:
+        CONF_FILE: daroach.net.conf
+    restart: always
+    volumes:
+      - /etc/localtime:/etc/localtime
+    networks:
+      - daroachnetwork
+
+
+  ddns-medschooldreamscom:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      args:
+        CONF_FILE: medschooldreams.com.conf
+    restart: always
+    volumes:
+      - /etc/localtime:/etc/localtime
+    networks:
+      - daroachnetwork
