@@ -1,0 +1,125 @@
+# HTPC Stack Example
+
+version: "2.3"
+
+networks:
+  default:
+    name: htpc-backend
+
+services:
+  transmission:
+    image: haugene/transmission-openvpn
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun
+    restart: always
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ${CONFIG_DIR}/transmission:/data
+      - ${DOWNLOADS}/complete:/downloads/complete
+      - ${DOWNLOADS}/incomplete:/downloads/incomplete
+      - ${WATCH}:/watch
+    env_file:
+      - vpn.env
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
+
+  proxy:
+    image: haugene/transmission-openvpn-proxy
+    restart: always
+    depends_on:
+      - transmission
+    ports:
+      - 20010:8080
+    volumes:
+      - /etc/localtime:/etc/localtime:ro    
+
+  jackett:
+    image: ghcr.io/linuxserver/jackett:latest
+    restart: "unless-stopped"
+    ports:
+      - 20011:9117
+    environment:
+      - PUID=${MEDIA_PUID}
+      - PGID=${MEDIA_PGID}
+      - TZ=${TZ}
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ${WATCH}:/downloads
+      - ${CONFIG_DIR}/jackett:/config
+
+  radarr:
+    image: ghcr.io/linuxserver/radarr:latest
+    environment:
+      - TZ=${TZ}
+      - PUID=${MEDIA_PUID}
+      - PGID=${MEDIA_PGID}
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ${CONFIG_DIR}/radarr:/config
+      - ${MOVIES_DIR}:/movies
+      - ${DOWNLOADS}/complete:/downloads/complete
+    ports:
+      - 20012:7878
+    restart: "unless-stopped"
+    depends_on:
+      - jackett
+      - proxy
+
+  sonarr:
+    image: ghcr.io/linuxserver/sonarr:latest
+    restart: "unless-stopped"
+    depends_on:
+      - jackett
+      - proxy
+    ports:
+      - 20013:8989
+    environment:
+      - TZ=${TZ}
+      - PUID=${MEDIA_PUID}
+      - PGID=${MEDIA_PGID}
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ${CONFIG_DIR}/sonarr:/config
+      - ${TV_DIR}:/tv
+      - ${DOWNLOADS}/complete:/downloads/complete 
+
+  bazarr:
+    image: ghcr.io/linuxserver/bazarr:latest
+    restart: "unless-stopped"
+    depends_on:
+      - jackett
+      - proxy
+      - sonarr
+      - radarr
+    ports:
+      - 20014:6767
+    environment:
+      - PUID=${MEDIA_PUID}
+      - PGID=${MEDIA_PGID}
+      - TZ=${TZ}
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ${CONFIG_DIR}/bazarr:/config
+      - ${TV_DIR}:/tv
+      - ${MOVIES_DIR}:/movies
+
+  lidarr:
+    image: ghcr.io/linuxserver/lidarr:latest
+    restart: "unless-stopped"
+    depends_on:
+      - jackett
+      - proxy
+    ports:
+      - 20015:8686
+    environment:
+      - PUID=${MEDIA_PUID}
+      - PGID=${MEDIA_PGID}
+      - TZ=${TZ}
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ${CONFIG_DIR}/lidarr:/config
+      - ${MUSIC_DIR}:/music
+      - ${DOWNLOADS}/complete:/downloads/complete 
