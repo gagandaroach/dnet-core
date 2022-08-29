@@ -1,0 +1,22 @@
+# daroach.net
+#
+# VueJS Nuxt Web Server
+#
+# Author: Gagan Daroach gagandaroach@gmail.com
+version: "3"
+
+networks:
+  default:
+    external: true
+    name: daroachnetwork
+
+services:
+  webserver:
+    build: 
+      context: ./www
+      dockerfile: Dockerfile.prod
+    restart: unless-stopped
+    environment:
+      - VIRTUAL_HOST=medschooldreams.com
+      - VIRTUAL_PORT=3000
+      - LETSENCRYPT_HOST=medschooldreams.com
