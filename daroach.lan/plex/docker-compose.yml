@@ -1,0 +1,42 @@
+# Plex docker-compose file with nvidia gpu passthrough
+#
+version: "2.3"
+
+networks:
+  default:
+    name: plex-network
+    # external: true
+
+services:
+  plex:
+    image: ghcr.io/linuxserver/plex:latest
+    restart: "always"
+    runtime: nvidia
+    ports:
+      - ${SERVER_PORT}:32400
+    environment:
+      - TZ=${TZ}
+      - PUID=${MEDIA_PUID}
+      - PGID=${MEDIA_PGID}
+      - VERSION=docker 
+      - NVIDIA_VISIBLE_DEVICES=GPU-9ff54a75-3c2b-936f-db89-4c1db3fb218d
+        #      - PLEX_CLAIM=
+    volumes:
+      - ${CONFIG_DIR}/plex:/config
+      - ${TV_DIR}:/tv
+      - ${MOVIES_DIR}:/movies
+      - ${MUSIC_DIR}:/music
+
+  tautulli:
+    image: ghcr.io/linuxserver/tautulli:latest
+    restart: "always"
+    ports:
+      - ${TAUT_PORT}:8181
+    environment:
+      - TZ=${TZ}
+      - PUID=${MEDIA_PUID}
+      - PGID=${MEDIA_PGID}
+    volumes:
+      - ${CONFIG_DIR}/tautulli:/config
+    depends_on:
+      - plex
