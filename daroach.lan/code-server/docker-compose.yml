@@ -1,0 +1,20 @@
+# Code Server Docker Compose example
+# Author: Gagan Daroach gagandaroach@gmail.com
+version: "3"
+
+services:
+  code-server:
+    image: ghcr.io/linuxserver/code-server
+    restart: "unless-stopped"
+    environment:
+      - PUID=${UID}
+      - PGID=${GID}
+      - TZ=${TZ}
+      - PASSWORD=${USER_PASS}
+      - SUDO_PASSWORD=${SUDO_PASS}
+    volumes:
+      - ${CONFIG_DIR}:/config
+      - ${HOME_DIR}:/host/home
+      - ${DATA_DIR}:/host/srv
+    ports:
+      - 20009:8443
