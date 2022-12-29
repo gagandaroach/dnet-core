@@ -1,11 +1,11 @@
 version: "3"
 
 networks:
-  daroachnetwork:
-    external: true
+  default:
+    external: false
 
 services:
-
+  # daroach.net
   ddns-daroachnet:
     build:
       context: ./
@@ -15,10 +15,8 @@ services:
     restart: always
     volumes:
       - /etc/localtime:/etc/localtime
-    networks:
-      - daroachnetwork
 
-
+  # medschooldreams.com
   ddns-medschooldreamscom:
     build:
       context: ./
@@ -28,9 +26,8 @@ services:
     restart: always
     volumes:
       - /etc/localtime:/etc/localtime
-    networks:
-      - daroachnetwork
 
+  # hsulympics.com
   ddns-hsulympicscom:
     build:
       context: ./
@@ -40,5 +37,3 @@ services:
     restart: always
     volumes:
       - /etc/localtime:/etc/localtime
-    networks:
-      - daroachnetwork
