@@ -1,0 +1,58 @@
+# DNet Web Proxy Core
+# https://github.com/nginx-proxy/acme-companion/commit/f39edbe667576af7b853203c6ddc2c9dc949829c
+
+version: "3"
+
+networks:
+  default:
+    external: true
+    name: daroachnetwork
+
+services:
+  nginx-proxy:
+    image: nginx
+    container_name: nginx-proxy
+    ports:
+      - ${HOST_EXTERNAL_IP}:${HOST_EXTERNAL_HTTP}:80
+      - ${HOST_EXTERNAL_IP}:${HOST_EXTERNAL_HTTPS}:443
+    volumes:
+      - ${DOCKER_DATA_DIR}/conf:/etc/nginx/conf.d
+      - ${DOCKER_DATA_DIR}/vhost:/etc/nginx/vhost.d
+      - ${DOCKER_DATA_DIR}/html:/usr/share/nginx/html
+      - ${DOCKER_DATA_DIR}/certs:/etc/nginx/certs:ro
+    restart: ${RESTART}
+
+
+  nginx-proxy-gen:
+    image: nginxproxy/docker-gen
+    container_name: nginx-proxy-gen
+    command: -notify-sighup nginx-proxy -watch /etc/docker-gen/templates/nginx.tmpl /etc/nginx/conf.d/default
+    depends_on:
+      - nginx-proxy
+    volumes:
+      - ${DOCKER_DATA_DIR}/conf:/etc/nginx/conf.d
+      - ${DOCKER_DATA_DIR}/vhost:/etc/nginx/vhost.d
+      - ${DOCKER_DATA_DIR}/certs:/etc/nginx/certs:ro
+      - ${DOCKER_DATA_DIR}/nginx.tmpl:/etc/docker-gen/templates/nginx.tmpl:ro
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+    restart: ${RESTART}
+
+
+  acme-companion:
+    image: nginxproxy/acme-companion
+    container_name: nginx-proxy-acme
+    environment:
+      - DEFAULT_EMAIL=gagandaroach@gmail.com
+      - NGINX_DOCKER_GEN_CONTAINER=nginx-proxy-gen
+      - NGINX_PROXY_CONTAINER=nginx-proxy
+    depends_on:
+      - nginx-proxy
+      - nginx-proxy-gen
+    volumes:
+      - ${DOCKER_DATA_DIR}/conf:/etc/nginx/conf.d
+      - ${DOCKER_DATA_DIR}/vhost:/etc/nginx/vhost.d
+      - ${DOCKER_DATA_DIR}/html:/usr/share/nginx/html
+      - ${DOCKER_DATA_DIR}/certs:/etc/nginx/certs:rw
+      - ${DOCKER_DATA_DIR}/acme:/etc/acme.sh
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    restart: ${RESTART}
