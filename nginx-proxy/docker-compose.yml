@@ -22,7 +22,6 @@ services:
       - ${DOCKER_DATA_DIR}/certs:/etc/nginx/certs:ro
     restart: ${RESTART}
 
-
   nginx-proxy-gen:
     image: nginxproxy/docker-gen
     container_name: nginx-proxy-gen
@@ -36,7 +35,6 @@ services:
       - ${DOCKER_DATA_DIR}/nginx.tmpl:/etc/docker-gen/templates/nginx.tmpl:ro
       - /var/run/docker.sock:/tmp/docker.sock:ro
     restart: ${RESTART}
-
 
   acme-companion:
     image: nginxproxy/acme-companion
