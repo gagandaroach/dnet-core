@@ -30,3 +30,15 @@ services:
       - /etc/localtime:/etc/localtime
     networks:
       - daroachnetwork
+
+  ddns-hsulympicscom:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      args:
+        CONF_FILE: hsulympics.com.conf
+    restart: always
+    volumes:
+      - /etc/localtime:/etc/localtime
+    networks:
+      - daroachnetwork
