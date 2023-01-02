@@ -5,12 +5,11 @@ version: "2.3"
 networks:
   default:
     name: plex-network
-    # external: true
 
 services:
   plex:
     image: ghcr.io/linuxserver/plex:latest
-    restart: "always"
+    restart: "unless-stopped"
     runtime: nvidia
     ports:
       - ${SERVER_PORT}:32400
@@ -29,7 +28,7 @@ services:
 
   tautulli:
     image: ghcr.io/linuxserver/tautulli:latest
-    restart: "always"
+    restart: "unless-stopped"
     ports:
       - ${TAUT_PORT}:8181
     environment:
