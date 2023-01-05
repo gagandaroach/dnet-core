@@ -30,4 +30,4 @@ services:
       - VIRTUAL_HOST=daroach.net
       - REDIRECT_TARGET=www.daroach.net
       - LETSENCRYPT_HOST=www.daroach.net
-      - VIRTUAL_PORT=3000
+      - VIRTUAL_PORT=80
