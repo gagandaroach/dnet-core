@@ -22,3 +22,12 @@ services:
     # ports:
       # - 80:3000
       # - 3000:3000
+
+  redirect:
+    image: morbz/docker-web-redirect
+    restart: unless-stopped
+    environment:
+      - VIRTUAL_HOST=daroach.net
+      - REDIRECT_TARGET=www.daroach.net
+      - LETSENCRYPT_HOST=www.daroach.net
+      - VIRTUAL_PORT=3000
